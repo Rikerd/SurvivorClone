@@ -40,21 +40,15 @@ public class PlayerMovementController : MonoBehaviour
         movementAction.canceled -= OnMovement;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void FixedUpdate()
     {
-        rb2d.MovePosition(rb2d.position + movement);
+        rb2d.MovePosition(rb2d.position + movement * Time.fixedDeltaTime);
     }
 
     private void OnMovement(InputAction.CallbackContext context)
     {
         Vector2 input = context.ReadValue<Vector2>();
         input.Normalize();
-        movement = input * movementSpeed * Time.deltaTime;
+        movement = input * movementSpeed;
     }
 }
