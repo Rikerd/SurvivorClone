@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     public void Death()
     {
-
+        GameManager.gm.TriggerDeathSequence();
     }
 
     private void OnMovement(InputAction.CallbackContext context)

@@ -5,7 +5,7 @@ using UnityEngine;
 public interface IEnemyMoveable
 {
     Rigidbody2D rb2d { get; set; }
-    Transform playerTransform { get; set; }
+    GameObject player { get; set; }
 
     bool isFacingRight { get; set; }
 
