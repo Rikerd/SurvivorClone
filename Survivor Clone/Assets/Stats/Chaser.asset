@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Chaser
   m_EditorClassIdentifier: 
   maxHealth: 1
-  movementSpeed: 4
+  movementSpeed: 1.5
   damage: 1

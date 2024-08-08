@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Stat", menuName = "Stats")]
+[CreateAssetMenu(fileName = "New Character Stat", menuName = "Stats/Characters")]
 public class Stats : ScriptableObject
 {
     public int maxHealth;

@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         currentHealth -= damageAmount;
 
-        if (currentHealth >= 0 )
+        if (currentHealth <= 0 )
         {
             currentHealth = 0;
             Death();

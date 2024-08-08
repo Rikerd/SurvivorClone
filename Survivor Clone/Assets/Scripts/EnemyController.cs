@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
 {
-    public Stats _enemyStat;
+    public Stats enemyStat;
     public int currentHealth { get; set; }
 
     public Rigidbody2D rb2d { get; set; }
@@ -20,20 +20,20 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
 
     private void Awake()
     {
-        currentHealth = _enemyStat.maxHealth;
+        currentHealth = enemyStat.maxHealth;
         rb2d = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
     {
-        MoveEnemy(Vector3.MoveTowards(transform.position, playerTransform.position, _enemyStat.movementSpeed * Time.fixedDeltaTime));
+        MoveEnemy(Vector3.MoveTowards(transform.position, playerTransform.position, enemyStat.movementSpeed * Time.fixedDeltaTime));
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
-            collision.GetComponent<IDamageable>().DamageHealth(_enemyStat.damage);
+            collision.GetComponent<IDamageable>().DamageHealth(enemyStat.damage);
         }
     }
 
@@ -42,7 +42,7 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
     {
         currentHealth -= damageAmount;
 
-        if (currentHealth >= 0)
+        if (currentHealth <= 0)
         {
             currentHealth = 0;
             Death();
@@ -51,7 +51,7 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
 
     public void Death()
     {
-
+        Destroy(gameObject);
     }
     #endregion Health Functions
 
