@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
-public class PlayerMovementController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamageable
 {
-    public float movementSpeed = 5f;
+    public Stats playerStat;
+    [field:SerializeField] public int currentHealth { get; set; }
 
     private Vector2 movement = Vector2.zero;
 
@@ -17,9 +19,21 @@ public class PlayerMovementController : MonoBehaviour
     void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
-
         playerInput = GetComponent<PlayerInput>();
         movementAction = playerInput.actions["Movement"];
+
+        currentHealth = playerStat.maxHealth;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    private void FixedUpdate()
+    {
+        rb2d.MovePosition(rb2d.position + movement * Time.fixedDeltaTime);
     }
 
     private void OnEnable()
@@ -40,15 +54,26 @@ public class PlayerMovementController : MonoBehaviour
         movementAction.canceled -= OnMovement;
     }
 
-    private void FixedUpdate()
+    public void DamageHealth(int damageAmount)
     {
-        rb2d.MovePosition(rb2d.position + movement * Time.fixedDeltaTime);
+        currentHealth -= damageAmount;
+
+        if (currentHealth >= 0 )
+        {
+            currentHealth = 0;
+            Death();
+        }
+    }
+
+    public void Death()
+    {
+
     }
 
     private void OnMovement(InputAction.CallbackContext context)
     {
         Vector2 input = context.ReadValue<Vector2>();
         input.Normalize();
-        movement = input * movementSpeed;
+        movement = input * playerStat.movementSpeed;
     }
 }

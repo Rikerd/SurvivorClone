@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4766690612541746953}
   - component: {fileID: 2508400570414165238}
   - component: {fileID: 3333587757192167297}
-  - component: {fileID: 8079428043794197974}
   - component: {fileID: 9086791339935500129}
+  - component: {fileID: 8079428043794197974}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -150,19 +150,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &8079428043794197974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3910440097654768509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edbf1e0c5d3d39a41bb208b1c2e3bf96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 5
 --- !u!114 &9086791339935500129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,3 +184,17 @@ MonoBehaviour:
   m_DefaultActionMap: Movement
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &8079428043794197974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3910440097654768509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2273c21209bc4ac48a2eb151f17c5f59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStat: {fileID: 11400000, guid: 21eab14606416f042b7e11c6542dcc15, type: 2}
+  <currentHealth>k__BackingField: 0
