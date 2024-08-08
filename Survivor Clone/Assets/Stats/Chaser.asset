@@ -15,3 +15,8 @@ MonoBehaviour:
   maxHealth: 1
   movementSpeed: 1.5
   damage: 1
+  drops:
+  - item: {fileID: 3870436542734150734, guid: 89952a900db76794685cbb1b25cb18de, type: 3}
+    rate: 10
+  - item: {fileID: 2252031522718879922, guid: 8e0e5e6ba6152f24fbedb2ef3dc7b97c, type: 3}
+    rate: 90

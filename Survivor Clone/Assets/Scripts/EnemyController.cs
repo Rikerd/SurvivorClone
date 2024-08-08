@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
@@ -29,6 +30,10 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
         currentHealth = enemyStat.maxHealth;
         rb2d = GetComponent<Rigidbody2D>();
         isCollidingWithPlayer = false;
+
+        enemyStat.drops = enemyStat.drops.OrderBy(x => x.rate).ToList();
+        foreach (Drops drop in enemyStat.drops)
+            Debug.Log(drop.rate);
     }
 
     private void Update()
@@ -83,6 +88,17 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
 
     public void Death()
     {
+        float rand = Random.Range(0, 100);
+        foreach (Drops drop in enemyStat.drops)
+        {
+            if (rand <= drop.rate && drop.rate != 0)
+            {
+                Instantiate(drop.item, transform.position, Quaternion.identity);
+                break;
+            }
+        }
+
+
         Destroy(gameObject);
     }
     #endregion Health Functions
@@ -96,4 +112,5 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
     {
 
     }
+
 }

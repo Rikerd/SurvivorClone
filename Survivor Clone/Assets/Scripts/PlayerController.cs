@@ -15,18 +15,15 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private PlayerInput playerInput;
     private InputAction movementAction;
-    private HealthBarUI healthBarUI;
 
-    void Awake()
+    private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         movementAction = playerInput.actions["Movement"];
 
-        healthBarUI = GameObject.Find("Player Health Bar").GetComponent<HealthBarUI>();
-
         currentHealth = playerStat.maxHealth;
-        healthBarUI.InitializeHealthBar(playerStat.maxHealth);
+        HUDController.hud.InitializeHealthBar(playerStat.maxHealth);
     }
 
     // Update is called once per frame
@@ -62,7 +59,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         currentHealth -= damageAmount;
 
-        healthBarUI.UpdateHealthValue(currentHealth);
+        HUDController.hud.UpdateHealthValue(currentHealth);
 
         if (currentHealth <= 0 )
         {

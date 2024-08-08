@@ -7,9 +7,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager gm;
 
+    public int nextLevelExp = 10;
+
     // Start is called before the first frame update
     void Start()
     {
+        HUDController.hud.InitializeExpBar(nextLevelExp);
     }
 
     private void Awake()

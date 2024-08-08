@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BasicWeapon : Weapon
@@ -26,9 +27,11 @@ public class BasicWeapon : Weapon
 
     private IEnumerator SpawnTripleProjectile()
     {
+        Quaternion lastAimRotation = aimController.rotation;
+
         for (int i = 0; i < 3; i++)
         {
-            GameObject projectile = Instantiate(weaponStat.projectile, aimController.position, aimController.rotation);
+            GameObject projectile = Instantiate(weaponStat.projectile, aimController.position, lastAimRotation);
             Projectile projectileScript = projectile.GetComponent<Projectile>();
             projectileScript.SetWeaponStats(weaponStat);
             yield return new WaitForSeconds(tripleProjectileWaitTime);

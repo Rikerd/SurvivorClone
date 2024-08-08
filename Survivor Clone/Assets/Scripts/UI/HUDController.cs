@@ -4,19 +4,25 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBarUI : MonoBehaviour
+public class HUDController : MonoBehaviour
 {
-    private Slider healthSlider;
-    private TMP_Text healthText;
+    public Slider healthSlider;
+    public TMP_Text healthText;
     private int maxHealth;
+
+    public Slider expSlider;
+
+    public static HUDController hud;
 
     // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     private void Awake()
     {
+        hud = this;
     }
 
     // Update is called once per frame
@@ -27,14 +33,11 @@ public class HealthBarUI : MonoBehaviour
 
     public void InitializeHealthBar(int health)
     {
-        healthSlider = GetComponent<Slider>();
-
         maxHealth = health;
 
         healthSlider.maxValue = maxHealth;
         healthSlider.value = maxHealth;
 
-        healthText = GetComponentInChildren<TMP_Text>();
         healthText.SetText(maxHealth.ToString() + " / " + maxHealth.ToString());
     }
 
@@ -42,5 +45,21 @@ public class HealthBarUI : MonoBehaviour
     {
         healthSlider.value = health;
         healthText.SetText(health.ToString() + " / " + maxHealth.ToString());
+    }
+
+    public void InitializeExpBar(int exp)
+    {
+        expSlider.maxValue = exp;
+        expSlider.value = 0;
+    }
+
+    public void UpdateExpBar(int exp)
+    {
+        expSlider.value += exp;
+
+        if (expSlider.value >= expSlider.maxValue)
+        {
+            expSlider.value = 0;
+        }
     }
 }
