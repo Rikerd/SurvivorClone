@@ -32,8 +32,6 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
         isCollidingWithPlayer = false;
 
         enemyStat.drops = enemyStat.drops.OrderBy(x => x.rate).ToList();
-        foreach (Drops drop in enemyStat.drops)
-            Debug.Log(drop.rate);
     }
 
     private void Update()

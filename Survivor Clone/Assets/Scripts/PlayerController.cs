@@ -23,6 +23,10 @@ public class PlayerController : MonoBehaviour, IDamageable
         movementAction = playerInput.actions["Movement"];
 
         currentHealth = playerStat.maxHealth;
+    }
+
+    private void Start()
+    {
         HUDController.hud.InitializeHealthBar(playerStat.maxHealth);
     }
 

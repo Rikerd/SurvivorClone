@@ -27,6 +27,6 @@ public class GameManager : MonoBehaviour
 
     public void TriggerDeathSequence()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(0);
     }
 }
