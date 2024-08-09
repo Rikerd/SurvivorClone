@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f212702adc3d4964abb10115c88bc2ce, type: 3}
   m_Name: Chaser
   m_EditorClassIdentifier: 
-  maxHealth: 1
+  maxHealth: 30
   movementSpeed: 1.5
   damage: 1
   drops:
-  - item: {fileID: 2252031522718879922, guid: 8e0e5e6ba6152f24fbedb2ef3dc7b97c, type: 3}
-    rate: 50
   - item: {fileID: 3870436542734150734, guid: 89952a900db76794685cbb1b25cb18de, type: 3}
     rate: 5
+  - item: {fileID: 2252031522718879922, guid: 8e0e5e6ba6152f24fbedb2ef3dc7b97c, type: 3}
+    rate: 50
