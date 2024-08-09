@@ -1,17 +1,54 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+public class LevelUpButtonInfo
+{
+    public string name;
+    public UnityAction callback;
+    public string description;
+
+    public LevelUpButtonInfo(string levelUpName, UnityAction levelUpCallback, string levelUpDescription)
+    {
+        name = levelUpName;
+        callback = levelUpCallback;
+        description = levelUpDescription;
+    }
+}
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    public GameObject levelUpPanel;
+
     private int playerKillCount = 0;
 
+    private PlayerController playerController;
+    private Button[] levelUpPanelButtons;
+
+    private LevelUpButtonInfo[] levelUpButtonInfos;
+
+    private int temp = 0;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
+        levelUpPanel.SetActive(false);
+        levelUpPanelButtons = levelUpPanel.GetComponentsInChildren<Button>();
+
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+
+        levelUpButtonInfos = new LevelUpButtonInfo[]
+        {
+            new LevelUpButtonInfo("Health", playerController.LevelUpPlayerHealth, ""),
+            new LevelUpButtonInfo("Movement Speed", playerController.LevelUpPlayerMovementSpeed, ""),
+            new LevelUpButtonInfo("Crit Chance", playerController.LevelUpPlayerCritChance, ""),
+        };
     }
 
     private void Awake()
@@ -24,6 +61,18 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
+    }
+
+    private void OnEnable()
+    {
+        // ExperienceManager
+        ExperienceManager.Instance.OnLevelUp += HandleLevelUp;
+    }
+
+    private void OnDisable()
+    {
+        // ExperienceManager
+        ExperienceManager.Instance.OnLevelUp -= HandleLevelUp;
     }
 
     // Update is called once per frame
@@ -40,5 +89,34 @@ public class GameManager : MonoBehaviour
     {
         playerKillCount++;
         HUDManager.Instance.UpdateKillCountValue(playerKillCount);
+    }
+
+    // ExperienceManager
+    private void HandleLevelUp(int currentExp, int maxExp)
+    {
+        Time.timeScale = 0;
+        levelUpPanel.SetActive(true);
+
+        temp = 0;
+
+        foreach (Button levelUpPanelButton in levelUpPanelButtons)
+        {
+            PopulateLevelUpButton(levelUpPanelButton);
+        }
+    }
+
+    private void PopulateLevelUpButton(Button levelUpPanelButton)
+    {
+        levelUpPanelButton.GetComponentInChildren<TMP_Text>().SetText(levelUpButtonInfos[temp].name);
+        levelUpPanelButton.onClick.AddListener(levelUpButtonInfos[temp].callback);
+        levelUpPanelButton.onClick.AddListener(CloseLevelUpPanel);
+
+        temp++;
+    }
+
+    private void CloseLevelUpPanel()
+    {
+        levelUpPanel.SetActive(false);
+        Time.timeScale = 1;
     }
 }

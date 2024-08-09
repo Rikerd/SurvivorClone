@@ -8,7 +8,6 @@ public class HUDManager : MonoBehaviour
 {
     public Slider healthSlider;
     public TMP_Text healthText;
-    private int maxHealth;
 
     public TMP_Text killCountText;
 
@@ -48,20 +47,11 @@ public class HUDManager : MonoBehaviour
         ExperienceManager.Instance.OnExperienceChange -= HandleExprienceChange;
     }
 
-    public void InitializeHealthBar(int health)
+    public void UpdateHealthValue(int currentHealth, int maxHealth)
     {
-        maxHealth = health;
-
         healthSlider.maxValue = maxHealth;
-        healthSlider.value = maxHealth;
-
-        healthText.SetText(maxHealth.ToString() + " / " + maxHealth.ToString());
-    }
-
-    public void UpdateHealthValue(int health)
-    {
-        healthSlider.value = health;
-        healthText.SetText(health.ToString() + " / " + maxHealth.ToString());
+        healthSlider.value = currentHealth;
+        healthText.SetText(currentHealth.ToString() + " / " + maxHealth.ToString());
     }
 
     public void InitializeExpBar(int exp)

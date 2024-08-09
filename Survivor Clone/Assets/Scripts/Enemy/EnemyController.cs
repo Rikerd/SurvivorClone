@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
     public float collisionDamageDelayTimer = 0.5f;
 
     public int currentHealth { get; set; }
+    public int maxHealth { get; set; }
 
     public Rigidbody2D rb2d { get; set; }
     public bool isFacingRight { get; set; }
@@ -19,6 +20,11 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
 
     private bool isCollidingWithPlayer = false;
     private float currentCollisionDamageDelayTimer;
+    private float movementSpeed;
+
+    private int damage;
+
+    private List<Drops> drops;
 
     // Start is called before the first frame update
     private void Start()
@@ -28,11 +34,16 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
 
     private void Awake()
     {
+        maxHealth = enemyStat.maxHealth;
         currentHealth = enemyStat.maxHealth;
         rb2d = GetComponent<Rigidbody2D>();
         isCollidingWithPlayer = false;
 
-        enemyStat.drops = enemyStat.drops.OrderBy(x => x.rate).ToList();
+        drops = enemyStat.drops.OrderBy(x => x.rate).ToList();
+
+        damage = enemyStat.damage;
+
+        movementSpeed = enemyStat.movementSpeed;
     }
 
     private void Update()
@@ -41,7 +52,7 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
         {
             if (currentCollisionDamageDelayTimer <= 0)
             {
-                player.GetComponent<IDamageable>().DamageHealth(enemyStat.damage);
+                player.GetComponent<IDamageable>().DamageHealth(damage);
                 currentCollisionDamageDelayTimer = collisionDamageDelayTimer;
             }
             else
@@ -53,7 +64,7 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
 
     private void FixedUpdate()
     {
-        MoveEnemy(Vector3.MoveTowards(transform.position, player.transform.position, enemyStat.movementSpeed * Time.fixedDeltaTime));
+        MoveEnemy(Vector3.MoveTowards(transform.position, player.transform.position, movementSpeed * Time.fixedDeltaTime));
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -90,7 +101,7 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
     public void Death()
     {
         float rand = Random.Range(0, 100);
-        foreach (Drops drop in enemyStat.drops)
+        foreach (Drops drop in drops)
         {
             if (rand <= drop.rate && drop.rate != 0)
             {

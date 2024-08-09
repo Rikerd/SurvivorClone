@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
@@ -8,8 +9,10 @@ public class PlayerController : MonoBehaviour, IDamageable
 {
     public PlayerCharacterStats playerStat;
     [field:SerializeField] public int currentHealth { get; set; }
+    public int maxHealth { get; set; }
 
     private Vector2 movement = Vector2.zero;
+    private float movementSpeed;
 
     private Rigidbody2D rb2d;
 
@@ -22,12 +25,15 @@ public class PlayerController : MonoBehaviour, IDamageable
         playerInput = GetComponent<PlayerInput>();
         movementAction = playerInput.actions["Movement"];
 
-        currentHealth = playerStat.maxHealth;
+        maxHealth = playerStat.maxHealth;
+        currentHealth = maxHealth;
+
+        movementSpeed = playerStat.movementSpeed;
     }
 
     private void Start()
     {
-        HUDManager.Instance.InitializeHealthBar(playerStat.maxHealth);
+        HUDManager.Instance.UpdateHealthValue(currentHealth, maxHealth);
     }
 
     // Update is called once per frame
@@ -69,7 +75,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         currentHealth -= damageAmount;
 
-        HUDManager.Instance.UpdateHealthValue(currentHealth);
+        HUDManager.Instance.UpdateHealthValue(currentHealth, maxHealth);
 
         if (currentHealth <= 0 )
         {
@@ -87,15 +93,29 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         Vector2 input = context.ReadValue<Vector2>();
         input.Normalize();
-        movement = input * playerStat.movementSpeed;
+        movement = input * movementSpeed;
     }
 
     // ExperienceManager
     private void HandleLevelUp(int currentExp, int maxExp)
     {
         playerStat.baseAttack += playerStat.attackLevelRate;
-        playerStat.movementSpeed += playerStat.movementSpeedRate;
-        playerStat.maxHealth += playerStat.healthRate;
+    }
+
+    public void LevelUpPlayerHealth()
+    {
+        maxHealth += playerStat.healthRate;
+        currentHealth += playerStat.healthRate;
+        HUDManager.Instance.UpdateHealthValue(currentHealth, maxHealth);
+    }
+
+    public void LevelUpPlayerMovementSpeed()
+    {
+        movementSpeed += playerStat.movementSpeedRate;
+    }
+
+    public void LevelUpPlayerCritChance()
+    {
         playerStat.critChance += playerStat.critChanceRate;
     }
 }
