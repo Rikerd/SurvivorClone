@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9cfac35d7398594094461e50e66e91d, type: 3}
   m_Name: Basic Shot
   m_EditorClassIdentifier: 
-  movementSpeed: 3
+  movementSpeed: 9
   damage: 10
   maxCooldown: 4
   sizeScale: 1

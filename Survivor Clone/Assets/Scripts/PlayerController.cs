@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour, IDamageable
 {
-    public Stats playerStat;
+    public PlayerCharacterStats playerStat;
     [field:SerializeField] public int currentHealth { get; set; }
 
     private Vector2 movement = Vector2.zero;
@@ -48,6 +48,9 @@ public class PlayerController : MonoBehaviour, IDamageable
         movementAction.started += OnMovement;
         movementAction.performed += OnMovement;
         movementAction.canceled += OnMovement;
+
+        // ExperienceManager callbacks
+        ExperienceManager.Instance.OnLevelUp += HandleLevelUp;
     }
 
     private void OnDisable()
@@ -57,6 +60,9 @@ public class PlayerController : MonoBehaviour, IDamageable
         movementAction.started -= OnMovement;
         movementAction.performed -= OnMovement;
         movementAction.canceled -= OnMovement;
+
+        // ExperienceManager callbacks
+        ExperienceManager.Instance.OnLevelUp -= HandleLevelUp;
     }
 
     public void DamageHealth(int damageAmount)
@@ -82,5 +88,14 @@ public class PlayerController : MonoBehaviour, IDamageable
         Vector2 input = context.ReadValue<Vector2>();
         input.Normalize();
         movement = input * playerStat.movementSpeed;
+    }
+
+    // ExperienceManager
+    private void HandleLevelUp(int currentExp, int maxExp)
+    {
+        playerStat.baseAttack += playerStat.attackLevelRate;
+        playerStat.movementSpeed += playerStat.movementSpeedRate;
+        playerStat.maxHealth += playerStat.healthRate;
+        playerStat.critChance += playerStat.critChanceRate;
     }
 }

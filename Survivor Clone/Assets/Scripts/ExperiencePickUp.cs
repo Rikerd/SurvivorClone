@@ -22,7 +22,7 @@ public class ExperiencePickUp : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            HUDManager.Instance.UpdateExpBar(exp);
+            ExperienceManager.Instance.AddExperience(exp);
             Destroy(gameObject);
         }
     }

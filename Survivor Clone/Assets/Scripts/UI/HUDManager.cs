@@ -32,10 +32,18 @@ public class HUDManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        
+        // ExperienceManager callbacks
+        ExperienceManager.Instance.OnLevelUp += HandleLevelUp;
+        ExperienceManager.Instance.OnExperienceChange += HandleExprienceChange;
+    }
+
+    private void OnDisable()
+    {
+        // ExperienceManager callbacks
+        ExperienceManager.Instance.OnLevelUp -= HandleLevelUp;
+        ExperienceManager.Instance.OnExperienceChange -= HandleExprienceChange;
     }
 
     public void InitializeHealthBar(int health)
@@ -60,13 +68,15 @@ public class HUDManager : MonoBehaviour
         expSlider.value = 0;
     }
 
-    public void UpdateExpBar(int exp)
+    // ExperienceManager
+    private void HandleLevelUp(int currentExp, int maxExp)
     {
-        expSlider.value += exp;
+        expSlider.value = currentExp;
+        expSlider.maxValue = maxExp;
+    }
 
-        if (expSlider.value >= expSlider.maxValue)
-        {
-            expSlider.value = 0;
-        }
+    private void HandleExprienceChange(int amount)
+    {
+        expSlider.value = amount;
     }
 }

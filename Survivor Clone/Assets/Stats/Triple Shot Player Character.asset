@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3f9daebdda29ff4594f466177766d37, type: 3}
   m_Name: Triple Shot Player Character
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  movementSpeed: 0
-  critChance: 0
-  starterWeapon: {fileID: 0}
+  maxHealth: 75
+  movementSpeed: 2.2
+  critChance: 0.1
+  baseAttack: 0
+  attackLevelRate: 0
+  movementSpeedRate: 0
+  critChanceRate: 0
+  healthRate: 0
