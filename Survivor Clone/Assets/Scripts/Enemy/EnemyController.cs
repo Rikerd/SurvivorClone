@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
 {
     public EnemyStats enemyStat;
+    public GameObject damageTextObject;
 
     public float collisionDamageDelayTimer = 0.5f;
-
 
     public int currentHealth { get; set; }
 
@@ -76,6 +77,8 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
     public void DamageHealth(int damageAmount)
     {
         currentHealth -= damageAmount;
+        GameObject damageText = Instantiate(damageTextObject, transform.position, Quaternion.identity);
+        damageText.GetComponent<TMP_Text>().SetText(damageAmount.ToString());
 
         if (currentHealth <= 0)
         {

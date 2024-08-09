@@ -162,4 +162,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStat: {fileID: 11400000, guid: 676881ba296da9f4587596527ea56290, type: 2}
+  damageTextObject: {fileID: 1543355844468514358, guid: c8cec6353608a7147b33942b6cb0f50d, type: 3}
   collisionDamageDelayTimer: 0.5
