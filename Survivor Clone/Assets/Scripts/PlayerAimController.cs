@@ -5,12 +5,12 @@ using UnityEngine;
 public class PlayerAimController : MonoBehaviour
 {
     // Current position of the gun
-    private Transform gun;
+    private Transform direction;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        direction = GameObject.Find("PlayerSprites").transform;
     }
 
     // Update is called once per frame
@@ -24,7 +24,7 @@ public class PlayerAimController : MonoBehaviour
     {
         // Position of the mouse
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.rotation = Quaternion.LookRotation(Vector3.forward, mousePos - transform.position);
+        direction.rotation = Quaternion.LookRotation(Vector3.forward, mousePos - transform.position);
         // Box in which the mouse is not tracked to prevent gun glitching out
 
         //if (gunPoint.position.x - 0.8f >= mousePos.x || gunPoint.position.x + 0.8f <= mousePos.x ||
