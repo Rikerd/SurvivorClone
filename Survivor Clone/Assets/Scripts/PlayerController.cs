@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void Start()
     {
-        HUDController.hud.InitializeHealthBar(playerStat.maxHealth);
+        HUDManager.Instance.InitializeHealthBar(playerStat.maxHealth);
     }
 
     // Update is called once per frame
@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         currentHealth -= damageAmount;
 
-        HUDController.hud.UpdateHealthValue(currentHealth);
+        HUDManager.Instance.UpdateHealthValue(currentHealth);
 
         if (currentHealth <= 0 )
         {
@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     public void Death()
     {
-        GameManager.gm.TriggerDeathSequence();
+        GameManager.Instance.TriggerDeathSequence();
     }
 
     private void OnMovement(InputAction.CallbackContext context)

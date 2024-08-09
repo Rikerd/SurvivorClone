@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
 {
-    public Stats enemyStat;
+    public EnemyStats enemyStat;
 
     public float collisionDamageDelayTimer = 0.5f;
 

@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HUDController : MonoBehaviour
+public class HUDManager : MonoBehaviour
 {
     public Slider healthSlider;
     public TMP_Text healthText;
@@ -12,7 +12,7 @@ public class HUDController : MonoBehaviour
 
     public Slider expSlider;
 
-    public static HUDController hud;
+    public static HUDManager Instance;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,14 @@ public class HUDController : MonoBehaviour
 
     private void Awake()
     {
-        hud = this;
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
     }
 
     // Update is called once per frame

@@ -5,19 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager gm;
-
     public int nextLevelExp = 10;
+
+    public static GameManager Instance;
 
     // Start is called before the first frame update
     void Start()
     {
-        HUDController.hud.InitializeExpBar(nextLevelExp);
+        HUDManager.Instance.InitializeExpBar(nextLevelExp);
     }
 
     private void Awake()
     {
-        gm = this;
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
     }
 
     // Update is called once per frame

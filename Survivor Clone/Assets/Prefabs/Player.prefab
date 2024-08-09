@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2273c21209bc4ac48a2eb151f17c5f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStat: {fileID: 11400000, guid: 21eab14606416f042b7e11c6542dcc15, type: 2}
+  playerStat: {fileID: 11400000, guid: 87c55594efed30746b6a20b71fe60dae, type: 2}
   <currentHealth>k__BackingField: 0
 --- !u!1 &4142982793671384480
 GameObject:
