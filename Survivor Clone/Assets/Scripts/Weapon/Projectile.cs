@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-
     private WeaponStats weaponStat;
     protected Rigidbody2D rb2d;
 
@@ -30,7 +29,14 @@ public class Projectile : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            collision.GetComponent<IDamageable>().DamageHealth(weaponStat.damage);
+            bool isCrit = false;
+            if (weaponStat.canCrit)
+            {
+                isCrit = Random.Range(0, 1f) < GameManager.Instance.GetPlayerCritChance();
+            }
+            int damage = weaponStat.damage;
+            damage *= isCrit ? 2 : 1;
+            collision.GetComponent<IDamageable>().DamageHealth(damage, isCrit);
             Destroy(gameObject);
         }
     }

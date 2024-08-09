@@ -10,4 +10,6 @@ public class WeaponStats : ScriptableObject
     public float maxCooldown;
     public float sizeScale;
     public GameObject projectile;
+
+    public bool canCrit;
 }

@@ -119,4 +119,9 @@ public class GameManager : MonoBehaviour
         levelUpPanel.SetActive(false);
         Time.timeScale = 1;
     }
+
+    public float GetPlayerCritChance()
+    {
+        return playerController.GetCritChance();
+    }
 }

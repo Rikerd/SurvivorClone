@@ -15,8 +15,9 @@ MonoBehaviour:
   maxHealth: 75
   movementSpeed: 2.2
   critChance: 0.1
-  baseAttack: 0
+  baseAttack: 1
   attackLevelRate: 0
-  movementSpeedRate: 0
-  critChanceRate: 0
-  healthRate: 0
+  attackSpeedRate: 0
+  movementSpeedRate: 1
+  critChanceRate: 0.05
+  healthRate: 5

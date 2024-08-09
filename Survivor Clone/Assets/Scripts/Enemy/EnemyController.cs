@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml;
 using TMPro;
 using UnityEngine;
 
@@ -85,11 +86,16 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
     }
 
     #region Health Functions
-    public void DamageHealth(int damageAmount)
+    public void DamageHealth(int damageAmount, bool isCrit = false)
     {
         currentHealth -= damageAmount;
-        GameObject damageText = Instantiate(damageTextObject, transform.position, Quaternion.identity);
-        damageText.GetComponent<TMP_Text>().SetText(damageAmount.ToString());
+        TMP_Text damageText = Instantiate(damageTextObject, transform.position, Quaternion.identity).GetComponent<TMP_Text>();
+        damageText.SetText(damageAmount.ToString());
+        if (isCrit)
+        {
+            damageText.color = Color.red;
+            damageText.fontSize *= 1.2f;
+        }
 
         if (currentHealth <= 0)
         {

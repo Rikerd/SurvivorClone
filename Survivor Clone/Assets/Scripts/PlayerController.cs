@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour, IDamageable
     private Vector2 movement = Vector2.zero;
     private float movementSpeed;
 
+    private float critChance;
+
     private Rigidbody2D rb2d;
 
     private PlayerInput playerInput;
@@ -29,6 +31,8 @@ public class PlayerController : MonoBehaviour, IDamageable
         currentHealth = maxHealth;
 
         movementSpeed = playerStat.movementSpeed;
+
+        critChance = playerStat.critChance;
     }
 
     private void Start()
@@ -71,7 +75,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         ExperienceManager.Instance.OnLevelUp -= HandleLevelUp;
     }
 
-    public void DamageHealth(int damageAmount)
+    public void DamageHealth(int damageAmount, bool isCrit = false)
     {
         currentHealth -= damageAmount;
 
@@ -96,6 +100,11 @@ public class PlayerController : MonoBehaviour, IDamageable
         movement = input * movementSpeed;
     }
 
+    public float GetCritChance()
+    {
+        return critChance;
+    }
+
     // ExperienceManager
     private void HandleLevelUp(int currentExp, int maxExp)
     {
@@ -116,6 +125,6 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     public void LevelUpPlayerCritChance()
     {
-        playerStat.critChance += playerStat.critChanceRate;
+        critChance += playerStat.critChanceRate;
     }
 }

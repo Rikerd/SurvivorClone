@@ -17,3 +17,4 @@ MonoBehaviour:
   maxCooldown: 4
   sizeScale: 1
   projectile: {fileID: 1277877998668816505, guid: c1d4758c7e78c714fa0ca8e46910a006, type: 3}
+  canCrit: 1
