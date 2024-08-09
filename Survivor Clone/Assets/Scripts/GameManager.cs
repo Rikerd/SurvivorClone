@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    private int playerKillCount = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,5 +34,11 @@ public class GameManager : MonoBehaviour
     public void TriggerDeathSequence()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void IncrementKillCount()
+    {
+        playerKillCount++;
+        HUDManager.Instance.UpdateKillCountValue(playerKillCount);
     }
 }

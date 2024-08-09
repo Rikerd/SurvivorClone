@@ -10,6 +10,8 @@ public class HUDManager : MonoBehaviour
     public TMP_Text healthText;
     private int maxHealth;
 
+    public TMP_Text killCountText;
+
     public Slider expSlider;
 
     public static HUDManager Instance;
@@ -66,6 +68,11 @@ public class HUDManager : MonoBehaviour
     {
         expSlider.maxValue = exp;
         expSlider.value = 0;
+    }
+
+    public void UpdateKillCountValue(int count)
+    {
+        killCountText.SetText("Kills: " + count.ToString());
     }
 
     // ExperienceManager

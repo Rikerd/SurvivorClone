@@ -99,7 +99,7 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
             }
         }
 
-
+        GameManager.Instance.IncrementKillCount();
         Destroy(gameObject);
     }
     #endregion Health Functions

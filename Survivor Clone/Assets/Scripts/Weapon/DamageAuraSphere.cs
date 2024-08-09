@@ -16,7 +16,7 @@ public class DamageAuraSphere : Weapon
 
         if (cooldownComplete)
         {
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 5f, LayerMask.GetMask("Enemy"));
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 2.5f, LayerMask.GetMask("Enemy"));
             foreach (Collider2D collider in colliders)
             {
                 collider.GetComponent<IDamageable>().DamageHealth(weaponStat.damage);
