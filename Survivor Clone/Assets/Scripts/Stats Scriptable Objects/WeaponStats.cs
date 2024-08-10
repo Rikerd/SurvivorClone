@@ -1,15 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Weapon Stat", menuName = "Stats/Weapon")]
+[CreateAssetMenu(fileName = "New Weapon Stat", menuName = "Stats/Weapon/Basic Weapon")]
 public class WeaponStats : ScriptableObject
 {
-    public float movementSpeed;
+    public bool canCrit;
+}
+
+[Serializable]
+public class WeaponLevelStats
+{
     public int damage;
     public float maxCooldown;
-    public float sizeScale;
-    public GameObject projectile;
-
-    public bool canCrit;
 }

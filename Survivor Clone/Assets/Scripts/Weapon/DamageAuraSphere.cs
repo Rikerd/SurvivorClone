@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class DamageAuraSphere : Weapon
 {
+    public AuraStats auraStat;
+
+    private int currentLevel = 0;
+
     // Start is called before the first frame update
     private void Start()
     {
+        currentLevel = 0;
+        SetMaxCooldown(auraStat.levelStats[currentLevel].maxCooldown);
     }
 
     // Update is called once per frame
@@ -16,10 +22,11 @@ public class DamageAuraSphere : Weapon
 
         if (cooldownComplete)
         {
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 2.5f, LayerMask.GetMask("Enemy"));
+            AuraLevelStats currentLevelStats = auraStat.levelStats[currentLevel];
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, currentLevelStats.radius, LayerMask.GetMask("Enemy"));
             foreach (Collider2D collider in colliders)
             {
-                collider.GetComponent<IDamageable>().DamageHealth(weaponStat.damage);
+                collider.GetComponent<IDamageable>().DamageHealth(currentLevelStats.damage);
             }
         }
     }

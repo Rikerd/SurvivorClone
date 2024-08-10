@@ -5,13 +5,23 @@ using UnityEngine;
 
 public class BasicWeapon : Weapon
 {
+    public ProjectileStats projectileStat;
+
     public Transform aimController;
     public float tripleProjectileWaitTime = 0.2f;
 
+    [SerializeField]
+    private int currentWeaponLevel;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        currentWeaponLevel = 0;
+        SetMaxCooldown(projectileStat.levelStats[currentWeaponLevel].maxCooldown);
+    }
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
     }
 
     // Update is called once per frame
@@ -28,12 +38,13 @@ public class BasicWeapon : Weapon
     private IEnumerator SpawnTripleProjectile()
     {
         Quaternion lastAimRotation = aimController.rotation;
+        ProjectileLevelStats currentLevelStats = projectileStat.levelStats[currentWeaponLevel];
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < currentLevelStats.projectileCount; i++)
         {
-            GameObject projectile = Instantiate(weaponStat.projectile, aimController.position, lastAimRotation);
+            GameObject projectile = Instantiate(projectileStat.projectile, aimController.position, lastAimRotation);
             Projectile projectileScript = projectile.GetComponent<Projectile>();
-            projectileScript.SetWeaponStats(weaponStat);
+            projectileScript.SetValues(currentLevelStats.damage, projectileStat.movementSpeed, projectileStat.canCrit);
             yield return new WaitForSeconds(tripleProjectileWaitTime);
         }
     }

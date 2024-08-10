@@ -5,9 +5,8 @@ using static UnityEditor.ShaderData;
 
 public class Weapon : MonoBehaviour
 {
-    public WeaponStats weaponStat;
-
     private float currentCooldown;
+    private float maxCooldown;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +16,6 @@ public class Weapon : MonoBehaviour
 
     private void Awake()
     {
-        currentCooldown = weaponStat.maxCooldown;
     }
 
     // Update is called once per frame
@@ -29,7 +27,7 @@ public class Weapon : MonoBehaviour
     {
         if (currentCooldown <= 0f)
         {
-            currentCooldown = weaponStat.maxCooldown;
+            currentCooldown = maxCooldown;
             return true;
         }
         else if (currentCooldown > 0f)
@@ -38,5 +36,11 @@ public class Weapon : MonoBehaviour
         }
 
         return false;
+    }
+
+    protected void SetMaxCooldown(float max)
+    {
+        maxCooldown = max;
+        currentCooldown = max;
     }
 }

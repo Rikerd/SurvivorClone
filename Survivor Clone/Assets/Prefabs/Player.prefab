@@ -491,7 +491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40d58c6c79e6dff4dbbd2f101d6da73c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponStat: {fileID: 11400000, guid: 5f114e5e404d7144999a68a2a7119994, type: 2}
+  projectileStat: {fileID: 11400000, guid: ca33a2e3e7970a34092305ed006c476f, type: 2}
   aimController: {fileID: 7074392958778261074}
   tripleProjectileWaitTime: 0.1
 --- !u!114 &7249789768756861547
@@ -506,4 +506,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d25410edbcb5c04db9e84958a0c87e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponStat: {fileID: 11400000, guid: 24405e10bb23b024bb9d4eba4024b5d6, type: 2}
+  auraStat: {fileID: 11400000, guid: f2dbdfb9a535b334a86af6dced05e6ab, type: 2}
