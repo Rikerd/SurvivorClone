@@ -12,7 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87825cf96cce3f34cabdb93bd30359ca, type: 3}
   m_Name: Damage Aura
   m_EditorClassIdentifier: 
-  damage: 0
-  maxCooldown: 0
   canCrit: 0
-  radius: 0
+  levelStats:
+  - damage: 10
+    maxCooldown: 0.7
+    radius: 2.5
+  - damage: 15
+    maxCooldown: 0.7
+    radius: 4
+  - damage: 20
+    maxCooldown: 0.6
+    radius: 5
+  - damage: 25
+    maxCooldown: 0.5
+    radius: 5.5
+  - damage: 30
+    maxCooldown: 0.5
+    radius: 5.5
