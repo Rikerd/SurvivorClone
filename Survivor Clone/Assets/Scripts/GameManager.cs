@@ -22,6 +22,7 @@ public class LevelUpButtonInfo
 
 public class GameManager : MonoBehaviour
 {
+    public WeaponManager weaponManager;
     public static GameManager Instance;
 
     public GameObject levelUpPanel;
@@ -107,8 +108,20 @@ public class GameManager : MonoBehaviour
 
     private void PopulateLevelUpButton(Button levelUpPanelButton)
     {
-        levelUpPanelButton.GetComponentInChildren<TMP_Text>().SetText(levelUpButtonInfos[temp].name);
-        levelUpPanelButton.onClick.AddListener(levelUpButtonInfos[temp].callback);
+        levelUpPanelButton.onClick.RemoveAllListeners();
+        bool isWeaponUpgrade = Random.Range(0, 2) == 0;
+
+        string nameText = levelUpButtonInfos[temp].name;
+        UnityAction callback = levelUpButtonInfos[temp].callback;
+
+        if (isWeaponUpgrade)
+        {
+            Weapon weapon = weaponManager.GetWeaponToLevel();
+            nameText = weapon.levelUpInfo.upgradeName;
+            callback = weapon.LevelUpWeapon;
+        }
+        levelUpPanelButton.GetComponentInChildren<TMP_Text>().SetText(nameText);
+        levelUpPanelButton.onClick.AddListener(callback);
         levelUpPanelButton.onClick.AddListener(CloseLevelUpPanel);
 
         temp++;

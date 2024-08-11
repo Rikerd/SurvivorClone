@@ -6,13 +6,11 @@ public class DamageAuraSphere : Weapon
 {
     public AuraStats auraStat;
 
-    private int currentLevel = 0;
-
     // Start is called before the first frame update
     private void Start()
     {
-        currentLevel = 0;
-        SetMaxCooldown(auraStat.levelStats[currentLevel].maxCooldown);
+        currentWeaponLevel = 0;
+        SetMaxCooldown(auraStat.levelStats[currentWeaponLevel].maxCooldown);
     }
 
     // Update is called once per frame
@@ -22,7 +20,7 @@ public class DamageAuraSphere : Weapon
 
         if (cooldownComplete)
         {
-            AuraLevelStats currentLevelStats = auraStat.levelStats[currentLevel];
+            AuraLevelStats currentLevelStats = auraStat.levelStats[currentWeaponLevel];
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, currentLevelStats.radius, LayerMask.GetMask("Enemy"));
             foreach (Collider2D collider in colliders)
             {

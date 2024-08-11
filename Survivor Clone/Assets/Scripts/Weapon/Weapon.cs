@@ -5,8 +5,12 @@ using static UnityEditor.ShaderData;
 
 public class Weapon : MonoBehaviour
 {
+    public LevelUpInfo levelUpInfo;
+
     private float currentCooldown;
     private float maxCooldown;
+
+    protected int currentWeaponLevel = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -42,5 +46,10 @@ public class Weapon : MonoBehaviour
     {
         maxCooldown = max;
         currentCooldown = max;
+    }
+
+    public void LevelUpWeapon()
+    {
+        currentWeaponLevel++;
     }
 }

@@ -456,6 +456,7 @@ GameObject:
   - component: {fileID: 2971414036812564260}
   - component: {fileID: 5399445299108558899}
   - component: {fileID: 7249789768756861547}
+  - component: {fileID: 5836108684983532620}
   m_Layer: 0
   m_Name: Weapon Controller
   m_TagString: Untagged
@@ -491,6 +492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40d58c6c79e6dff4dbbd2f101d6da73c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelUpInfo: {fileID: 11400000, guid: 20723f1121e405c439a79fe67bf7bebf, type: 2}
   projectileStat: {fileID: 11400000, guid: ca33a2e3e7970a34092305ed006c476f, type: 2}
   aimController: {fileID: 7074392958778261074}
   tripleProjectileWaitTime: 0.1
@@ -506,4 +508,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d25410edbcb5c04db9e84958a0c87e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelUpInfo: {fileID: 11400000, guid: c01cfeb3fabe4fc418d2c0c9dd7c7e78, type: 2}
   auraStat: {fileID: 11400000, guid: f2dbdfb9a535b334a86af6dced05e6ab, type: 2}
+--- !u!114 &5836108684983532620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7663316450344190532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e82cf3a6090ce1940853539222d2c2bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons:
+  - {fileID: 5399445299108558899}
+  - {fileID: 7249789768756861547}

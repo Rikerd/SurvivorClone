@@ -10,9 +10,6 @@ public class BasicWeapon : Weapon
     public Transform aimController;
     public float tripleProjectileWaitTime = 0.2f;
 
-    [SerializeField]
-    private int currentWeaponLevel;
-
     // Start is called before the first frame update
     private void Start()
     {
