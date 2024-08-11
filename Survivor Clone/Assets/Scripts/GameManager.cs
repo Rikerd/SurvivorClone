@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
 
     private int currentLevelUpButtonIndex = 0;
 
+    private float currentGameTime = 0f;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -50,6 +52,8 @@ public class GameManager : MonoBehaviour
             new LevelUpButtonInfo("Movement Speed", playerController.LevelUpPlayerMovementSpeed, ""),
             new LevelUpButtonInfo("Crit Chance", playerController.LevelUpPlayerCritChance, ""),
         };
+
+        currentGameTime = 0;
     }
 
     private void Awake()
@@ -77,8 +81,10 @@ public class GameManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        currentGameTime += Time.deltaTime;
+        HUDManager.Instance.UpdateTimeValue(currentGameTime);
     }
 
     public void TriggerDeathSequence()

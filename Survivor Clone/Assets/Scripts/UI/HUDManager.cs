@@ -11,6 +11,8 @@ public class HUDManager : MonoBehaviour
 
     public TMP_Text killCountText;
 
+    public TMP_Text timerText;
+
     public Slider expSlider;
 
     public static HUDManager Instance;
@@ -63,6 +65,14 @@ public class HUDManager : MonoBehaviour
     public void UpdateKillCountValue(int count)
     {
         killCountText.SetText("Kills: " + count.ToString());
+    }
+
+    public void UpdateTimeValue(float time)
+    {
+        int minutes = Mathf.FloorToInt(time / 60);
+        int seconds = Mathf.FloorToInt(time - minutes * 60);
+        string timeInMinSecs = string.Format("{0:0}:{1:00}", minutes, seconds);
+        timerText.SetText(timeInMinSecs);
     }
 
     // ExperienceManager
