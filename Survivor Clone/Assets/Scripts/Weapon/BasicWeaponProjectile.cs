@@ -15,4 +15,9 @@ public class BasicWeaponProjectile : Projectile
     {
         
     }
+
+    void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
 }

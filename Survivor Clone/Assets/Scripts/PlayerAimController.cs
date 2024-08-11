@@ -10,7 +10,7 @@ public class PlayerAimController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        direction = GameObject.Find("PlayerSprites").transform;
+        direction = GameObject.Find("Aim Direction").transform;
     }
 
     // Update is called once per frame
