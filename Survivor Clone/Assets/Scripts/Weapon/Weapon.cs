@@ -5,6 +5,7 @@ using static UnityEditor.ShaderData;
 
 public class Weapon : MonoBehaviour
 {
+    public bool isStarterWeapon = false;
     public LevelUpInfo levelUpInfo;
 
     private float currentCooldown;
@@ -48,8 +49,18 @@ public class Weapon : MonoBehaviour
         currentCooldown = max;
     }
 
-    public void LevelUpWeapon()
+    public virtual void LevelUpWeapon()
     {
         currentWeaponLevel++;
+    }
+
+    public void ActivateWeapon()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public void DisableWeapon()
+    {
+        gameObject.SetActive(false);
     }
 }

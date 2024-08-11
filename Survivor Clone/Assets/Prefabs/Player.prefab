@@ -90,6 +90,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7088850383752058405}
   - component: {fileID: 3024697122940542558}
+  - component: {fileID: 3407986886398928901}
   m_Layer: 0
   m_Name: DamageAuraSphere
   m_TagString: Untagged
@@ -164,6 +165,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3407986886398928901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100967988899941363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d25410edbcb5c04db9e84958a0c87e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStarterWeapon: 0
+  levelUpInfo: {fileID: 11400000, guid: c01cfeb3fabe4fc418d2c0c9dd7c7e78, type: 2}
+  auraStat: {fileID: 11400000, guid: f2dbdfb9a535b334a86af6dced05e6ab, type: 2}
 --- !u!1 &3910440097654768509
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,6 +426,55 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &4957832036283345375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 282414729335039891}
+  - component: {fileID: 1435544556914560655}
+  m_Layer: 0
+  m_Name: BasicWeapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &282414729335039891
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4957832036283345375}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2971414036812564260}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1435544556914560655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4957832036283345375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40d58c6c79e6dff4dbbd2f101d6da73c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStarterWeapon: 1
+  levelUpInfo: {fileID: 11400000, guid: 20723f1121e405c439a79fe67bf7bebf, type: 2}
+  projectileStat: {fileID: 11400000, guid: ca33a2e3e7970a34092305ed006c476f, type: 2}
+  aimController: {fileID: 7074392958778261074}
+  tripleProjectileWaitTime: 0.1
 --- !u!1 &5348613604311838427
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,8 +600,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2971414036812564260}
-  - component: {fileID: 5399445299108558899}
-  - component: {fileID: 7249789768756861547}
   - component: {fileID: 5836108684983532620}
   m_Layer: 0
   m_Name: Weapon Controller
@@ -558,39 +621,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 282414729335039891}
   - {fileID: 7088850383752058405}
   m_Father: {fileID: 6013283107184396713}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5399445299108558899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7663316450344190532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40d58c6c79e6dff4dbbd2f101d6da73c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelUpInfo: {fileID: 11400000, guid: 20723f1121e405c439a79fe67bf7bebf, type: 2}
-  projectileStat: {fileID: 11400000, guid: ca33a2e3e7970a34092305ed006c476f, type: 2}
-  aimController: {fileID: 7074392958778261074}
-  tripleProjectileWaitTime: 0.1
---- !u!114 &7249789768756861547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7663316450344190532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d25410edbcb5c04db9e84958a0c87e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelUpInfo: {fileID: 11400000, guid: c01cfeb3fabe4fc418d2c0c9dd7c7e78, type: 2}
-  auraStat: {fileID: 11400000, guid: f2dbdfb9a535b334a86af6dced05e6ab, type: 2}
 --- !u!114 &5836108684983532620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -604,5 +638,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapons:
-  - {fileID: 5399445299108558899}
-  - {fileID: 7249789768756861547}
+  - {fileID: 3407986886398928901}
+  - {fileID: 1435544556914560655}

@@ -1,10 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
-    public List<Weapon> weapons;
+    private List<Weapon> weapons;
+
+    private void Awake()
+    {
+        weapons = GetComponentsInChildren<Weapon>().ToList<Weapon>();
+    }
+
+    private void Start()
+    {
+        foreach (Weapon weapon in weapons)
+        {
+            if (!weapon.isStarterWeapon)
+            {
+                weapon.DisableWeapon();
+            }
+        }
+    }
 
     public List<Weapon> GetWeaponsToLevel(int numOfWeapons)
     {

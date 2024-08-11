@@ -145,9 +145,17 @@ public class GameManager : MonoBehaviour
         currentLevelUpButton.onClick.RemoveAllListeners();
 
         string nameText = weapon.levelUpInfo.upgradeName;
-        UnityAction callback = weapon.LevelUpWeapon;
+
+        if (weapon.gameObject.activeSelf)
+        {
+            currentLevelUpButton.onClick.AddListener(weapon.LevelUpWeapon);
+        }
+        else
+        {
+            currentLevelUpButton.onClick.AddListener(weapon.ActivateWeapon);
+        }
+
         currentLevelUpButton.GetComponentInChildren<TMP_Text>().SetText(nameText);
-        currentLevelUpButton.onClick.AddListener(callback);
         currentLevelUpButton.onClick.AddListener(CloseLevelUpPanel);
     }
 
