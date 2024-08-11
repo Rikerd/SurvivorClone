@@ -23,6 +23,7 @@ public class LevelUpButtonInfo
 public class GameManager : MonoBehaviour
 {
     public WeaponManager weaponManager;
+    public EnemySpawnerController enemySpawnerController;
     public static GameManager Instance;
 
     public GameObject levelUpPanel;
@@ -37,6 +38,8 @@ public class GameManager : MonoBehaviour
     private int currentLevelUpButtonIndex = 0;
 
     private float currentGameTime = 0f;
+
+    private int enemyDifficulty = 0;
 
     // Start is called before the first frame update
     private void Start()
@@ -85,6 +88,8 @@ public class GameManager : MonoBehaviour
     {
         currentGameTime += Time.deltaTime;
         HUDManager.Instance.UpdateTimeValue(currentGameTime);
+        enemyDifficulty = Mathf.FloorToInt(currentGameTime / 20);
+        enemySpawnerController.UpdateDifficulty(enemyDifficulty);
     }
 
     public void TriggerDeathSequence()

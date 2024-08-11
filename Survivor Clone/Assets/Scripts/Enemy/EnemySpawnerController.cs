@@ -1,16 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.ShaderData;
 
 public class EnemySpawnerController : MonoBehaviour
 {
     public float minSpawnTimer = 1f;
     public float maxSpawnTimer = 2f;
 
-    public GameObject enemyObject;
+    public List<EnemySpawnRates> enemyObjects;
 
     private float currentSpawnTimer = 0f;
+    private int spawnPattern = 0;
 
     private enum ScreenEdge { Top, Bottom, Left, Right };
 
@@ -27,38 +28,54 @@ public class EnemySpawnerController : MonoBehaviour
             float viewportXCoordinate = 0;
             float viewportYCoordinate = 0;
 
-            ScreenEdge screenEdgeToSpawn = (ScreenEdge)Random.Range(0, 4);
+            ScreenEdge screenEdgeToSpawn = (ScreenEdge)UnityEngine.Random.Range(0, 4);
 
             if (screenEdgeToSpawn == ScreenEdge.Top)
             {
-                viewportXCoordinate = Random.Range(0f, 1f);
+                viewportXCoordinate = UnityEngine.Random.Range(0f, 1f);
                 viewportYCoordinate = 1;
             }
             else if (screenEdgeToSpawn == ScreenEdge.Bottom)
             {
-                viewportXCoordinate = Random.Range(0f, 1f);
+                viewportXCoordinate = UnityEngine.Random.Range(0f, 1f);
                 viewportYCoordinate = 0;
             }
             else if (screenEdgeToSpawn == ScreenEdge.Left)
             {
                 viewportXCoordinate = 0;
-                viewportYCoordinate = Random.Range(0f, 1f);
+                viewportYCoordinate = UnityEngine.Random.Range(0f, 1f);
             }
             else if (screenEdgeToSpawn == ScreenEdge.Right)
             {
                 viewportXCoordinate = 1;
-                viewportYCoordinate = Random.Range(0f, 1f);
+                viewportYCoordinate = UnityEngine.Random.Range(0f, 1f);
             }
 
             Vector2 posWS = Camera.main.ViewportToWorldPoint(new Vector2(viewportXCoordinate, viewportYCoordinate));
 
-            Instantiate(enemyObject, posWS, Quaternion.identity);
+            Instantiate(enemyObjects[spawnPattern].enemy, posWS, Quaternion.identity);
 
-            currentSpawnTimer = Random.Range(minSpawnTimer, maxSpawnTimer);
+            currentSpawnTimer = UnityEngine.Random.Range(minSpawnTimer, maxSpawnTimer);
         }
         else if (currentSpawnTimer > 0f)
         {
             currentSpawnTimer -= Time.deltaTime;
         }
     }
+
+    public void UpdateDifficulty(int difficulty)
+    {
+        if (difficulty >= enemyObjects.Count)
+        {
+            return;
+        }
+        spawnPattern = difficulty;
+    }
+}
+
+[Serializable]
+public class EnemySpawnRates
+{
+    public GameObject enemy;
+    public float rate;
 }

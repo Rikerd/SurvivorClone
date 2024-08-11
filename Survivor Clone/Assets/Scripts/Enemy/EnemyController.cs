@@ -31,10 +31,7 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-    }
 
-    private void Awake()
-    {
         maxHealth = enemyStat.maxHealth;
         currentHealth = enemyStat.maxHealth;
         rb2d = GetComponent<Rigidbody2D>();
@@ -130,5 +127,4 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
     {
 
     }
-
 }
