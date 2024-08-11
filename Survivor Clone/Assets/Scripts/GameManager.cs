@@ -32,9 +32,9 @@ public class GameManager : MonoBehaviour
     private PlayerController playerController;
     private Button[] levelUpPanelButtons;
 
-    private LevelUpButtonInfo[] levelUpButtonInfos;
+    private List<LevelUpButtonInfo> levelUpButtonInfos;
 
-    private int temp = 0;
+    private int currentLevelUpButtonIndex = 0;
 
     // Start is called before the first frame update
     private void Start()
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
 
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
 
-        levelUpButtonInfos = new LevelUpButtonInfo[]
+        levelUpButtonInfos = new List<LevelUpButtonInfo>
         {
             new LevelUpButtonInfo("Health", playerController.LevelUpPlayerHealth, ""),
             new LevelUpButtonInfo("Movement Speed", playerController.LevelUpPlayerMovementSpeed, ""),
@@ -98,33 +98,46 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         levelUpPanel.SetActive(true);
 
-        temp = 0;
+        int numOfWeapons = Random.Range(0, levelUpPanelButtons.Length);
+        List<Weapon> weapons = weaponManager.GetWeaponsToLevel(numOfWeapons);
+        currentLevelUpButtonIndex = 0;
 
-        foreach (Button levelUpPanelButton in levelUpPanelButtons)
+        foreach (Weapon weapon in weapons)
         {
-            PopulateLevelUpButton(levelUpPanelButton);
+            PopulateLevelUpButtonWithWeapon(weapon);
+            currentLevelUpButtonIndex++;
+        }
+
+        HelperFunctions.ShuffleList(ref levelUpButtonInfos);
+        for (int levelUpButtonInfosIndex = 0; currentLevelUpButtonIndex < levelUpPanelButtons.Length; levelUpButtonInfosIndex++, currentLevelUpButtonIndex++)
+        {
+            LevelUpButtonInfo powerUpInfo = levelUpButtonInfos[levelUpButtonInfosIndex];
+            PopulateLevelUpButtonWithPowerUps(powerUpInfo);
         }
     }
 
-    private void PopulateLevelUpButton(Button levelUpPanelButton)
+    private void PopulateLevelUpButtonWithPowerUps(LevelUpButtonInfo powerUpInfo)
     {
-        levelUpPanelButton.onClick.RemoveAllListeners();
-        bool isWeaponUpgrade = Random.Range(0, 2) == 0;
+        Button currentLevelUpButton = levelUpPanelButtons[currentLevelUpButtonIndex];
+        currentLevelUpButton.onClick.RemoveAllListeners();
 
-        string nameText = levelUpButtonInfos[temp].name;
-        UnityAction callback = levelUpButtonInfos[temp].callback;
+        string nameText = powerUpInfo.name;
+        UnityAction callback = powerUpInfo.callback;
+        currentLevelUpButton.GetComponentInChildren<TMP_Text>().SetText(nameText);
+        currentLevelUpButton.onClick.AddListener(callback);
+        currentLevelUpButton.onClick.AddListener(CloseLevelUpPanel);
+    }
 
-        if (isWeaponUpgrade)
-        {
-            Weapon weapon = weaponManager.GetWeaponToLevel();
-            nameText = weapon.levelUpInfo.upgradeName;
-            callback = weapon.LevelUpWeapon;
-        }
-        levelUpPanelButton.GetComponentInChildren<TMP_Text>().SetText(nameText);
-        levelUpPanelButton.onClick.AddListener(callback);
-        levelUpPanelButton.onClick.AddListener(CloseLevelUpPanel);
+    private void PopulateLevelUpButtonWithWeapon(Weapon weapon)
+    {
+        Button currentLevelUpButton = levelUpPanelButtons[currentLevelUpButtonIndex];
+        currentLevelUpButton.onClick.RemoveAllListeners();
 
-        temp++;
+        string nameText = weapon.levelUpInfo.upgradeName;
+        UnityAction callback = weapon.LevelUpWeapon;
+        currentLevelUpButton.GetComponentInChildren<TMP_Text>().SetText(nameText);
+        currentLevelUpButton.onClick.AddListener(callback);
+        currentLevelUpButton.onClick.AddListener(CloseLevelUpPanel);
     }
 
     private void CloseLevelUpPanel()

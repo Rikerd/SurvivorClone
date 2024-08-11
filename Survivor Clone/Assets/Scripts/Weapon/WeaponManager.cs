@@ -6,9 +6,14 @@ public class WeaponManager : MonoBehaviour
 {
     public List<Weapon> weapons;
 
-    public Weapon GetWeaponToLevel()
+    public List<Weapon> GetWeaponsToLevel(int numOfWeapons)
     {
-        int weaponIndex = Random.Range(0, weapons.Count);
-        return weapons[weaponIndex];
+        if (numOfWeapons > weapons.Count)
+        {
+            numOfWeapons = weapons.Count;
+        }
+
+        HelperFunctions.ShuffleList(ref weapons);
+        return weapons.GetRange(0, numOfWeapons);
     }
 }
