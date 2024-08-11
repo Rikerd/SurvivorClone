@@ -8,7 +8,7 @@ public class EnemySpawnerController : MonoBehaviour
     public float minSpawnTimer = 1f;
     public float maxSpawnTimer = 2f;
 
-    public List<EnemySpawnRates> enemyObjects;
+    public LevelEnemySpawners enemySpawnerInfo;
 
     private float currentSpawnTimer = 0f;
     private int spawnPattern = 0;
@@ -53,7 +53,7 @@ public class EnemySpawnerController : MonoBehaviour
 
             Vector2 posWS = Camera.main.ViewportToWorldPoint(new Vector2(viewportXCoordinate, viewportYCoordinate));
 
-            Instantiate(enemyObjects[spawnPattern].enemy, posWS, Quaternion.identity);
+            Instantiate(enemySpawnerInfo.spawnPatterns[spawnPattern].enemySpawnRates[0].enemy, posWS, Quaternion.identity);
 
             currentSpawnTimer = UnityEngine.Random.Range(minSpawnTimer, maxSpawnTimer);
         }
@@ -65,17 +65,10 @@ public class EnemySpawnerController : MonoBehaviour
 
     public void UpdateDifficulty(int difficulty)
     {
-        if (difficulty >= enemyObjects.Count)
+        if (difficulty >= enemySpawnerInfo.spawnPatterns.Count)
         {
             return;
         }
         spawnPattern = difficulty;
     }
-}
-
-[Serializable]
-public class EnemySpawnRates
-{
-    public GameObject enemy;
-    public float rate;
 }
