@@ -45,4 +45,10 @@ public class BasicWeapon : Weapon
             yield return new WaitForSeconds(tripleProjectileWaitTime);
         }
     }
+
+    public override void LevelUpWeapon()
+    {
+        base.LevelUpWeapon();
+        SetMaxCooldown(projectileStat.levelStats[currentWeaponLevel].maxCooldown);
+    }
 }

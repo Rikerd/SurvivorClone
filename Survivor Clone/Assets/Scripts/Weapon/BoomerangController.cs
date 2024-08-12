@@ -7,7 +7,7 @@ public class BoomerangController : Weapon
 {
     public ProjectileStats projectileStat;
 
-    public float radius = 5f;
+    public float radius = 5f;    
 
     private void Start()
     {
@@ -47,7 +47,8 @@ public class BoomerangController : Weapon
         List<(Vector3, float)> enemyDistances = new List<(Vector3, float)>();
         for (int i = 0; i < projectileStat.levelStats[currentWeaponLevel].projectileCount; i++)
         {
-            enemyDistances.Add((transform.position, Mathf.Infinity));
+            Vector3 randomDirection = Random.insideUnitCircle.normalized;
+            enemyDistances.Add((transform.position + randomDirection, Mathf.Infinity));
         }
 
         foreach (Collider2D collidier in colliders)
@@ -60,10 +61,17 @@ public class BoomerangController : Weapon
                 {
                     enemyDistances.Remove(enemyDistance);
                     enemyDistances.Add((collidier.transform.position, distance));
+                    break;
                 }
             }
         }
 
         return enemyDistances;
+    }
+
+    public override void LevelUpWeapon()
+    {
+        base.LevelUpWeapon();
+        SetMaxCooldown(projectileStat.levelStats[currentWeaponLevel].maxCooldown);
     }
 }

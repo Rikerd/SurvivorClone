@@ -43,4 +43,10 @@ public class DaggerThrower : Weapon
             }
         }
     }
+
+    public override void LevelUpWeapon()
+    {
+        base.LevelUpWeapon();
+        SetMaxCooldown(projectileStat.levelStats[currentWeaponLevel].maxCooldown);
+    }
 }

@@ -9,7 +9,7 @@ public class DamageAuraSphere : Weapon
     // Start is called before the first frame update
     private void Start()
     {
-        SetMaxCooldown(auraStat.levelStats[0].maxCooldown);
+        SetMaxCooldown(auraStat.levelStats[currentWeaponLevel].maxCooldown);
 
         transform.localScale = new Vector2(auraStat.levelStats[0].radius, auraStat.levelStats[0].radius) * 2;
     }
@@ -35,5 +35,6 @@ public class DamageAuraSphere : Weapon
         base.LevelUpWeapon();
 
         transform.localScale = new Vector2(auraStat.levelStats[currentWeaponLevel].radius, auraStat.levelStats[currentWeaponLevel].radius) * 2;
+        SetMaxCooldown(auraStat.levelStats[currentWeaponLevel].maxCooldown);
     }
 }
