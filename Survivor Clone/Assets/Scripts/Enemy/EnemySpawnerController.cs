@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemySpawnerController : MonoBehaviour
@@ -10,13 +11,17 @@ public class EnemySpawnerController : MonoBehaviour
     public LevelEnemySpawners enemySpawnerInfo;
 
     private float currentSpawnTimer = 0f;
-    private int spawnPattern = 0;
+    private int currentSpawnPattern = 0;
 
     private enum ScreenEdge { Top, Bottom, Left, Right };
 
     // Start is called before the first frame update
     void Start()
     {
+        for (int spawnPattern = 0; spawnPattern < enemySpawnerInfo.spawnPatterns.Count; spawnPattern++)
+        {
+            enemySpawnerInfo.spawnPatterns[spawnPattern].enemySpawnRates = enemySpawnerInfo.spawnPatterns[spawnPattern].enemySpawnRates.OrderBy(x => x.rate).ToList();
+        }
     }
 
     // Update is called once per frame
@@ -50,9 +55,13 @@ public class EnemySpawnerController : MonoBehaviour
                 viewportYCoordinate = UnityEngine.Random.Range(0f, 1f);
             }
 
-            Vector2 posWS = Camera.main.ViewportToWorldPoint(new Vector2(viewportXCoordinate, viewportYCoordinate));
+            Vector2 positionWorldPoint = Camera.main.ViewportToWorldPoint(new Vector2(viewportXCoordinate, viewportYCoordinate));
 
-            Instantiate(enemySpawnerInfo.spawnPatterns[spawnPattern].enemySpawnRates[0].enemy, posWS, Quaternion.identity);
+            GameObject enemy = ChooseEnemyByRates();
+            if (enemy != null)
+            {
+                Instantiate(enemy, positionWorldPoint, Quaternion.identity);
+            }
 
             currentSpawnTimer = UnityEngine.Random.Range(minSpawnTimer, maxSpawnTimer);
         }
@@ -62,12 +71,28 @@ public class EnemySpawnerController : MonoBehaviour
         }
     }
 
-    public void UpdateDifficulty(int difficulty)
+    public void UpdateSpawnPattern(int pattern)
     {
-        if (difficulty >= enemySpawnerInfo.spawnPatterns.Count)
+        if (pattern >= enemySpawnerInfo.spawnPatterns.Count)
         {
             return;
         }
-        spawnPattern = difficulty;
+        currentSpawnPattern = pattern;
+    }
+
+    private GameObject ChooseEnemyByRates()
+    {
+        List<EnemySpawnRates> enemySpawnRates = enemySpawnerInfo.spawnPatterns[currentSpawnPattern].enemySpawnRates;
+        int rate = Random.Range(0, 100);
+
+        for (int i = 0; i < enemySpawnRates.Count; i++)
+        {
+            if (rate < enemySpawnRates[i].rate)
+            {
+                return enemySpawnRates[i].enemy;
+            }
+        }
+
+        return null;
     }
 }

@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
         currentGameTime += Time.deltaTime;
         HUDManager.Instance.UpdateTimeValue(currentGameTime);
         enemyDifficulty = Mathf.FloorToInt(currentGameTime / 20);
-        enemySpawnerController.UpdateDifficulty(enemyDifficulty);
+        enemySpawnerController.UpdateSpawnPattern(enemyDifficulty);
     }
 
     public void TriggerDeathSequence()
