@@ -13,21 +13,21 @@ MonoBehaviour:
   m_Name: Dagger
   m_EditorClassIdentifier: 
   canCrit: 1
-  movementSpeed: 7
+  movementSpeed: 8
   projectile: {fileID: 1277877998668816505, guid: ec116a8f9df55d64b86b47304ec0577c, type: 3}
   levelStats:
   - damage: 30
-    maxCooldown: 0.4
+    maxCooldown: 2
     projectileCount: 1
   - damage: 40
-    maxCooldown: 0.4
+    maxCooldown: 2
     projectileCount: 2
   - damage: 50
-    maxCooldown: 0.4
+    maxCooldown: 2
     projectileCount: 3
   - damage: 60
-    maxCooldown: 0.4
+    maxCooldown: 2
     projectileCount: 4
   - damage: 70
-    maxCooldown: 0.4
+    maxCooldown: 2
     projectileCount: 5

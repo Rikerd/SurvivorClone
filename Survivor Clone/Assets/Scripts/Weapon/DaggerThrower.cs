@@ -7,7 +7,7 @@ public class DaggerThrower : Weapon
 {
     public ProjectileStats projectileStat;
 
-    public int currentAngle = 360;
+    private int currentAngle = 360;
 
     private void Start()
     {
@@ -29,11 +29,11 @@ public class DaggerThrower : Weapon
         {
             ProjectileLevelStats currentLevelStats = projectileStat.levelStats[currentWeaponLevel];
 
-            for (int i = 0; i < currentLevelStats.projectileCount; i++)
+            for (int projectileNum = 0; projectileNum < currentLevelStats.projectileCount; projectileNum++)
             {
-                Vector3 eulerRotation = new Vector3(0, 0, currentAngle - (45 * i));
-                GameObject projectile = Instantiate(projectileStat.projectile, transform.parent.position, Quaternion.Euler(eulerRotation));
-                Projectile projectileScript = projectile.GetComponent<Projectile>();
+                Vector3 eulerRotation = new Vector3(0, 0, currentAngle - (45 * projectileNum));
+                GameObject projectileObject = Instantiate(projectileStat.projectile, transform.parent.position, Quaternion.Euler(eulerRotation));
+                Projectile projectileScript = projectileObject.GetComponent<Projectile>();
                 projectileScript.SetValues(currentLevelStats.damage, projectileStat.movementSpeed, projectileStat.canCrit);
             }
             currentAngle -= 45;
