@@ -162,4 +162,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exp: 1
-  movementSpeed: 5
+  movementSpeed: 10
