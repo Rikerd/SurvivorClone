@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f212702adc3d4964abb10115c88bc2ce, type: 3}
   m_Name: Enemy 3
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 120
   movementSpeed: 1.5
   damage: 10
   drops:

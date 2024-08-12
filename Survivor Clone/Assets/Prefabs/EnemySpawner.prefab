@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4060a472638fbcb46b787ab5e09efc5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpawnTimer: 0.7
-  maxSpawnTimer: 1.5
+  minSpawnTimer: 0.5
+  maxSpawnTimer: 0.8
   enemySpawnerInfo: {fileID: 11400000, guid: abb8272ab9d9ed143ac9a0fa16667e75, type: 2}

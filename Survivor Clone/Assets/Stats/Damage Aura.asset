@@ -15,17 +15,17 @@ MonoBehaviour:
   canCrit: 0
   levelStats:
   - damage: 5
-    maxCooldown: 0.7
+    maxCooldown: 0.5
     radius: 2.5
   - damage: 10
-    maxCooldown: 0.7
-    radius: 4
+    maxCooldown: 0.5
+    radius: 3
   - damage: 15
-    maxCooldown: 0.6
-    radius: 5
+    maxCooldown: 0.5
+    radius: 3.5
   - damage: 20
     maxCooldown: 0.5
-    radius: 5.5
+    radius: 4
   - damage: 25
     maxCooldown: 0.5
-    radius: 5.5
+    radius: 4.5
