@@ -8,7 +8,7 @@ public class Projectile : MonoBehaviour
     public bool isPiercing = false; // Will the projectile go through enemies
 
     private int projectileDamage;
-    private float projectileSpeed;
+    protected float projectileSpeed;
     private bool projectileCanCrit;
     protected Rigidbody2D rb2d;
 
