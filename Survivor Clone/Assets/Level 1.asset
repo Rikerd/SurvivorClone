@@ -17,7 +17,20 @@ MonoBehaviour:
     - enemy: {fileID: 8371416313282000803, guid: b7a2315f7b982d140962a1ceaa2d8f6a, type: 3}
       rate: 100
   - enemySpawnRates:
-    - enemy: {fileID: 8371416313282000803, guid: b7a2315f7b982d140962a1ceaa2d8f6a, type: 3}
-      rate: 10
     - enemy: {fileID: 6869661145523149589, guid: 1f00caa268bec4447acf83ae576a7bb3, type: 3}
+      rate: 40
+    - enemy: {fileID: 8371416313282000803, guid: b7a2315f7b982d140962a1ceaa2d8f6a, type: 3}
+      rate: 100
+  - enemySpawnRates:
+    - enemy: {fileID: 6869661145523149589, guid: 268eccb80ea8ed746a13ec70e61a6e49, type: 3}
+      rate: 40
+    - enemy: {fileID: 6869661145523149589, guid: 1f00caa268bec4447acf83ae576a7bb3, type: 3}
+      rate: 100
+  - enemySpawnRates:
+    - enemy: {fileID: 6869661145523149589, guid: f31c311febb484747bf6ca534290bf80, type: 3}
+      rate: 30
+    - enemy: {fileID: 6869661145523149589, guid: 268eccb80ea8ed746a13ec70e61a6e49, type: 3}
+      rate: 100
+  - enemySpawnRates:
+    - enemy: {fileID: 6869661145523149589, guid: f31c311febb484747bf6ca534290bf80, type: 3}
       rate: 100

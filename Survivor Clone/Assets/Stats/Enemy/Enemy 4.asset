@@ -12,11 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f212702adc3d4964abb10115c88bc2ce, type: 3}
   m_Name: Enemy 4
   m_EditorClassIdentifier: 
-  maxHealth: 60
+  maxHealth: 120
   movementSpeed: 1.5
-  damage: 5
+  damage: 20
   drops:
   - item: {fileID: 1094633095928340844, guid: 46bea64091d507143b7da7136c9e8e30, type: 3}
-    rate: 10
-  - item: {fileID: 3870436542734150734, guid: 89952a900db76794685cbb1b25cb18de, type: 3}
-    rate: 20
+    rate: 50

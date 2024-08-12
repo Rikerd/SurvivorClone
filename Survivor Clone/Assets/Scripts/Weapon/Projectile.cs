@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    public bool isDestroyOnInvisible = true;
+    public bool isPiercing = false; // Will the projectile go through enemies
+
     private int projectileDamage;
     private float projectileSpeed;
     private bool projectileCanCrit;
@@ -44,6 +47,18 @@ public class Projectile : MonoBehaviour
             damage *= isCrit ? 2 : 1;
 
             collision.GetComponent<IDamageable>().DamageHealth(damage, isCrit);
+
+            if (!isPiercing)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
+
+    void OnBecameInvisible()
+    {
+        if (isDestroyOnInvisible)
+        {
             Destroy(gameObject);
         }
     }

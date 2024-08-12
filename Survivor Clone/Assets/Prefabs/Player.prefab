@@ -180,6 +180,54 @@ MonoBehaviour:
   isStarterWeapon: 0
   levelUpInfo: {fileID: 11400000, guid: c01cfeb3fabe4fc418d2c0c9dd7c7e78, type: 2}
   auraStat: {fileID: 11400000, guid: f2dbdfb9a535b334a86af6dced05e6ab, type: 2}
+--- !u!1 &3695504618573205221
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8082565130331733761}
+  - component: {fileID: 1634043473493809616}
+  m_Layer: 0
+  m_Name: KnifeThrow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8082565130331733761
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3695504618573205221}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2971414036812564260}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1634043473493809616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3695504618573205221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edfc47ae5d0045a459d323b32d27dd68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStarterWeapon: 0
+  levelUpInfo: {fileID: 11400000, guid: 7adddada88bedd54396369908df2ae9c, type: 2}
+  projectileStat: {fileID: 11400000, guid: 2915738c3e59074469edcdf89b3b0fcd, type: 2}
+  currentAngle: 0
 --- !u!1 &3910440097654768509
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,6 +671,7 @@ Transform:
   m_Children:
   - {fileID: 282414729335039891}
   - {fileID: 7088850383752058405}
+  - {fileID: 8082565130331733761}
   m_Father: {fileID: 6013283107184396713}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5836108684983532620
@@ -637,6 +686,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e82cf3a6090ce1940853539222d2c2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapons:
-  - {fileID: 3407986886398928901}
-  - {fileID: 1435544556914560655}
