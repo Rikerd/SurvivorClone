@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63ffa2690916e834d9f93048097e7508, type: 3}
   m_Name: Boomerang
   m_EditorClassIdentifier: 
-  upgradeName: 
-  description: 
+  upgradeName: Boomerang
+  description: TEST BOOMERANG

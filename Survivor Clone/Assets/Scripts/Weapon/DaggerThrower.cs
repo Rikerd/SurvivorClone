@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class KnifeThrow : Weapon
+public class DaggerThrower : Weapon
 {
     public ProjectileStats projectileStat;
 

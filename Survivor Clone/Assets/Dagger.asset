@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 63ffa2690916e834d9f93048097e7508, type: 3}
-  m_Name: Knife
+  m_Name: Dagger
   m_EditorClassIdentifier: 
   upgradeName: Knife
   description: TEST KNIFE
