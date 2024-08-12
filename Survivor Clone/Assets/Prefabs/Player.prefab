@@ -227,7 +227,6 @@ MonoBehaviour:
   isStarterWeapon: 0
   levelUpInfo: {fileID: 11400000, guid: 7adddada88bedd54396369908df2ae9c, type: 2}
   projectileStat: {fileID: 11400000, guid: 2915738c3e59074469edcdf89b3b0fcd, type: 2}
-  currentAngle: 0
 --- !u!1 &3910440097654768509
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,7 +521,7 @@ MonoBehaviour:
   levelUpInfo: {fileID: 11400000, guid: 20723f1121e405c439a79fe67bf7bebf, type: 2}
   projectileStat: {fileID: 11400000, guid: ca33a2e3e7970a34092305ed006c476f, type: 2}
   aimController: {fileID: 7074392958778261074}
-  tripleProjectileWaitTime: 0.1
+  tripleProjectileWaitTime: 0.2
 --- !u!1 &5348613604311838427
 GameObject:
   m_ObjectHideFlags: 0

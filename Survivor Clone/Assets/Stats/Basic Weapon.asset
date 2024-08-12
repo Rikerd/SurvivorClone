@@ -13,21 +13,21 @@ MonoBehaviour:
   m_Name: Basic Weapon
   m_EditorClassIdentifier: 
   canCrit: 1
-  movementSpeed: 4.5
+  movementSpeed: 6
   projectile: {fileID: 1277877998668816505, guid: c1d4758c7e78c714fa0ca8e46910a006, type: 3}
   levelStats:
   - damage: 30
     maxCooldown: 4
     projectileCount: 3
-  - damage: 40
-    maxCooldown: 3.8
-    projectileCount: 4
   - damage: 50
-    maxCooldown: 3.4
-    projectileCount: 4
-  - damage: 60
-    maxCooldown: 3.2
-    projectileCount: 5
-  - damage: 70
     maxCooldown: 3
+    projectileCount: 4
+  - damage: 80
+    maxCooldown: 2.5
+    projectileCount: 4
+  - damage: 100
+    maxCooldown: 1.5
+    projectileCount: 5
+  - damage: 120
+    maxCooldown: 1
     projectileCount: 5
