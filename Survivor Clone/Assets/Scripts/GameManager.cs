@@ -121,7 +121,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         levelUpPanel.SetActive(true);
 
-        int numOfWeapons = Random.Range(0, levelUpPanelButtons.Length);
+        int numOfWeapons = Random.Range(1, levelUpPanelButtons.Length + 1);
         List<Weapon> weapons = weaponManager.GetWeaponsToLevel(numOfWeapons);
         currentLevelUpButtonIndex = 0;
 
