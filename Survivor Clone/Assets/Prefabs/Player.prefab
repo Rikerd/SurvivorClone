@@ -521,7 +521,7 @@ MonoBehaviour:
   levelUpInfo: {fileID: 11400000, guid: 20723f1121e405c439a79fe67bf7bebf, type: 2}
   projectileStat: {fileID: 11400000, guid: ca33a2e3e7970a34092305ed006c476f, type: 2}
   aimController: {fileID: 7074392958778261074}
-  tripleProjectileWaitTime: 0.2
+  tripleProjectileWaitTime: 0.1
 --- !u!1 &5348613604311838427
 GameObject:
   m_ObjectHideFlags: 0
