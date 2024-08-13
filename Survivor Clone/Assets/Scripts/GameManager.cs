@@ -103,6 +103,11 @@ public class GameManager : MonoBehaviour
         HUDManager.Instance.UpdateKillCountValue(playerKillCount);
     }
 
+    public void UpgradeWeapons()
+    {
+
+    }
+
     // ExperienceManager
     private void HandleLevelUp(int currentExp, int maxExp)
     {
