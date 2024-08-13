@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 2058472266914501089}
   - component: {fileID: -351908006114096284}
   - component: {fileID: 3803250548479134906}
-  - component: {fileID: 887252474730159340}
+  - component: {fileID: 2683921165598937353}
   m_Layer: 0
   m_Name: UpgradeDrop
-  m_TagString: Experience
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fb04e1d7d486b3d4489efc5a00b49e46, type: 3}
-  m_Color: {r: 0, g: 0.9896784, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -149,7 +149,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &887252474730159340
+--- !u!114 &2683921165598937353
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,8 +158,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1094633095928340844}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2e31a0fd4db78d429ce456f8d9c3e5c, type: 3}
+  m_Script: {fileID: 11500000, guid: f73a1899885bb164f996cbcdab0861ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exp: 12
-  movementSpeed: 10

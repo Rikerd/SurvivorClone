@@ -97,6 +97,9 @@ public class GameManager : MonoBehaviour
         HUDManager.Instance.UpdateTimeValue(currentGameTime);
         enemyDifficulty = Mathf.FloorToInt(currentGameTime / 60);
         enemySpawnerController.UpdateSpawnPattern(enemyDifficulty);
+
+        int miniBossPatternToSpawn = Mathf.FloorToInt(currentGameTime / 30);
+        enemySpawnerController.CheckToSpawnMiniBoss(miniBossPatternToSpawn);
     }
 
     public void TriggerDeathSequence()
@@ -110,9 +113,9 @@ public class GameManager : MonoBehaviour
         HUDManager.Instance.UpdateKillCountValue(playerKillCount);
     }
 
-    public void UpgradeWeapons()
+    public void ForceLevelUpPrompt()
     {
-
+        HandleLevelUp(0, 0);
     }
 
     // ExperienceManager

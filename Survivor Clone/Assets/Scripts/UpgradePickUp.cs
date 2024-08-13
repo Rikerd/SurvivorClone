@@ -8,7 +8,7 @@ public class UpgradePickUp : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            GameManager.Instance.UpgradeWeapons();
+            GameManager.Instance.ForceLevelUpPrompt();
             Destroy(gameObject);
         }
     }

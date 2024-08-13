@@ -13,6 +13,8 @@ public class EnemySpawnerController : MonoBehaviour
     private float currentSpawnTimer = 0f;
     private int currentSpawnPattern = 0;
 
+    private int currentMiniBossPattern = 1;
+
     private enum ScreenEdge { Top, Bottom, Left, Right };
 
     // Start is called before the first frame update
@@ -31,33 +33,7 @@ public class EnemySpawnerController : MonoBehaviour
     {
         if (currentSpawnTimer <= 0f)
         {
-            float viewportXCoordinate = 0;
-            float viewportYCoordinate = 0;
-
-            ScreenEdge screenEdgeToSpawn = (ScreenEdge)UnityEngine.Random.Range(0, 4);
-
-            if (screenEdgeToSpawn == ScreenEdge.Top)
-            {
-                viewportXCoordinate = UnityEngine.Random.Range(0f, 1f);
-                viewportYCoordinate = 1;
-            }
-            else if (screenEdgeToSpawn == ScreenEdge.Bottom)
-            {
-                viewportXCoordinate = UnityEngine.Random.Range(0f, 1f);
-                viewportYCoordinate = 0;
-            }
-            else if (screenEdgeToSpawn == ScreenEdge.Left)
-            {
-                viewportXCoordinate = 0;
-                viewportYCoordinate = UnityEngine.Random.Range(0f, 1f);
-            }
-            else if (screenEdgeToSpawn == ScreenEdge.Right)
-            {
-                viewportXCoordinate = 1;
-                viewportYCoordinate = UnityEngine.Random.Range(0f, 1f);
-            }
-
-            Vector2 positionWorldPoint = Camera.main.ViewportToWorldPoint(new Vector2(viewportXCoordinate, viewportYCoordinate));
+            Vector2 positionWorldPoint = FindWorldPositionToSpawn();
 
             GameObject enemy = ChooseEnemyByRates();
             if (enemy != null)
@@ -82,6 +58,31 @@ public class EnemySpawnerController : MonoBehaviour
         currentSpawnPattern = pattern;
     }
 
+    public void CheckToSpawnMiniBoss(int miniBossPattern)
+    {
+        if (currentMiniBossPattern == enemySpawnerInfo.miniBossSpawns.Count())
+        {
+            currentMiniBossPattern -= enemySpawnerInfo.miniBossSpawns.Count();
+        }
+
+        if (miniBossPattern >= enemySpawnerInfo.miniBossSpawns.Count())
+        {
+            miniBossPattern -= enemySpawnerInfo.miniBossSpawns.Count();
+        }
+
+        if (miniBossPattern == currentMiniBossPattern)
+        {
+            MiniBossSpawnData miniBossSpawnData = enemySpawnerInfo.miniBossSpawns[currentMiniBossPattern - 1];
+            for (int numOfMiniBoss = 0; numOfMiniBoss < miniBossSpawnData.numToSpawn; numOfMiniBoss++)
+            {
+                Vector2 positionWorldPoint = FindWorldPositionToSpawn();
+                GameObject enemy = enemySpawnerInfo.miniBossSpawns[currentMiniBossPattern - 1].miniBoss;
+                Instantiate(enemy, positionWorldPoint, Quaternion.identity);
+                currentMiniBossPattern++;
+            }
+        }
+    }
+
     private GameObject ChooseEnemyByRates()
     {
         List<EnemySpawnRates> enemySpawnRates = enemySpawnerInfo.spawnPatterns[currentSpawnPattern].enemySpawnRates;
@@ -96,5 +97,38 @@ public class EnemySpawnerController : MonoBehaviour
         }
 
         return null;
+    }
+
+    private Vector2 FindWorldPositionToSpawn()
+    {
+        float viewportXCoordinate = 0;
+        float viewportYCoordinate = 0;
+
+        ScreenEdge screenEdgeToSpawn = (ScreenEdge)UnityEngine.Random.Range(0, 4);
+
+        if (screenEdgeToSpawn == ScreenEdge.Top)
+        {
+            viewportXCoordinate = UnityEngine.Random.Range(0f, 1f);
+            viewportYCoordinate = 1;
+        }
+        else if (screenEdgeToSpawn == ScreenEdge.Bottom)
+        {
+            viewportXCoordinate = UnityEngine.Random.Range(0f, 1f);
+            viewportYCoordinate = 0;
+        }
+        else if (screenEdgeToSpawn == ScreenEdge.Left)
+        {
+            viewportXCoordinate = 0;
+            viewportYCoordinate = UnityEngine.Random.Range(0f, 1f);
+        }
+        else if (screenEdgeToSpawn == ScreenEdge.Right)
+        {
+            viewportXCoordinate = 1;
+            viewportYCoordinate = UnityEngine.Random.Range(0f, 1f);
+        }
+
+        Vector2 positionWorldPoint = Camera.main.ViewportToWorldPoint(new Vector2(viewportXCoordinate, viewportYCoordinate));
+
+        return positionWorldPoint;
     }
 }

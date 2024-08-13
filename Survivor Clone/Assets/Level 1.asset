@@ -44,3 +44,10 @@ MonoBehaviour:
     enemySpawnRates:
     - enemy: {fileID: 6869661145523149589, guid: f31c311febb484747bf6ca534290bf80, type: 3}
       rate: 100
+  miniBossSpawns:
+  - miniBoss: {fileID: 6869661145523149589, guid: e28a437b0e4fb2c4ea20d39dd04f51ab, type: 3}
+    numToSpawn: 1
+  - miniBoss: {fileID: 6869661145523149589, guid: e28a437b0e4fb2c4ea20d39dd04f51ab, type: 3}
+    numToSpawn: 2
+  - miniBoss: {fileID: 6869661145523149589, guid: e28a437b0e4fb2c4ea20d39dd04f51ab, type: 3}
+    numToSpawn: 3
