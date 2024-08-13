@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
     {
         currentGameTime += Time.deltaTime;
         HUDManager.Instance.UpdateTimeValue(currentGameTime);
-        enemyDifficulty = Mathf.FloorToInt(currentGameTime / 20);
+        enemyDifficulty = Mathf.FloorToInt(currentGameTime / 60);
         enemySpawnerController.UpdateSpawnPattern(enemyDifficulty);
     }
 

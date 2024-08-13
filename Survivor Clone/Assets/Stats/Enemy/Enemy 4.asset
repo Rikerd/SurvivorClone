@@ -17,4 +17,4 @@ MonoBehaviour:
   damage: 20
   drops:
   - item: {fileID: 1094633095928340844, guid: 46bea64091d507143b7da7136c9e8e30, type: 3}
-    rate: 50
+    rate: 75

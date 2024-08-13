@@ -12,6 +12,8 @@ public class LevelEnemySpawners : ScriptableObject
 [Serializable]
 public class SpawnPattern
 {
+    public float minSpawnTimer;
+    public float maxSpawnTimer;
     public List<EnemySpawnRates> enemySpawnRates;
 }
 

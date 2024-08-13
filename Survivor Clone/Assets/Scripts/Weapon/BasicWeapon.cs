@@ -39,7 +39,7 @@ public class BasicWeapon : Weapon
 
         for (int i = 0; i < currentLevelStats.projectileCount; i++)
         {
-            GameObject projectile = Instantiate(projectileStat.projectile, aimController.position, lastAimRotation);
+            GameObject projectile = Instantiate(projectileStat.projectile, aimController.parent.position, lastAimRotation);
             Projectile projectileScript = projectile.GetComponent<Projectile>();
             projectileScript.SetValues(currentLevelStats.damage, projectileStat.movementSpeed, projectileStat.canCrit);
             yield return new WaitForSeconds(tripleProjectileWaitTime);

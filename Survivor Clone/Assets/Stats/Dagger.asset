@@ -16,18 +16,18 @@ MonoBehaviour:
   movementSpeed: 8
   projectile: {fileID: 1277877998668816505, guid: ec116a8f9df55d64b86b47304ec0577c, type: 3}
   levelStats:
-  - damage: 30
-    maxCooldown: 2
+  - damage: 45
+    maxCooldown: 1.5
     projectileCount: 1
-  - damage: 40
-    maxCooldown: 2
-    projectileCount: 2
-  - damage: 50
-    maxCooldown: 2
-    projectileCount: 3
   - damage: 60
-    maxCooldown: 2
+    maxCooldown: 1.5
+    projectileCount: 2
+  - damage: 75
+    maxCooldown: 1.5
+    projectileCount: 3
+  - damage: 90
+    maxCooldown: 1.5
     projectileCount: 4
-  - damage: 70
-    maxCooldown: 2
+  - damage: 105
+    maxCooldown: 1.5
     projectileCount: 5

@@ -22,6 +22,8 @@ public class EnemySpawnerController : MonoBehaviour
         {
             enemySpawnerInfo.spawnPatterns[spawnPattern].enemySpawnRates = enemySpawnerInfo.spawnPatterns[spawnPattern].enemySpawnRates.OrderBy(x => x.rate).ToList();
         }
+
+        currentSpawnTimer = UnityEngine.Random.Range(enemySpawnerInfo.spawnPatterns[currentSpawnPattern].minSpawnTimer, enemySpawnerInfo.spawnPatterns[currentSpawnPattern].maxSpawnTimer);
     }
 
     // Update is called once per frame
@@ -63,7 +65,7 @@ public class EnemySpawnerController : MonoBehaviour
                 Instantiate(enemy, positionWorldPoint, Quaternion.identity);
             }
 
-            currentSpawnTimer = UnityEngine.Random.Range(minSpawnTimer, maxSpawnTimer);
+            currentSpawnTimer = UnityEngine.Random.Range(enemySpawnerInfo.spawnPatterns[currentSpawnPattern].minSpawnTimer, enemySpawnerInfo.spawnPatterns[currentSpawnPattern].maxSpawnTimer);
         }
         else if (currentSpawnTimer > 0f)
         {
