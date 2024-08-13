@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy 2
   m_EditorClassIdentifier: 
   maxHealth: 60
-  movementSpeed: 1.5
+  movementSpeed: 2.3
   damage: 5
   drops:
   - item: {fileID: 1094633095928340844, guid: 46bea64091d507143b7da7136c9e8e30, type: 3}

@@ -13,20 +13,20 @@ MonoBehaviour:
   m_Name: Level 1
   m_EditorClassIdentifier: 
   spawnPatterns:
-  - minSpawnTimer: 1.5
-    maxSpawnTimer: 2
+  - minSpawnTimer: 0.8
+    maxSpawnTimer: 1
     enemySpawnRates:
     - enemy: {fileID: 8371416313282000803, guid: b7a2315f7b982d140962a1ceaa2d8f6a, type: 3}
       rate: 100
-  - minSpawnTimer: 1
-    maxSpawnTimer: 1.5
+  - minSpawnTimer: 0.8
+    maxSpawnTimer: 1
     enemySpawnRates:
     - enemy: {fileID: 6869661145523149589, guid: 1f00caa268bec4447acf83ae576a7bb3, type: 3}
       rate: 40
     - enemy: {fileID: 8371416313282000803, guid: b7a2315f7b982d140962a1ceaa2d8f6a, type: 3}
       rate: 100
-  - minSpawnTimer: 0.8
-    maxSpawnTimer: 1
+  - minSpawnTimer: 0.6
+    maxSpawnTimer: 0.8
     enemySpawnRates:
     - enemy: {fileID: 6869661145523149589, guid: 268eccb80ea8ed746a13ec70e61a6e49, type: 3}
       rate: 40
