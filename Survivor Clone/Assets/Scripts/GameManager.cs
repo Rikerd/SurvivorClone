@@ -26,7 +26,12 @@ public class GameManager : MonoBehaviour
     public EnemySpawnerController enemySpawnerController;
     public static GameManager Instance;
 
+    public List<Image> weaponHUDUI;
+
+    [Header("Level Up Panel Properties")]
     public GameObject levelUpPanel;
+    public List<Image> levelUpPanelIcons;
+    public GameObject levelUpButtonPanel;
 
     private int playerKillCount = 0;
 
@@ -41,11 +46,13 @@ public class GameManager : MonoBehaviour
 
     private int enemyDifficulty = 0;
 
+    private int currentWeaponHudUIIndex = 0;
+
     // Start is called before the first frame update
     private void Start()
     {
         levelUpPanel.SetActive(false);
-        levelUpPanelButtons = levelUpPanel.GetComponentsInChildren<Button>();
+        levelUpPanelButtons = levelUpButtonPanel.GetComponentsInChildren<Button>();
 
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
 
@@ -134,6 +141,9 @@ public class GameManager : MonoBehaviour
 
     private void PopulateLevelUpButtonWithPowerUps(LevelUpButtonInfo powerUpInfo)
     {
+        Image currentLevelUpPanelIcon = levelUpPanelIcons[currentLevelUpButtonIndex];
+        currentLevelUpPanelIcon.sprite = null;
+
         Button currentLevelUpButton = levelUpPanelButtons[currentLevelUpButtonIndex];
         currentLevelUpButton.onClick.RemoveAllListeners();
 
@@ -146,22 +156,32 @@ public class GameManager : MonoBehaviour
 
     private void PopulateLevelUpButtonWithWeapon(Weapon weapon)
     {
+        Image currentLevelUpPanelIcon = levelUpPanelIcons[currentLevelUpButtonIndex];
+        currentLevelUpPanelIcon.sprite = weapon.levelUpInfo.uiSprite;
+
         Button currentLevelUpButton = levelUpPanelButtons[currentLevelUpButtonIndex];
         currentLevelUpButton.onClick.RemoveAllListeners();
 
-        string nameText = weapon.levelUpInfo.upgradeName;
+        string levelText = "Lv. " + (weapon.GetCurrentWeaponLevel() + 1);
+        string weaponName = weapon.levelUpInfo.upgradeName;
+        string weaponDescription = weapon.levelUpInfo.description;
 
         if (weapon.gameObject.activeSelf)
         {
             currentLevelUpButton.onClick.AddListener(weapon.LevelUpWeapon);
+            levelText += " -> Lv. " + (weapon.GetCurrentWeaponLevel() + 2);
         }
         else
         {
             currentLevelUpButton.onClick.AddListener(weapon.ActivateWeapon);
         }
 
-        currentLevelUpButton.GetComponentInChildren<TMP_Text>().SetText(nameText);
+        string finalText = levelText + " " + weaponName + "\n" + weaponDescription;
+
+        currentLevelUpButton.GetComponentInChildren<TMP_Text>().SetText(finalText);
         currentLevelUpButton.onClick.AddListener(CloseLevelUpPanel);
+
+
     }
 
     private void CloseLevelUpPanel()
@@ -173,5 +193,11 @@ public class GameManager : MonoBehaviour
     public float GetPlayerCritChance()
     {
         return playerController.GetCritChance();
+    }
+
+    public void UpdateWeaponHUDUI(Sprite sprite)
+    {
+        weaponHUDUI[currentWeaponHudUIIndex].sprite = sprite;
+        currentWeaponHudUIIndex++;
     }
 }

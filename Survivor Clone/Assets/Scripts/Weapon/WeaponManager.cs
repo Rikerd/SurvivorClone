@@ -20,6 +20,10 @@ public class WeaponManager : MonoBehaviour
             {
                 weapon.DisableWeapon();
             }
+            else
+            {
+                weapon.ActivateWeapon();
+            }
         }
     }
 

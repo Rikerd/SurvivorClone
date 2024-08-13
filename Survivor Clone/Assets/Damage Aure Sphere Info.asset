@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Fire Aura
   description: TEST FIRE
+  uiSprite: {fileID: 21300000, guid: b75e9ef5cda770c4da155c8dabab0a7e, type: 3}

@@ -8,4 +8,6 @@ public class LevelUpInfo : ScriptableObject
 {
     public string upgradeName;
     public string description;
+
+    public Sprite uiSprite;
 }

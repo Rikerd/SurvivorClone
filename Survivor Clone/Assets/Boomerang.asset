@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Boomerang
   description: TEST BOOMERANG
+  uiSprite: {fileID: 21300000, guid: 7d5b66b6eacd41d45be7e33729ab30c7, type: 3}

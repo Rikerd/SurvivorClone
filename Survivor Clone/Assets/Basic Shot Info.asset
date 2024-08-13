@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63ffa2690916e834d9f93048097e7508, type: 3}
   m_Name: Basic Shot Info
   m_EditorClassIdentifier: 
-  upgradeName: Machine Gun
+  upgradeName: Pistol
   description: TEST BASIC
+  uiSprite: {fileID: 21300000, guid: bc8f30bba53d6e043b6759e161d6d93c, type: 3}
