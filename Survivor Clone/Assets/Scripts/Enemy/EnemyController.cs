@@ -65,18 +65,18 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
         MoveEnemy(Vector3.MoveTowards(transform.position, player.transform.position, movementSpeed * Time.fixedDeltaTime));
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.collider.tag == "Player")
         {
             isCollidingWithPlayer = true;
             currentCollisionDamageDelayTimer = 0f;
         }
     }
 
-    public void OnTriggerExit2D(Collider2D collision)
+    public void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.collider.tag == "Player")
         {
             isCollidingWithPlayer = false;
         }
