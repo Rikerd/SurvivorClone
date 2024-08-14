@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour, IDamageable
 {
@@ -21,6 +22,8 @@ public class PlayerController : MonoBehaviour, IDamageable
     private PlayerInput playerInput;
     private InputAction movementAction;
 
+    private Slider onPlayerHealthBar;
+
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -33,11 +36,16 @@ public class PlayerController : MonoBehaviour, IDamageable
         movementSpeed = playerStat.movementSpeed;
 
         critChance = playerStat.critChance;
+
+        onPlayerHealthBar = GetComponentInChildren<Slider>();
     }
 
     private void Start()
     {
         HUDManager.Instance.UpdateHealthValue(currentHealth, maxHealth);
+
+        onPlayerHealthBar.maxValue = maxHealth;
+        onPlayerHealthBar.value = currentHealth;
     }
 
     // Update is called once per frame
@@ -85,6 +93,8 @@ public class PlayerController : MonoBehaviour, IDamageable
             Death();
         }
         HUDManager.Instance.UpdateHealthValue(currentHealth, maxHealth);
+        onPlayerHealthBar.maxValue = maxHealth;
+        onPlayerHealthBar.value = currentHealth;
     }
 
     public void HealHealth(int healAmount)
@@ -96,6 +106,8 @@ public class PlayerController : MonoBehaviour, IDamageable
             currentHealth = maxHealth;
         }
         HUDManager.Instance.UpdateHealthValue(currentHealth, maxHealth);
+        onPlayerHealthBar.maxValue = maxHealth;
+        onPlayerHealthBar.value = currentHealth;
     }
 
     public void Death()
@@ -126,6 +138,8 @@ public class PlayerController : MonoBehaviour, IDamageable
         maxHealth += playerStat.healthRate;
         currentHealth += playerStat.healthRate;
         HUDManager.Instance.UpdateHealthValue(currentHealth, maxHealth);
+        onPlayerHealthBar.maxValue = maxHealth;
+        onPlayerHealthBar.value = currentHealth;
     }
 
     public void LevelUpPlayerMovementSpeed()

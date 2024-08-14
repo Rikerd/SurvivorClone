@@ -22,6 +22,9 @@ public class Crate : MonoBehaviour, IDamageable
 
     private List<Drops> drops;
 
+    private SpriteRenderer spriteRenderer;
+    private BoxCollider2D boxCollider;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +36,9 @@ public class Crate : MonoBehaviour, IDamageable
         drops = crateStat.drops;
 
         isAlive = true;
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        boxCollider = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -49,6 +55,9 @@ public class Crate : MonoBehaviour, IDamageable
             isAlive = true;
 
             currentHealth = maxHealth;
+            gameObject.tag = "Enemy";
+            spriteRenderer.enabled = true;
+            boxCollider.enabled = true;
 
             currentSpawnTimer = UnityEngine.Random.Range(minSpawnTimer, maxSpawnTimer);
         }
@@ -89,7 +98,9 @@ public class Crate : MonoBehaviour, IDamageable
             }
         }
 
-        gameObject.SetActive(false);
+        gameObject.tag = "Untagged";
+        spriteRenderer.enabled = false;
+        boxCollider.enabled = false;
         isAlive = false;
     }
     #endregion Health Functions
