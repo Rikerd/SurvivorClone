@@ -9,5 +9,13 @@ public class BreakableStats : ScriptableObject
     public int maxHealth;
 
     [SerializeField]
-    public List<Drops> drops;
+    public List<MultipleDrops> drops;
+}
+
+[Serializable]
+public class MultipleDrops : Drops
+{
+    public bool spreadDrop;
+    public int minDropAmount;
+    public int maxDropAmount;
 }

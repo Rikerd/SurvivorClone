@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2420340912265317735}
   m_Layer: 0
   m_Name: Small Exp
-  m_TagString: Experience
+  m_TagString: Drawable Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,5 +161,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e31a0fd4db78d429ce456f8d9c3e5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exp: 1
   movementSpeed: 10
+  exp: 1

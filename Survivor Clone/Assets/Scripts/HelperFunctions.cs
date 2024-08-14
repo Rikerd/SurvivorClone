@@ -16,4 +16,10 @@ public static class HelperFunctions
             list[randomIndex] = temp;
         }
     }
+
+    public static Vector2 RandomUnitVector()
+    {
+        float random = Random.Range(0f, 260f);
+        return new Vector2(Mathf.Cos(random), Mathf.Sin(random));
+    }
 }

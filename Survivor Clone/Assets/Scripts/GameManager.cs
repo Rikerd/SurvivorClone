@@ -48,6 +48,8 @@ public class GameManager : MonoBehaviour
 
     private int currentWeaponHudUIIndex = 0;
 
+    private int currentCoinEarned = 0;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -202,5 +204,11 @@ public class GameManager : MonoBehaviour
     {
         weaponHUDUI[currentWeaponHudUIIndex].sprite = sprite;
         currentWeaponHudUIIndex++;
+    }
+
+    public void EarnCoin()
+    {
+        currentCoinEarned++;
+        HUDManager.Instance.UpdateCoinValue(currentCoinEarned);
     }
 }

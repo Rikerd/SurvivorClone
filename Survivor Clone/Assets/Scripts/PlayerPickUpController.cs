@@ -6,9 +6,9 @@ public class PlayerPickUpController : MonoBehaviour
 {
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Experience")
+        if (collision.tag == "Drawable Pickup")
         {
-            collision.GetComponent<ExperiencePickUp>().StartMovement();
+            collision.GetComponent<DrawablePickup>().StartMovement();
         }
     }
 }

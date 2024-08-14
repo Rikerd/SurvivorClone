@@ -20,7 +20,7 @@ public class Crate : MonoBehaviour, IDamageable
 
     private float currentSpawnTimer = 0f;
 
-    private List<Drops> drops;
+    private List<MultipleDrops> drops;
 
     private SpriteRenderer spriteRenderer;
     private BoxCollider2D boxCollider;
@@ -88,12 +88,32 @@ public class Crate : MonoBehaviour, IDamageable
 
     public void Death()
     {
-        float rand = Random.Range(0, 100);
-        foreach (Drops drop in drops)
+        float randDropRate = Random.Range(0, 100);
+
+        bool dropSpawned = false;
+        foreach (MultipleDrops drop in drops)
         {
-            if (rand <= drop.rate && drop.rate != 0)
+            if (randDropRate <= drop.rate && drop.rate != 0)
             {
-                Instantiate(drop.item, transform.position, Quaternion.identity);
+                int numToSpawn = Random.Range(drop.minDropAmount, drop.maxDropAmount);
+
+                for (int spawnAmount = 0; spawnAmount < numToSpawn; spawnAmount++)
+                {
+                    Vector3 spread = Vector3.zero;
+
+                    if (drop.spreadDrop)
+                    {
+                        spread = HelperFunctions.RandomUnitVector();
+                    }
+
+                    Instantiate(drop.item, transform.position + spread, Quaternion.identity);
+
+                    dropSpawned = true;
+                }
+            }
+
+            if (dropSpawned)
+            {
                 break;
             }
         }

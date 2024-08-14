@@ -11,6 +11,8 @@ public class HUDManager : MonoBehaviour
 
     public TMP_Text killCountText;
 
+    public TMP_Text coinText;
+
     public TMP_Text timerText;
 
     public Slider expSlider;
@@ -65,6 +67,11 @@ public class HUDManager : MonoBehaviour
     public void UpdateKillCountValue(int count)
     {
         killCountText.SetText("Kills: " + count.ToString());
+    }
+
+    public void UpdateCoinValue(int count)
+    {
+        coinText.SetText("Coins: " + count.ToString());
     }
 
     public void UpdateTimeValue(float time)

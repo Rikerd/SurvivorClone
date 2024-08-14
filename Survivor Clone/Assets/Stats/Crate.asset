@@ -15,4 +15,12 @@ MonoBehaviour:
   maxHealth: 10
   drops:
   - item: {fileID: 1094633095928340844, guid: 67b62d302336d9c4dbc3d69c2235556b, type: 3}
+    rate: 10
+    spreadDrop: 0
+    minDropAmount: 1
+    maxDropAmount: 1
+  - item: {fileID: 858052334176538516, guid: 9244acd826d86a94797411dcbaed9bb5, type: 3}
     rate: 100
+    spreadDrop: 1
+    minDropAmount: 5
+    maxDropAmount: 10
