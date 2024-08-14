@@ -11,7 +11,7 @@ public class DamageAuraSphere : Weapon
     {
         SetMaxCooldown(auraStat.levelStats[currentWeaponLevel].maxCooldown);
 
-        transform.localScale = new Vector2(auraStat.levelStats[0].radius, auraStat.levelStats[0].radius) * 2;
+        transform.localScale = new Vector2(auraStat.levelStats[currentWeaponLevel].radius, auraStat.levelStats[currentWeaponLevel].radius) * 2;
     }
 
     // Update is called once per frame
