@@ -79,13 +79,23 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         currentHealth -= damageAmount;
 
-        HUDManager.Instance.UpdateHealthValue(currentHealth, maxHealth);
-
         if (currentHealth <= 0 )
         {
             currentHealth = 0;
             Death();
         }
+        HUDManager.Instance.UpdateHealthValue(currentHealth, maxHealth);
+    }
+
+    public void HealHealth(int healAmount)
+    {
+        currentHealth += healAmount;
+
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        HUDManager.Instance.UpdateHealthValue(currentHealth, maxHealth);
     }
 
     public void Death()

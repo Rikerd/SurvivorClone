@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class EnemySpawnerController : MonoBehaviour
 {
-    public float minSpawnTimer = 1f;
-    public float maxSpawnTimer = 2f;
-
     public LevelEnemySpawners enemySpawnerInfo;
 
     private float currentSpawnTimer = 0f;
