@@ -80,6 +80,14 @@ public class EnemySpawnerController : MonoBehaviour
         }
     }
 
+    public void SpawnEnemyMob()
+    {
+        Vector2 positionWorldPoint = FindWorldPositionToSpawn();
+        int randomEnemyMobIndex = UnityEngine.Random.Range(0, enemySpawnerInfo.enemyMob.Count() - 1);
+        GameObject enemyMob = enemySpawnerInfo.enemyMob[randomEnemyMobIndex];
+        Instantiate(enemyMob, positionWorldPoint, Quaternion.identity);
+    }
+
     private GameObject ChooseEnemyByRates()
     {
         List<EnemySpawnRates> enemySpawnRates = enemySpawnerInfo.spawnPatterns[currentSpawnPattern].enemySpawnRates;

@@ -37,4 +37,11 @@ public class DamageAuraSphere : Weapon
         transform.localScale = new Vector2(auraStat.levelStats[currentWeaponLevel].radius, auraStat.levelStats[currentWeaponLevel].radius) * 2;
         SetMaxCooldown(auraStat.levelStats[currentWeaponLevel].maxCooldown);
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+
+        Gizmos.DrawWireSphere(transform.position, auraStat.levelStats[currentWeaponLevel].radius);
+    }
 }

@@ -9,6 +9,8 @@ public class LevelEnemySpawners : ScriptableObject
     public List<SpawnPattern> spawnPatterns;
 
     public List<MiniBossSpawnData> miniBossSpawns;
+
+    public List<GameObject> enemyMob;
 }
 
 [Serializable]

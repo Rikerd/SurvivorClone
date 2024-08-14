@@ -21,14 +21,11 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
 
     private bool isCollidingWithPlayer = false;
     private float currentCollisionDamageDelayTimer;
-    private float movementSpeed;
-
-    private int damage;
 
     private List<Drops> drops;
 
     // Start is called before the first frame update
-    private void Start()
+    protected virtual void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
 
@@ -38,10 +35,6 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
         isCollidingWithPlayer = false;
 
         drops = enemyStat.drops.OrderBy(x => x.rate).ToList();
-
-        damage = enemyStat.damage;
-
-        movementSpeed = enemyStat.movementSpeed;
     }
 
     private void Update()
@@ -50,7 +43,7 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
         {
             if (currentCollisionDamageDelayTimer <= 0)
             {
-                player.GetComponent<IDamageable>().DamageHealth(damage);
+                player.GetComponent<IDamageable>().DamageHealth(enemyStat.damage);
                 currentCollisionDamageDelayTimer = collisionDamageDelayTimer;
             }
             else
@@ -60,9 +53,9 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
         }
     }
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
-        MoveEnemy(Vector3.MoveTowards(transform.position, player.transform.position, movementSpeed * Time.fixedDeltaTime));
+        MoveEnemy(Vector3.MoveTowards(transform.position, player.transform.position, enemyStat.movementSpeed * Time.fixedDeltaTime));
     }
 
     public void OnCollisionEnter2D(Collision2D collision)

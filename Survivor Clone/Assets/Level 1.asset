@@ -51,3 +51,5 @@ MonoBehaviour:
     numToSpawn: 2
   - miniBoss: {fileID: 6869661145523149589, guid: e28a437b0e4fb2c4ea20d39dd04f51ab, type: 3}
     numToSpawn: 3
+  enemyMob:
+  - {fileID: 3503081682285758090, guid: 820036eb639c266499ed44d412d91cab, type: 3}

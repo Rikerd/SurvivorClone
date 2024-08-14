@@ -46,6 +46,8 @@ public class GameManager : MonoBehaviour
 
     private int enemyDifficulty = 0;
 
+    private int mobSpawn = 0;
+
     private int currentWeaponHudUIIndex = 0;
 
     private int currentCoinEarned = 0;
@@ -97,11 +99,18 @@ public class GameManager : MonoBehaviour
     {
         currentGameTime += Time.deltaTime;
         HUDManager.Instance.UpdateTimeValue(currentGameTime);
-        enemyDifficulty = Mathf.FloorToInt(currentGameTime / 60);
+        enemyDifficulty = Mathf.FloorToInt(currentGameTime / 90);
         enemySpawnerController.UpdateSpawnPattern(enemyDifficulty);
 
-        int miniBossPatternToSpawn = Mathf.FloorToInt(currentGameTime / 30);
+        int miniBossPatternToSpawn = Mathf.FloorToInt(currentGameTime / 60);
         enemySpawnerController.CheckToSpawnMiniBoss(miniBossPatternToSpawn);
+
+        int currentMobSpawn = Mathf.FloorToInt(currentGameTime / 30);
+        if (currentMobSpawn > mobSpawn)
+        {
+            mobSpawn = currentMobSpawn;
+            enemySpawnerController.SpawnEnemyMob();
+        }
     }
 
     public void TriggerDeathSequence()
