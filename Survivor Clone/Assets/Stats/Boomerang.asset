@@ -19,15 +19,20 @@ MonoBehaviour:
   - damage: 20
     maxCooldown: 4
     projectileCount: 1
+    pierceAmount: -1
   - damage: 40
     maxCooldown: 3.5
     projectileCount: 1
+    pierceAmount: -1
   - damage: 60
     maxCooldown: 3.5
     projectileCount: 2
+    pierceAmount: -1
   - damage: 70
     maxCooldown: 3
     projectileCount: 3
+    pierceAmount: -1
   - damage: 100
     maxCooldown: 2
     projectileCount: 3
+    pierceAmount: -1

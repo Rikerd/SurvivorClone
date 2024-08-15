@@ -41,7 +41,7 @@ public class BasicWeapon : Weapon
         {
             GameObject projectile = Instantiate(projectileStat.projectile, aimController.parent.position, lastAimRotation);
             Projectile projectileScript = projectile.GetComponent<Projectile>();
-            projectileScript.SetValues(currentLevelStats.damage, projectileStat.movementSpeed, projectileStat.canCrit);
+            projectileScript.SetValues(currentLevelStats.damage, projectileStat.movementSpeed, projectileStat.canCrit, currentLevelStats.pierceAmount);
             yield return new WaitForSeconds(tripleProjectileWaitTime);
         }
     }

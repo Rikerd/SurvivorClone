@@ -16,4 +16,7 @@ public class ProjectileStats : WeaponStats
 public class ProjectileLevelStats : WeaponLevelStats
 {
     public int projectileCount;
+
+    [Tooltip("Set to -1 if always piercing")]
+    public int pierceAmount;
 }

@@ -37,7 +37,7 @@ public class BoomerangController : Weapon
                 Quaternion rotation  = Quaternion.LookRotation(Vector3.forward, closestEnemies[i].Item1 - transform.position);
                 GameObject projectile = Instantiate(projectileStat.projectile, transform.parent.position, rotation);
                 Projectile projectileScript = projectile.GetComponent<Projectile>();
-                projectileScript.SetValues(currentLevelStats.damage, projectileStat.movementSpeed, projectileStat.canCrit);
+                projectileScript.SetValues(currentLevelStats.damage, projectileStat.movementSpeed, projectileStat.canCrit, currentLevelStats.pierceAmount);
             }
         }
     }
