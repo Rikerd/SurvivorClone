@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
 
     public List<Image> weaponHUDUI;
 
+    public GameObject gameOverPanel;
+
     [Header("Level Up Panel Properties")]
     public GameObject levelUpPanel;
     public List<Image> levelUpPanelIcons;
@@ -59,6 +61,8 @@ public class GameManager : MonoBehaviour
         levelUpPanelButtons = levelUpButtonPanel.GetComponentsInChildren<Button>();
 
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+
+        gameOverPanel.SetActive(false);
 
         levelUpButtonInfos = new List<LevelUpButtonInfo>
         {
@@ -115,7 +119,8 @@ public class GameManager : MonoBehaviour
 
     public void TriggerDeathSequence()
     {
-        SceneManager.LoadScene(0);
+        Time.timeScale = 0;
+        gameOverPanel.SetActive(true);
     }
 
     public void IncrementKillCount()
