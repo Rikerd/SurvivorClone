@@ -13,4 +13,24 @@ MonoBehaviour:
   m_Name: Poison
   m_EditorClassIdentifier: 
   canCrit: 0
-  levelStats: []
+  levelStats:
+  - damage: 15
+    maxCooldown: 0.5
+    radius: 3
+    lifeTime: 3
+  - damage: 20
+    maxCooldown: 0.5
+    radius: 3
+    lifeTime: 4
+  - damage: 30
+    maxCooldown: 0.5
+    radius: 4
+    lifeTime: 4
+  - damage: 35
+    maxCooldown: 0.5
+    radius: 4
+    lifeTime: 5
+  - damage: 40
+    maxCooldown: 0.5
+    radius: 5
+    lifeTime: 5
