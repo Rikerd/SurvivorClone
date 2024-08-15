@@ -14,7 +14,9 @@ public class EnemyMobSpawner : MonoBehaviour
         for (int enemySpawn = 0; enemySpawn < numOfEnemyToSpawn; enemySpawn++)
         {
             Vector3 randomPosition = Random.insideUnitSphere * radius;
-            Instantiate(enemy, transform.position + randomPosition, Quaternion.identity);
+            GameObject mobEnemy = Instantiate(enemy, transform.position + randomPosition, Quaternion.identity);
+            MobEnemyController mobEnemyController = mobEnemy.GetComponent<MobEnemyController>();
+            mobEnemyController.SetOffsetAmount(randomPosition);
         }
     }
 
