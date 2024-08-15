@@ -38,6 +38,14 @@ public class DamageAuraSphere : Weapon
         SetMaxCooldown(auraStat.levelStats[currentWeaponLevel].maxCooldown);
     }
 
+    public void SetWeaponLevel(int level)
+    {
+        currentWeaponLevel = level;
+
+        transform.localScale = new Vector2(auraStat.levelStats[currentWeaponLevel].radius, auraStat.levelStats[currentWeaponLevel].radius) * 2;
+        SetMaxCooldown(auraStat.levelStats[currentWeaponLevel].maxCooldown);
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
