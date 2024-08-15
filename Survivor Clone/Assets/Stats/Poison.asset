@@ -26,11 +26,11 @@ MonoBehaviour:
     maxCooldown: 0.75
     radius: 3.5
     lifeTime: 4
-  - damage: 35
+  - damage: 14
     maxCooldown: 0.75
-    radius: 4
-    lifeTime: 5
-  - damage: 40
+    radius: 3.5
+    lifeTime: 4
+  - damage: 18
     maxCooldown: 0.6
-    radius: 5
-    lifeTime: 5
+    radius: 3.5
+    lifeTime: 4

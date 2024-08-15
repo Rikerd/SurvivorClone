@@ -13,20 +13,25 @@ MonoBehaviour:
   m_Name: BombSpawner
   m_EditorClassIdentifier: 
   canCrit: 0
+  spawnObject: {fileID: 5574015216601107394, guid: 2e88aa8c25ae467488a9d502f059f602, type: 3}
   levelStats:
-  - damage: 50
-    maxCooldown: 3
-    radius: 2.5
-  - damage: 60
-    maxCooldown: 2.8
-    radius: 2.5
-  - damage: 70
-    maxCooldown: 2.6
-    radius: 2.5
-  - damage: 80
-    maxCooldown: 2.2
-    radius: 2.5
-  - damage: 90
+  - damage: 19
     maxCooldown: 2
     radius: 2.5
-  spawnObject: {fileID: 5574015216601107394, guid: 2e88aa8c25ae467488a9d502f059f602, type: 3}
+    spawnAmount: 1
+  - damage: 19
+    maxCooldown: 2
+    radius: 2.5
+    spawnAmount: 1
+  - damage: 19
+    maxCooldown: 2
+    radius: 2.5
+    spawnAmount: 2
+  - damage: 22
+    maxCooldown: 2
+    radius: 2.5
+    spawnAmount: 2
+  - damage: 22
+    maxCooldown: 1.6
+    radius: 2.5
+    spawnAmount: 3

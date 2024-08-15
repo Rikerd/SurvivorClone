@@ -12,6 +12,10 @@ public class DamageTextFader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Vector3 spread = HelperFunctions.RandomUnitVector() * 0.1f;
+
+        transform.position += spread;
+
         text = GetComponent<TMP_Text>();
     }
 
