@@ -19,10 +19,14 @@ public class PoisonPotionController : Weapon
 
         if (cooldownComplete)
         {
-            Vector3 spread = HelperFunctions.RandomUnitVector() * poisonStat.levelStats[currentWeaponLevel].radius;
+            AuraSpawnerLevelStats currentWeaponLevelStat = poisonStat.levelStats[currentWeaponLevel];
+            for (int numToSpawn = 0; numToSpawn < currentWeaponLevelStat.spawnAmount; numToSpawn++)
+            {
+                Vector3 spread = HelperFunctions.RandomUnitVector() * currentWeaponLevelStat.radius;
 
-            GameObject poison = Instantiate(poisonStat.spawnObject, transform.position + spread, Quaternion.identity);
-            poison.GetComponent<PoisonPotion>().SetWeaponLevel(currentWeaponLevel);
+                GameObject poison = Instantiate(poisonStat.spawnObject, transform.position + spread, Quaternion.identity);
+                poison.GetComponent<PoisonPotion>().SetWeaponLevel(currentWeaponLevel);
+            }
         }
     }
 

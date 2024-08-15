@@ -133,3 +133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aaf0f528f3851640a9e41354056a6f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStarterWeapon: 0
+  levelUpInfo: {fileID: 11400000, guid: d74186b0e3c178545ad0904043d4db08, type: 2}
+  bombStat: {fileID: 11400000, guid: 73b24fe71fdf62e4298885c7677b0b8e, type: 2}

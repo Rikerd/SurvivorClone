@@ -13,20 +13,25 @@ MonoBehaviour:
   m_Name: PoisonPotionSpawnStats
   m_EditorClassIdentifier: 
   canCrit: 0
-  levelStats:
-  - damage: 15
-    maxCooldown: 4
-    radius: 4
-  - damage: 20
-    maxCooldown: 4
-    radius: 4
-  - damage: 25
-    maxCooldown: 4
-    radius: 4
-  - damage: 30
-    maxCooldown: 4
-    radius: 4
-  - damage: 35
-    maxCooldown: 4
-    radius: 4
   spawnObject: {fileID: 8847591831448578474, guid: c3a1d19458a5cec4498df2d36d7d14e8, type: 3}
+  levelStats:
+  - damage: 10
+    maxCooldown: 5
+    radius: 4
+    spawnAmount: 1
+  - damage: 10
+    maxCooldown: 5
+    radius: 4
+    spawnAmount: 2
+  - damage: 10
+    maxCooldown: 5
+    radius: 4
+    spawnAmount: 3
+  - damage: 18
+    maxCooldown: 5
+    radius: 4
+    spawnAmount: 3
+  - damage: 18
+    maxCooldown: 5
+    radius: 4
+    spawnAmount: 4

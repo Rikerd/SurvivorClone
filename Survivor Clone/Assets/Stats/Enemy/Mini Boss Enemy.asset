@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f212702adc3d4964abb10115c88bc2ce, type: 3}
   m_Name: Mini Boss Enemy
   m_EditorClassIdentifier: 
-  maxHealth: 1000
-  movementSpeed: 2.2
-  damage: 25
+  maxHealth: 2200
+  movementSpeed: 1.1
+  damage: 12
   drops:
   - item: {fileID: 1094633095928340844, guid: 6a49bb2b430fac54b9dad714ac34456c, type: 3}
     rate: 100

@@ -34,6 +34,8 @@ public class BasicWeapon : Weapon
 
     private IEnumerator SpawnTripleProjectile()
     {
+        SetPauseCooldown(true);
+
         Quaternion lastAimRotation = aimController.rotation;
         ProjectileLevelStats currentLevelStats = projectileStat.levelStats[currentWeaponLevel];
 
@@ -44,6 +46,8 @@ public class BasicWeapon : Weapon
             projectileScript.SetValues(currentLevelStats.damage, projectileStat.movementSpeed, projectileStat.canCrit, currentLevelStats.pierceAmount);
             yield return new WaitForSeconds(tripleProjectileWaitTime);
         }
+
+        SetPauseCooldown(false);
     }
 
     public override void LevelUpWeapon()

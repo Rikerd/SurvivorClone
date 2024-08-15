@@ -13,26 +13,26 @@ MonoBehaviour:
   m_Name: Dagger
   m_EditorClassIdentifier: 
   canCrit: 1
-  movementSpeed: 8
+  movementSpeed: 10.5
   projectile: {fileID: 1277877998668816505, guid: ec116a8f9df55d64b86b47304ec0577c, type: 3}
   levelStats:
-  - damage: 45
-    maxCooldown: 1.5
-    projectileCount: 1
-    pierceAmount: -1
-  - damage: 60
-    maxCooldown: 1.5
-    projectileCount: 2
-    pierceAmount: -1
-  - damage: 75
-    maxCooldown: 1.5
+  - damage: 14
+    maxCooldown: 2
     projectileCount: 3
     pierceAmount: -1
-  - damage: 90
-    maxCooldown: 1.5
-    projectileCount: 4
-    pierceAmount: -1
-  - damage: 105
-    maxCooldown: 1.5
+  - damage: 14
+    maxCooldown: 2
     projectileCount: 5
+    pierceAmount: -1
+  - damage: 16
+    maxCooldown: 1.75
+    projectileCount: 5
+    pierceAmount: -1
+  - damage: 16
+    maxCooldown: 1.5
+    projectileCount: 7
+    pierceAmount: -1
+  - damage: 18
+    maxCooldown: 1.5
+    projectileCount: 9
     pierceAmount: -1

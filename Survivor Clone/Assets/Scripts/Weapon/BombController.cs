@@ -19,9 +19,14 @@ public class BombController : Weapon
 
         if (cooldownComplete)
         {
-            GameObject bomb = Instantiate(bombStat.spawnObject, transform.position, Quaternion.identity);
-            Bomb bombComponent = bomb.GetComponent<Bomb>();
-            bombComponent.SetDamage(bombStat.levelStats[currentWeaponLevel].damage);
+            AuraSpawnerLevelStats currentWeaponLevelStat = bombStat.levelStats[currentWeaponLevel];
+            for (int numToSpawn = 0; numToSpawn < currentWeaponLevelStat.spawnAmount; numToSpawn++)
+            {
+                Vector3 spread = HelperFunctions.RandomUnitVector() * currentWeaponLevelStat.radius;
+
+                GameObject bomb = Instantiate(bombStat.spawnObject, transform.position + spread, Quaternion.identity);
+                bomb.GetComponent<Bomb>().SetWeaponLevel(currentWeaponLevel);
+            }
         }
     }
 

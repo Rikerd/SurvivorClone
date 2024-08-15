@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Boomerang : Projectile
 {
     public float maxDistance = 5f;
     private Vector3 originalStart = Vector3.zero;
+    private Vector2 directionOfPlayer = Vector2.zero;
     private GameObject player;
     private bool maxDistanceReached = false;
 
@@ -15,6 +17,8 @@ public class Boomerang : Projectile
         rb2d = GetComponent<Rigidbody2D>();
 
         originalStart = transform.position;
+
+        directionOfPlayer = Vector2.zero;
 
         maxDistanceReached = false;
     }
@@ -33,6 +37,8 @@ public class Boomerang : Projectile
             if (distance >= maxDistance)
             {
                 maxDistanceReached = true;
+                directionOfPlayer = (player.transform.position - transform.position).normalized;
+                isDestroyOnInvisible = true;
                 return;
             }
 
@@ -41,14 +47,8 @@ public class Boomerang : Projectile
         }
         else
         {
-            rb2d.MovePosition(Vector2.MoveTowards(transform.position, player.transform.position, projectileSpeed * Time.fixedDeltaTime));
-
-            float playerDistance = Vector3.Distance(player.transform.position, transform.position);
-
-            if (playerDistance < 0.1f)
-            {
-                Destroy(gameObject);
-            }
+            //rb2d.MovePosition(Vector2.MoveTowards(transform.position, player.transform.position, projectileSpeed * Time.fixedDeltaTime));
+            rb2d.MovePosition(rb2d.position + directionOfPlayer * projectileSpeed * Time.fixedDeltaTime);
         }
     }
 }

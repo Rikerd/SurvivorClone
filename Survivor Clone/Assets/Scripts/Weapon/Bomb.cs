@@ -2,22 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bomb : MonoBehaviour
+public class Bomb : Weapon
 {
-    private int damage;
+    public AuraStats bombStat;
 
-    public void SetDamage(int dmg)
+    private void Start()
     {
-        damage = dmg;
+        SetMaxCooldown(bombStat.levelStats[currentWeaponLevel].maxCooldown);
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    private void Update()
     {
-        if (collision.tag == "Enemy")
+        bool cooldownComplete = base.UpdateCooldownTimer();
+
+        if (cooldownComplete)
         {
-            collision.GetComponent<IDamageable>().DamageHealth(damage);
+            AuraLevelStats currentLevelStats = bombStat.levelStats[currentWeaponLevel];
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, currentLevelStats.radius, LayerMask.GetMask("Enemy"));
+            foreach (Collider2D collider in colliders)
+            {
+                collider.GetComponent<IDamageable>().DamageHealth(currentLevelStats.damage);
+            }
 
             Destroy(gameObject);
         }
+    }
+
+    public void SetWeaponLevel(int level)
+    {
+        currentWeaponLevel = level;
+
+        SetMaxCooldown(bombStat.levelStats[currentWeaponLevel].maxCooldown);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.gray;
+
+        Gizmos.DrawWireSphere(transform.position, bombStat.levelStats[currentWeaponLevel].radius);
     }
 }

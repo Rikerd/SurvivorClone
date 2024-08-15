@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using static UnityEditor.ShaderData;
 
@@ -11,12 +12,14 @@ public class Weapon : MonoBehaviour
     private float currentCooldown;
     private float maxCooldown;
 
+    protected bool pauseCooldown;
+
     protected int currentWeaponLevel = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        pauseCooldown = false;
     }
 
     private void Awake()
@@ -30,6 +33,11 @@ public class Weapon : MonoBehaviour
 
     public bool UpdateCooldownTimer()
     {
+        if (pauseCooldown)
+        {
+            return false;
+        }
+
         if (currentCooldown <= 0f)
         {
             currentCooldown = maxCooldown;
@@ -68,5 +76,10 @@ public class Weapon : MonoBehaviour
     public int GetCurrentWeaponLevel()
     {
         return currentWeaponLevel;
+    }
+
+    public void SetPauseCooldown(bool isPaused)
+    {
+        pauseCooldown = isPaused;
     }
 }
