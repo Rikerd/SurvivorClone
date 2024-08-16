@@ -35,6 +35,23 @@ public class WeaponManager : MonoBehaviour
         }
 
         HelperFunctions.ShuffleList(ref weapons);
-        return weapons.GetRange(0, numOfWeapons);
+
+        List<Weapon> weaponList = new List<Weapon>();
+        int weaponsFound = 0;
+        foreach (Weapon weapon in weapons)
+        {
+            if (weapon.GetCurrentWeaponLevel() < 4)
+            {
+                weaponList.Add(weapon);
+            }
+
+            weaponsFound++;
+
+            if (weaponsFound == numOfWeapons)
+            {
+                break;
+            }
+        }
+        return weaponList;
     }
 }
