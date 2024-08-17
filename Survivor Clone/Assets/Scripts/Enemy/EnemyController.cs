@@ -37,7 +37,7 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
         drops = enemyStat.drops.OrderBy(x => x.rate).ToList();
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if (isCollidingWithPlayer)
         {

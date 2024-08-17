@@ -16,6 +16,8 @@ public class EnemySpawnerController : MonoBehaviour
 
     private enum ScreenEdge { Top, Bottom, Left, Right };
 
+    private GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,8 @@ public class EnemySpawnerController : MonoBehaviour
         }
 
         currentSpawnTimer = UnityEngine.Random.Range(enemySpawnerInfo.spawnPatterns[currentSpawnPattern].minSpawnTimer, enemySpawnerInfo.spawnPatterns[currentSpawnPattern].maxSpawnTimer);
+
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -83,8 +87,14 @@ public class EnemySpawnerController : MonoBehaviour
 
     public void SpawnTimeEventEnemies()
     {
-        Vector2 positionWorldPoint = FindWorldPositionToSpawn();
-        GameObject specialEnemy = enemySpawnerInfo.timeEventSpawn[currentTimeEventSpawn].timeEventEnemy;
+        TimeEventSpawnData currentTimeEventSpawnData = enemySpawnerInfo.timeEventSpawn[currentTimeEventSpawn];
+
+        Vector2 positionWorldPoint = player.transform.position;
+        if (currentTimeEventSpawnData.isRandomSpawnLocation)
+        {
+            positionWorldPoint = FindWorldPositionToSpawn();
+        }
+        GameObject specialEnemy = currentTimeEventSpawnData.timeEventEnemy;
         Instantiate(specialEnemy, positionWorldPoint, Quaternion.identity);
 
         currentTimeEventSpawn++;

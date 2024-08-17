@@ -42,4 +42,5 @@ public class TimeEventSpawnData
 {
     public GameObject timeEventEnemy;
     public float timeEventTimeInSeconds;
+    public bool isRandomSpawnLocation = true;
 }
