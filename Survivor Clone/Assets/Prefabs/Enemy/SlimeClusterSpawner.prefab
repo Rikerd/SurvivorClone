@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3832146190506154672
+--- !u!1 &3503081682285758090
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1507929488091065126}
-  - component: {fileID: 994149596544143129}
+  - component: {fileID: 6342324907546026759}
+  - component: {fileID: 7902099516157092923}
   m_Layer: 0
-  m_Name: EnemySpawner
+  m_Name: SlimeClusterSpawner
   m_TagString: Untagged
-  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1507929488091065126
+--- !u!4 &6342324907546026759
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3832146190506154672}
+  m_GameObject: {fileID: 3503081682285758090}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -5, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &994149596544143129
+--- !u!114 &7902099516157092923
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3832146190506154672}
+  m_GameObject: {fileID: 3503081682285758090}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4060a472638fbcb46b787ab5e09efc5e, type: 3}
+  m_Script: {fileID: 11500000, guid: d21947fe4d04e364994270c3b39aa772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawnerInfo: {fileID: 11400000, guid: abb8272ab9d9ed143ac9a0fa16667e75, type: 2}
+  numOfEnemyToSpawn: 15
+  radius: 2.8
+  enemy: {fileID: 6869661145523149589, guid: 1f00caa268bec4447acf83ae576a7bb3, type: 3}
