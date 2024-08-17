@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6342324907546026759}
   - component: {fileID: 2824603673741407785}
   m_Layer: 0
-  m_Name: EnemyMobSpawner
+  m_Name: BatHordeSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfcc7c10e167cf84599add5b363eaf21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numOfEnemyToSpawn: 20
-  radius: 3
+  numOfEnemyToSpawn: 30
+  radius: 2.8
   enemy: {fileID: 8371416313282000803, guid: c489a48972a1d7847a68d6eacb901ef0, type: 3}

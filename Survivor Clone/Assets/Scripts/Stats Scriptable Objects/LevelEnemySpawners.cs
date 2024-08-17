@@ -10,7 +10,7 @@ public class LevelEnemySpawners : ScriptableObject
 
     public List<MiniBossSpawnData> miniBossSpawns;
 
-    public List<GameObject> specialMobSpawns;
+    public List<TimeEventSpawnData> timeEventSpawn;
 }
 
 [Serializable]
@@ -34,4 +34,12 @@ public class MiniBossSpawnData
 {
     public GameObject miniBoss;
     public int numToSpawn;
+}
+
+
+[Serializable]
+public class TimeEventSpawnData
+{
+    public GameObject timeEventEnemy;
+    public float timeEventTimeInSeconds;
 }

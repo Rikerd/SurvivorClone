@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
     private float currentGameTime = 0f;
 
     private float currentSpawnPatternEndTime;
+    private float currentTimeEventSpawnTime;
 
     private int mobSpawn = 0;
 
@@ -74,6 +75,7 @@ public class GameManager : MonoBehaviour
 
         currentGameTime = 0;
         currentSpawnPatternEndTime = enemySpawnerController.GetCurrentSpawnPatternEndTimer();
+        currentTimeEventSpawnTime = enemySpawnerController.GetCurrentTimeEventSpawnTimer();
     }
 
     private void Awake()
@@ -106,10 +108,16 @@ public class GameManager : MonoBehaviour
         currentGameTime += Time.deltaTime;
         HUDManager.Instance.UpdateTimeValue(currentGameTime);
 
-        if (currentGameTime > currentSpawnPatternEndTime)
+        if (!enemySpawnerController.IsLastSpawnPattern() && currentGameTime > currentSpawnPatternEndTime)
         {
             enemySpawnerController.UpdateSpawnPattern();
             currentSpawnPatternEndTime = enemySpawnerController.GetCurrentSpawnPatternEndTimer();
+        }
+
+        if (!enemySpawnerController.IsLastTimeEventSpawn() && currentGameTime >= currentTimeEventSpawnTime)
+        {
+            enemySpawnerController.SpawnTimeEventEnemies();
+            currentTimeEventSpawnTime = enemySpawnerController.GetCurrentTimeEventSpawnTimer();
         }
 
         //int miniBossPatternToSpawn = Mathf.FloorToInt(currentGameTime / 60);
@@ -119,7 +127,7 @@ public class GameManager : MonoBehaviour
         //if (currentMobSpawn > mobSpawn)
         //{
         //    mobSpawn = currentMobSpawn;
-        //    enemySpawnerController.SpawnEnemyMob();
+        //    enemySpawnerController.SpawnTimeEventEnemies();
         //}
     }
 

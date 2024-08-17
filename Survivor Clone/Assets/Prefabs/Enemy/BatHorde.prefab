@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2383300368929156068}
   - component: {fileID: 2018945925833002191}
   m_Layer: 7
-  m_Name: EnemyMob
+  m_Name: BatHorde
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0e044ca65789b63438302376eba62c58, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5672ea5a1bb0e8242a1b817f360d4cb0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

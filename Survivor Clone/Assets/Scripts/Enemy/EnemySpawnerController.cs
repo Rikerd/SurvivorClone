@@ -8,7 +8,9 @@ public class EnemySpawnerController : MonoBehaviour
     public LevelEnemySpawners enemySpawnerInfo;
 
     private float currentSpawnTimer = 0f;
+
     private int currentSpawnPattern = 0;
+    private int currentTimeEventSpawn = 0;
 
     private int currentMiniBossPattern = 1;
 
@@ -79,12 +81,13 @@ public class EnemySpawnerController : MonoBehaviour
         }
     }
 
-    public void SpawnEnemyMob()
+    public void SpawnTimeEventEnemies()
     {
         Vector2 positionWorldPoint = FindWorldPositionToSpawn();
-        int randomEnemyMobIndex = UnityEngine.Random.Range(0, enemySpawnerInfo.specialMobSpawns.Count() - 1);
-        GameObject enemyMob = enemySpawnerInfo.specialMobSpawns[randomEnemyMobIndex];
-        Instantiate(enemyMob, positionWorldPoint, Quaternion.identity);
+        GameObject specialEnemy = enemySpawnerInfo.timeEventSpawn[currentTimeEventSpawn].timeEventEnemy;
+        Instantiate(specialEnemy, positionWorldPoint, Quaternion.identity);
+
+        currentTimeEventSpawn++;
     }
 
     private GameObject ChooseEnemyByRates()
@@ -136,8 +139,23 @@ public class EnemySpawnerController : MonoBehaviour
         return positionWorldPoint;
     }
 
+    public bool IsLastSpawnPattern()
+    {
+        return currentSpawnPattern == enemySpawnerInfo.spawnPatterns.Count - 1;
+    }
+
     public float GetCurrentSpawnPatternEndTimer()
     {
         return enemySpawnerInfo.spawnPatterns[currentSpawnPattern].patternEndTimeInSeconds;
+    }
+
+    public bool IsLastTimeEventSpawn()
+    {
+        return currentTimeEventSpawn == enemySpawnerInfo.timeEventSpawn.Count - 1;
+    }
+
+    public float GetCurrentTimeEventSpawnTimer()
+    {
+        return enemySpawnerInfo.timeEventSpawn[currentTimeEventSpawn].timeEventTimeInSeconds;
     }
 }

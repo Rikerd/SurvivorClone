@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MobEnemyController : EnemyController
+public class HordeEnemyController : EnemyController
 {
     private Vector2 direction;
     private Vector3 offset = Vector3.zero;

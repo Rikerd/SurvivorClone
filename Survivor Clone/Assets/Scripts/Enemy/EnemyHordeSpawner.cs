@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMobSpawner : MonoBehaviour
+public class EnemyHordeSpawner : MonoBehaviour
 {
     public int numOfEnemyToSpawn = 20;
     public float radius = 3f;
@@ -14,9 +14,9 @@ public class EnemyMobSpawner : MonoBehaviour
         for (int enemySpawn = 0; enemySpawn < numOfEnemyToSpawn; enemySpawn++)
         {
             Vector3 randomPosition = Random.insideUnitSphere * radius;
-            GameObject mobEnemy = Instantiate(enemy, transform.position + randomPosition, Quaternion.identity);
-            MobEnemyController mobEnemyController = mobEnemy.GetComponent<MobEnemyController>();
-            mobEnemyController.SetOffsetAmount(randomPosition);
+            GameObject hordeEnemy = Instantiate(enemy, transform.position + randomPosition, Quaternion.identity);
+            HordeEnemyController hordeEnemyController = hordeEnemy.GetComponent<HordeEnemyController>();
+            hordeEnemyController.SetOffsetAmount(randomPosition);
         }
     }
 
