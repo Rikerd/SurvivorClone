@@ -55,13 +55,37 @@ MonoBehaviour:
     minSpawnTimer: 0.4
     maxSpawnTimer: 0.6
     enemySpawnRates:
-    - enemy: {fileID: 6869661145523149589, guid: d128664bc78f0fb41a3bff6c628d4ffa, type: 3}
+    - enemy: {fileID: 6869661145523149589, guid: ce9712bf69fa95d42bc0197694a0b329, type: 3}
       rate: 100
-  - patternEndTimeInSeconds: 660
+  - patternEndTimeInSeconds: 690
     minSpawnTimer: 0.4
     maxSpawnTimer: 0.6
     enemySpawnRates:
     - enemy: {fileID: 6869661145523149589, guid: ce9712bf69fa95d42bc0197694a0b329, type: 3}
+      rate: 50
+    - enemy: {fileID: 6869661145523149589, guid: af5312efcdf607e48825ba8e80d5af4e, type: 3}
+      rate: 100
+  - patternEndTimeInSeconds: 780
+    minSpawnTimer: 0.4
+    maxSpawnTimer: 0.6
+    enemySpawnRates:
+    - enemy: {fileID: 6869661145523149589, guid: d128664bc78f0fb41a3bff6c628d4ffa, type: 3}
+      rate: 50
+    - enemy: {fileID: 6869661145523149589, guid: af5312efcdf607e48825ba8e80d5af4e, type: 3}
+      rate: 100
+  - patternEndTimeInSeconds: 840
+    minSpawnTimer: 0.4
+    maxSpawnTimer: 0.6
+    enemySpawnRates:
+    - enemy: {fileID: 6869661145523149589, guid: 5f20ac5d6dd4ef449a9ef8e96ccf4f36, type: 3}
+      rate: 100
+  - patternEndTimeInSeconds: 1200
+    minSpawnTimer: 0.4
+    maxSpawnTimer: 0.6
+    enemySpawnRates:
+    - enemy: {fileID: 6869661145523149589, guid: 5f20ac5d6dd4ef449a9ef8e96ccf4f36, type: 3}
+      rate: 50
+    - enemy: {fileID: 6869661145523149589, guid: ed81300c5a5a1f64896bea86431c0a34, type: 3}
       rate: 100
   miniBossSpawns:
   - miniBoss: {fileID: 6869661145523149589, guid: e28a437b0e4fb2c4ea20d39dd04f51ab, type: 3}

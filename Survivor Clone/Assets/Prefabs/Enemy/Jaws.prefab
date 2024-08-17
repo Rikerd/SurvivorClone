@@ -161,6 +161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0722a6adaff82bd4f807d13c9058fb29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyStat: {fileID: 11400000, guid: 1ed7c4f0eca5735499666e04f14c8c2d, type: 2}
+  enemyStat: {fileID: 11400000, guid: bebbd09fcd3f53e488ebe5695d552f9b, type: 2}
   damageTextObject: {fileID: 1543355844468514358, guid: c8cec6353608a7147b33942b6cb0f50d, type: 3}
   collisionDamageDelayTimer: 0.5
