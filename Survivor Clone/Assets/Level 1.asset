@@ -13,36 +13,41 @@ MonoBehaviour:
   m_Name: Level 1
   m_EditorClassIdentifier: 
   spawnPatterns:
-  - minSpawnTimer: 0.8
+  - patternEndTimeInSeconds: 30
+    minSpawnTimer: 0.8
     maxSpawnTimer: 1
     enemySpawnRates:
     - enemy: {fileID: 8371416313282000803, guid: b7a2315f7b982d140962a1ceaa2d8f6a, type: 3}
       rate: 100
-  - minSpawnTimer: 0.8
+  - patternEndTimeInSeconds: 150
+    minSpawnTimer: 0.8
     maxSpawnTimer: 1
     enemySpawnRates:
     - enemy: {fileID: 6869661145523149589, guid: 1f00caa268bec4447acf83ae576a7bb3, type: 3}
       rate: 40
     - enemy: {fileID: 8371416313282000803, guid: b7a2315f7b982d140962a1ceaa2d8f6a, type: 3}
       rate: 100
-  - minSpawnTimer: 0.6
+  - patternEndTimeInSeconds: 345
+    minSpawnTimer: 0.6
     maxSpawnTimer: 0.8
     enemySpawnRates:
     - enemy: {fileID: 6869661145523149589, guid: 268eccb80ea8ed746a13ec70e61a6e49, type: 3}
-      rate: 40
-    - enemy: {fileID: 6869661145523149589, guid: 1f00caa268bec4447acf83ae576a7bb3, type: 3}
-      rate: 100
-  - minSpawnTimer: 0.6
-    maxSpawnTimer: 0.8
-    enemySpawnRates:
+      rate: 50
     - enemy: {fileID: 6869661145523149589, guid: f31c311febb484747bf6ca534290bf80, type: 3}
-      rate: 30
-    - enemy: {fileID: 6869661145523149589, guid: 268eccb80ea8ed746a13ec70e61a6e49, type: 3}
       rate: 100
-  - minSpawnTimer: 0.4
+  - patternEndTimeInSeconds: 480
+    minSpawnTimer: 0.6
+    maxSpawnTimer: 0.8
+    enemySpawnRates:
+    - enemy: {fileID: 6869661145523149589, guid: cd755c1c025b213409b498e639263f5e, type: 3}
+      rate: 30
+    - enemy: {fileID: 6869661145523149589, guid: d7e5748fe4a5d7b4dacfe4cec9e2ac56, type: 3}
+      rate: 100
+  - patternEndTimeInSeconds: 0
+    minSpawnTimer: 0.4
     maxSpawnTimer: 0.6
     enemySpawnRates:
-    - enemy: {fileID: 6869661145523149589, guid: f31c311febb484747bf6ca534290bf80, type: 3}
+    - enemy: {fileID: 6869661145523149589, guid: 35ae61805e6f7cc479a1687d7145384a, type: 3}
       rate: 100
   miniBossSpawns:
   - miniBoss: {fileID: 6869661145523149589, guid: e28a437b0e4fb2c4ea20d39dd04f51ab, type: 3}
@@ -51,5 +56,5 @@ MonoBehaviour:
     numToSpawn: 2
   - miniBoss: {fileID: 6869661145523149589, guid: e28a437b0e4fb2c4ea20d39dd04f51ab, type: 3}
     numToSpawn: 3
-  enemyMob:
+  specialMobSpawns:
   - {fileID: 3503081682285758090, guid: 820036eb639c266499ed44d412d91cab, type: 3}

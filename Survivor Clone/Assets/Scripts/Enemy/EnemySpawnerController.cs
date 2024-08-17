@@ -46,13 +46,12 @@ public class EnemySpawnerController : MonoBehaviour
         }
     }
 
-    public void UpdateSpawnPattern(int pattern)
+    public void UpdateSpawnPattern()
     {
-        if (pattern >= enemySpawnerInfo.spawnPatterns.Count)
+        if (currentSpawnPattern + 1 < enemySpawnerInfo.spawnPatterns.Count)
         {
-            return;
+            currentSpawnPattern++;
         }
-        currentSpawnPattern = pattern;
     }
 
     public void CheckToSpawnMiniBoss(int miniBossPattern)
@@ -83,8 +82,8 @@ public class EnemySpawnerController : MonoBehaviour
     public void SpawnEnemyMob()
     {
         Vector2 positionWorldPoint = FindWorldPositionToSpawn();
-        int randomEnemyMobIndex = UnityEngine.Random.Range(0, enemySpawnerInfo.enemyMob.Count() - 1);
-        GameObject enemyMob = enemySpawnerInfo.enemyMob[randomEnemyMobIndex];
+        int randomEnemyMobIndex = UnityEngine.Random.Range(0, enemySpawnerInfo.specialMobSpawns.Count() - 1);
+        GameObject enemyMob = enemySpawnerInfo.specialMobSpawns[randomEnemyMobIndex];
         Instantiate(enemyMob, positionWorldPoint, Quaternion.identity);
     }
 
@@ -135,5 +134,10 @@ public class EnemySpawnerController : MonoBehaviour
         Vector2 positionWorldPoint = Camera.main.ViewportToWorldPoint(new Vector2(viewportXCoordinate, viewportYCoordinate));
 
         return positionWorldPoint;
+    }
+
+    public float GetCurrentSpawnPatternEndTimer()
+    {
+        return enemySpawnerInfo.spawnPatterns[currentSpawnPattern].patternEndTimeInSeconds;
     }
 }

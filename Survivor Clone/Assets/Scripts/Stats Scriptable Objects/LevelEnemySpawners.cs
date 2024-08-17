@@ -10,12 +10,13 @@ public class LevelEnemySpawners : ScriptableObject
 
     public List<MiniBossSpawnData> miniBossSpawns;
 
-    public List<GameObject> enemyMob;
+    public List<GameObject> specialMobSpawns;
 }
 
 [Serializable]
 public class SpawnPattern
 {
+    public float patternEndTimeInSeconds;
     public float minSpawnTimer;
     public float maxSpawnTimer;
     public List<EnemySpawnRates> enemySpawnRates;

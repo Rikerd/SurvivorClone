@@ -46,13 +46,14 @@ public class GameManager : MonoBehaviour
 
     private float currentGameTime = 0f;
 
-    private int enemyDifficulty = 0;
+    private float currentSpawnPatternEndTime;
 
     private int mobSpawn = 0;
 
     private int currentWeaponHudUIIndex = 0;
 
     private int currentCoinEarned = 0;
+
 
     // Start is called before the first frame update
     private void Start()
@@ -72,6 +73,7 @@ public class GameManager : MonoBehaviour
         };
 
         currentGameTime = 0;
+        currentSpawnPatternEndTime = enemySpawnerController.GetCurrentSpawnPatternEndTimer();
     }
 
     private void Awake()
@@ -103,18 +105,22 @@ public class GameManager : MonoBehaviour
     {
         currentGameTime += Time.deltaTime;
         HUDManager.Instance.UpdateTimeValue(currentGameTime);
-        enemyDifficulty = Mathf.FloorToInt(currentGameTime / 90);
-        enemySpawnerController.UpdateSpawnPattern(enemyDifficulty);
 
-        int miniBossPatternToSpawn = Mathf.FloorToInt(currentGameTime / 60);
-        enemySpawnerController.CheckToSpawnMiniBoss(miniBossPatternToSpawn);
-
-        int currentMobSpawn = Mathf.FloorToInt(currentGameTime / 30);
-        if (currentMobSpawn > mobSpawn)
+        if (currentGameTime > currentSpawnPatternEndTime)
         {
-            mobSpawn = currentMobSpawn;
-            enemySpawnerController.SpawnEnemyMob();
+            enemySpawnerController.UpdateSpawnPattern();
+            currentSpawnPatternEndTime = enemySpawnerController.GetCurrentSpawnPatternEndTimer();
         }
+
+        //int miniBossPatternToSpawn = Mathf.FloorToInt(currentGameTime / 60);
+        //enemySpawnerController.CheckToSpawnMiniBoss(miniBossPatternToSpawn);
+
+        //int currentMobSpawn = Mathf.FloorToInt(currentGameTime / 30);
+        //if (currentMobSpawn > mobSpawn)
+        //{
+        //    mobSpawn = currentMobSpawn;
+        //    enemySpawnerController.SpawnEnemyMob();
+        //}
     }
 
     public void TriggerDeathSequence()

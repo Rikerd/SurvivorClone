@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 537098185626952191}
   - component: {fileID: 4145662250205833166}
   m_Layer: 7
-  m_Name: Enemy 3
+  m_Name: SlimeV2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 45c3d23a12dcac7488e4027b0726dd45, type: 3}
-  m_Color: {r: 0.99215686, g: 0.96258104, b: 0.05098037, a: 1}
+  m_Sprite: {fileID: 21300000, guid: cebefd20c60c4f549819bc3c1167c3be, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -161,6 +161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0722a6adaff82bd4f807d13c9058fb29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyStat: {fileID: 11400000, guid: 848e3485af75aab42b980a79b9fad5f5, type: 2}
+  enemyStat: {fileID: 11400000, guid: ab9b81ad24dc1444393c4bb3027a1893, type: 2}
   damageTextObject: {fileID: 1543355844468514358, guid: c8cec6353608a7147b33942b6cb0f50d, type: 3}
   collisionDamageDelayTimer: 0.5
