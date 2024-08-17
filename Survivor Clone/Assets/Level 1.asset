@@ -95,8 +95,12 @@ MonoBehaviour:
   - miniBoss: {fileID: 6869661145523149589, guid: e28a437b0e4fb2c4ea20d39dd04f51ab, type: 3}
     numToSpawn: 3
   timeEventSpawn:
+  - timeEventEnemy: {fileID: 3503081682285758090, guid: c8bf4568655c88a4ea1c44215ecf908b, type: 3}
+    timeEventTimeInSeconds: 5
   - timeEventEnemy: {fileID: 3503081682285758090, guid: 820036eb639c266499ed44d412d91cab, type: 3}
     timeEventTimeInSeconds: 65
+  - timeEventEnemy: {fileID: 3503081682285758090, guid: 13489e56ae5d8d149800742d925aeb48, type: 3}
+    timeEventTimeInSeconds: 105
   - timeEventEnemy: {fileID: 3503081682285758090, guid: 820036eb639c266499ed44d412d91cab, type: 3}
     timeEventTimeInSeconds: 180
   - timeEventEnemy: {fileID: 3503081682285758090, guid: 820036eb639c266499ed44d412d91cab, type: 3}
