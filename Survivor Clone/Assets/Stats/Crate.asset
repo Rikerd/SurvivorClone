@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   drops:
-  - item: {fileID: 1094633095928340844, guid: e898ed2cd65a3d74c9d5b5367098aa60, type: 3}
+  - item: {fileID: 1094633095928340844, guid: 67b62d302336d9c4dbc3d69c2235556b, type: 3}
     rate: 20
     spreadDrop: 0
     minDropAmount: 1
     maxDropAmount: 1
-  - item: {fileID: 1094633095928340844, guid: 67b62d302336d9c4dbc3d69c2235556b, type: 3}
-    rate: 20
+  - item: {fileID: 1094633095928340844, guid: e898ed2cd65a3d74c9d5b5367098aa60, type: 3}
+    rate: 40
     spreadDrop: 0
     minDropAmount: 1
     maxDropAmount: 1
