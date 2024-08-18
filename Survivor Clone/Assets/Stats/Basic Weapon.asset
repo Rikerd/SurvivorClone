@@ -21,18 +21,18 @@ MonoBehaviour:
     projectileCount: 3
     pierceAmount: 0
   - damage: 12
-    maxCooldown: 2.5
+    maxCooldown: 2
     projectileCount: 4
     pierceAmount: 1
   - damage: 14
-    maxCooldown: 2.5
+    maxCooldown: 1.75
     projectileCount: 4
     pierceAmount: 1
   - damage: 14
-    maxCooldown: 2.5
+    maxCooldown: 1.5
     projectileCount: 5
     pierceAmount: 2
   - damage: 16
-    maxCooldown: 2.5
+    maxCooldown: 1
     projectileCount: 5
     pierceAmount: 2
