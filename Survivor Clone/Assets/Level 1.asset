@@ -137,6 +137,6 @@ MonoBehaviour:
   - timeEventEnemy: {fileID: 3503081682285758090, guid: 74d513f2078df2842bd6e51c3acbbb39, type: 3}
     timeEventTimeInSeconds: 690
     isRandomSpawnLocation: 0
-  - timeEventEnemy: {fileID: 3503081682285758090, guid: 74d513f2078df2842bd6e51c3acbbb39, type: 3}
+  - timeEventEnemy: {fileID: 3503081682285758090, guid: b0bd04f95a1235f4c89d1b08386a5abe, type: 3}
     timeEventTimeInSeconds: 840
     isRandomSpawnLocation: 0

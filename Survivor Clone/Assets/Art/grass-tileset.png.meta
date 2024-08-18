@@ -45,11 +45,11 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
-  spriteBorder: {x: 0, y: 16, z: 16, w: 0}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -71,7 +71,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -111,8 +111,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8bde678f3e4118743ae08afeee198a1e
-      internalID: 933330498
+      spriteID: a1c55bade3f52a642be237d1528d3443
+      internalID: -1599885485
       vertices: []
       indices: 
       edges: []
@@ -132,8 +132,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b3960ef6c1c6e64c8a55f086e8e9f17
-      internalID: -1015624005
+      spriteID: 232e8e6e188588b44902a02309f7eac5
+      internalID: 1198906319
       vertices: []
       indices: 
       edges: []
@@ -153,8 +153,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ce29e4daedc23447a4b6767943e4994
-      internalID: 720586209
+      spriteID: 745ecda931fa62d45a836e6567eb0649
+      internalID: 577142687
       vertices: []
       indices: 
       edges: []
@@ -174,8 +174,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: faac12523bc795040bccac1d67a5d5bb
-      internalID: 1601345238
+      spriteID: 4dd9ff00191ef834fa538ee81ce48688
+      internalID: 946122663
       vertices: []
       indices: 
       edges: []
@@ -184,17 +184,17 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      grass-tileset_0: 933330498
-      grass-tileset_1: -1015624005
-      grass-tileset_2: 720586209
-      grass-tileset_3: 1601345238
+      grass-tileset_0: -1599885485
+      grass-tileset_1: 1198906319
+      grass-tileset_2: 577142687
+      grass-tileset_3: 946122663
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
