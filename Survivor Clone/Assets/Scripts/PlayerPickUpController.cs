@@ -6,7 +6,7 @@ public class PlayerPickUpController : MonoBehaviour
 {
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Drawable Pickup")
+        if (collision.tag == "Coin" || collision.tag == "Exp Orb")
         {
             collision.GetComponent<DrawablePickup>().StartMovement();
         }

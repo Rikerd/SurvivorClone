@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 887252474730159340}
   m_Layer: 0
   m_Name: Large Exp
-  m_TagString: Drawable Pickup
+  m_TagString: Exp Orb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

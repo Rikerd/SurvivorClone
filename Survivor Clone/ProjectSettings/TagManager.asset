@@ -5,7 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - Drawable Pickup
+  - Coin
+  - Exp Orb
   layers:
   - Default
   - TransparentFX
