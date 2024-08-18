@@ -101,6 +101,9 @@ MonoBehaviour:
   - timeEventEnemy: {fileID: 3503081682285758090, guid: 820036eb639c266499ed44d412d91cab, type: 3}
     timeEventTimeInSeconds: 65
     isRandomSpawnLocation: 1
+  - timeEventEnemy: {fileID: 3503081682285758090, guid: b6b54f6fe9aa08a4cb84cfc082c79f40, type: 3}
+    timeEventTimeInSeconds: 90
+    isRandomSpawnLocation: 0
   - timeEventEnemy: {fileID: 3503081682285758090, guid: 13489e56ae5d8d149800742d925aeb48, type: 3}
     timeEventTimeInSeconds: 105
     isRandomSpawnLocation: 1
@@ -113,6 +116,9 @@ MonoBehaviour:
   - timeEventEnemy: {fileID: 3503081682285758090, guid: 820036eb639c266499ed44d412d91cab, type: 3}
     timeEventTimeInSeconds: 183
     isRandomSpawnLocation: 1
+  - timeEventEnemy: {fileID: 3503081682285758090, guid: 7fc025731bf264a4ba6bda99b83c676e, type: 3}
+    timeEventTimeInSeconds: 195
+    isRandomSpawnLocation: 0
   - timeEventEnemy: {fileID: 3503081682285758090, guid: af92ffa292d653c4286ea31e99756f71, type: 3}
     timeEventTimeInSeconds: 255
     isRandomSpawnLocation: 0
@@ -128,6 +134,9 @@ MonoBehaviour:
   - timeEventEnemy: {fileID: 3503081682285758090, guid: ccf079370a3623943b543bc55be9a639, type: 3}
     timeEventTimeInSeconds: 420
     isRandomSpawnLocation: 0
-  - timeEventEnemy: {fileID: 3503081682285758090, guid: ccf079370a3623943b543bc55be9a639, type: 3}
-    timeEventTimeInSeconds: 420
+  - timeEventEnemy: {fileID: 3503081682285758090, guid: 74d513f2078df2842bd6e51c3acbbb39, type: 3}
+    timeEventTimeInSeconds: 690
+    isRandomSpawnLocation: 0
+  - timeEventEnemy: {fileID: 3503081682285758090, guid: 74d513f2078df2842bd6e51c3acbbb39, type: 3}
+    timeEventTimeInSeconds: 840
     isRandomSpawnLocation: 0
