@@ -7,10 +7,12 @@ public class Projectile : MonoBehaviour
     public bool isDestroyOnInvisible = true;
 
     private int projectileDamage;
-    protected float projectileSpeed;
+    protected float projectileSpeedRatio;
     private bool projectileCanCrit;
     private int projectilePierceAmount;
     protected Rigidbody2D rb2d;
+
+    protected float baseGameMoveSpeed;
 
     private int currentProjectilePierceAmount = 0;
 
@@ -23,9 +25,14 @@ public class Projectile : MonoBehaviour
         currentProjectilePierceAmount = 0;
     }
 
+    public virtual void Start()
+    {
+        baseGameMoveSpeed = GameManager.Instance.baseGameMoveSpeed;
+    }
+
     public virtual void FixedUpdate()
     {
-        Vector2 move = transform.up * projectileSpeed * Time.deltaTime;
+        Vector2 move = transform.up * baseGameMoveSpeed * projectileSpeedRatio * Time.deltaTime;
         rb2d.MovePosition(rb2d.position + move);
     }
 
@@ -33,7 +40,7 @@ public class Projectile : MonoBehaviour
     public void SetValues(int damage, float speed, bool canCrit, int pierceAmount)
     {
         projectileDamage = damage;
-        projectileSpeed = speed;
+        projectileSpeedRatio = speed;
         projectileCanCrit = canCrit;
         projectilePierceAmount = pierceAmount;
     }

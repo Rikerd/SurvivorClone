@@ -13,7 +13,8 @@ public class PlayerController : MonoBehaviour, IDamageable
     public int maxHealth { get; set; }
 
     private Vector2 movement = Vector2.zero;
-    private float movementSpeed;
+    private float moveSpeedRatio;
+    private float baseGameMoveSpeed;
 
     private float critChance;
 
@@ -33,7 +34,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         maxHealth = playerStat.maxHealth;
         currentHealth = maxHealth;
 
-        movementSpeed = playerStat.movementSpeed;
+        moveSpeedRatio = playerStat.moveSpeedRatio;
 
         critChance = playerStat.critChance;
 
@@ -43,6 +44,8 @@ public class PlayerController : MonoBehaviour, IDamageable
     private void Start()
     {
         HUDManager.Instance.UpdateHealthValue(currentHealth, maxHealth);
+
+        baseGameMoveSpeed = GameManager.Instance.baseGameMoveSpeed;
 
         onPlayerHealthBar.maxValue = maxHealth;
         onPlayerHealthBar.value = currentHealth;
@@ -119,7 +122,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         Vector2 input = context.ReadValue<Vector2>();
         input.Normalize();
-        movement = input * movementSpeed;
+        movement = input * baseGameMoveSpeed * moveSpeedRatio;
     }
 
     public float GetCritChance()
@@ -144,7 +147,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     public void LevelUpPlayerMovementSpeed()
     {
-        movementSpeed += playerStat.movementSpeedRate;
+        moveSpeedRatio += playerStat.movementSpeedRate;
     }
 
     public void LevelUpPlayerCritChance()

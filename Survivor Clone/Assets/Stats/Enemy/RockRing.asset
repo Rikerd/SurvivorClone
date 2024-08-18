@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RockRing
   m_EditorClassIdentifier: 
   maxHealth: 480
-  movementSpeed: 0.2
+  moveSpeedRatio: 0.55
   damage: 7
   drops:
   - item: {fileID: 1094633095928340844, guid: 46bea64091d507143b7da7136c9e8e30, type: 3}

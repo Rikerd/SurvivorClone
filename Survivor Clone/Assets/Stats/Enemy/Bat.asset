@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bat
   m_EditorClassIdentifier: 
   maxHealth: 10
-  movementSpeed: 1.3
+  moveSpeedRatio: 0.65
   damage: 3
   drops:
   - item: {fileID: 3870436542734150734, guid: 89952a900db76794685cbb1b25cb18de, type: 3}

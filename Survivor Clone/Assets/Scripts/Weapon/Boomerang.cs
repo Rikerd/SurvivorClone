@@ -23,8 +23,10 @@ public class Boomerang : Projectile
         maxDistanceReached = false;
     }
 
-    private void Start()
+    public override void Start()
     {
+        base.Start();
+
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -42,13 +44,12 @@ public class Boomerang : Projectile
                 return;
             }
 
-            Vector2 move = transform.up * projectileSpeed * Time.deltaTime;
+            Vector2 move = transform.up * baseGameMoveSpeed * projectileSpeedRatio * Time.fixedDeltaTime;
             rb2d.MovePosition(rb2d.position + move);
         }
         else
         {
-            //rb2d.MovePosition(Vector2.MoveTowards(transform.position, player.transform.position, projectileSpeed * Time.fixedDeltaTime));
-            rb2d.MovePosition(rb2d.position + directionOfPlayer * projectileSpeed * Time.fixedDeltaTime);
+            rb2d.MovePosition(rb2d.position + directionOfPlayer * baseGameMoveSpeed * projectileSpeedRatio * Time.fixedDeltaTime);
         }
     }
 }

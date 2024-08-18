@@ -34,7 +34,7 @@ public class DaggerThrower : Weapon
                 Vector3 eulerRotation = new Vector3(0, 0, currentAngle - (18 * projectileNum));
                 GameObject projectileObject = Instantiate(projectileStat.projectile, transform.parent.position, Quaternion.Euler(eulerRotation));
                 Projectile projectileScript = projectileObject.GetComponent<Projectile>();
-                projectileScript.SetValues(currentLevelStats.damage, projectileStat.movementSpeed, projectileStat.canCrit, currentLevelStats.pierceAmount);
+                projectileScript.SetValues(currentLevelStats.damage, projectileStat.moveSpeedRatio, projectileStat.canCrit, currentLevelStats.pierceAmount);
             }
             currentAngle -= 18;
             if (currentAngle == 0)

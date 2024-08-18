@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Projectile Stat", menuName = "Stats/Weapon/Projectile")]
 public class ProjectileStats : WeaponStats
 {
-    public float movementSpeed;
+    public float moveSpeedRatio;
     public GameObject projectile;
 
     public List<ProjectileLevelStats> levelStats;

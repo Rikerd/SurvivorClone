@@ -16,7 +16,7 @@ public class HordeEnemyController : EnemyController
 
     protected override void FixedUpdate()
     {
-        MoveEnemy(rb2d.position + direction * enemyStat.movementSpeed * Time.fixedDeltaTime);
+        MoveEnemy(rb2d.position + direction * baseGameMoveSpeed * enemyStat.moveSpeedRatio * Time.fixedDeltaTime);
     }
 
     private void OnBecameInvisible()

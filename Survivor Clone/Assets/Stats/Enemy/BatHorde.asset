@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BatHorde
   m_EditorClassIdentifier: 
   maxHealth: 10
-  movementSpeed: 4
+  moveSpeedRatio: 2.4
   damage: 3
   drops:
   - item: {fileID: 3870436542734150734, guid: 89952a900db76794685cbb1b25cb18de, type: 3}

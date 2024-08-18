@@ -22,6 +22,8 @@ public class LevelUpButtonInfo
 
 public class GameManager : MonoBehaviour
 {
+    public float baseGameMoveSpeed = 3f;
+
     public EnemySpawnerController enemySpawnerController;
     public static GameManager Instance;
 

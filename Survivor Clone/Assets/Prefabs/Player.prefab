@@ -1111,7 +1111,7 @@ MonoBehaviour:
   isStarterWeapon: 0
   levelUpInfo: {fileID: 11400000, guid: 5daf9e0c49acdfa4cb8dc0c543dd13d7, type: 2}
   projectileStat: {fileID: 11400000, guid: c1ee5a1f22e950946bad86a0ee253b68, type: 2}
-  radius: 5
+  radius: 6
 --- !u!1 &7663316450344190532
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,6 +1162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e82cf3a6090ce1940853539222d2c2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxActiveWeapons: 5
 --- !u!1 &8373181861771089465
 GameObject:
   m_ObjectHideFlags: 0

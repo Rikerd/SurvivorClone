@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class DrawablePickup : MonoBehaviour
 {
-    public float movementSpeed = 5f;
+    public float moveSpeedRatio = 2f;
 
     private bool isPickUpMoving = false;
 
     private Rigidbody2D rb2d;
     private GameObject player;
+
+    private float baseGameMoveSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -17,13 +19,15 @@ public class DrawablePickup : MonoBehaviour
         isPickUpMoving = false;
         rb2d = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
+
+        baseGameMoveSpeed = GameManager.Instance.baseGameMoveSpeed;
     }
 
     void FixedUpdate()
     {
         if (isPickUpMoving)
         {
-            Vector3 movement = Vector3.MoveTowards(transform.position, player.transform.position, movementSpeed * Time.fixedDeltaTime);
+            Vector3 movement = Vector3.MoveTowards(transform.position, player.transform.position, baseGameMoveSpeed * moveSpeedRatio * Time.fixedDeltaTime);
 
             rb2d.MovePosition(movement);
         }

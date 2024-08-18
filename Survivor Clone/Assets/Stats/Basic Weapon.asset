@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Basic Weapon
   m_EditorClassIdentifier: 
   canCrit: 1
-  movementSpeed: 8.5
+  moveSpeedRatio: 3.2
   projectile: {fileID: 1277877998668816505, guid: c1d4758c7e78c714fa0ca8e46910a006, type: 3}
   levelStats:
   - damage: 12

@@ -7,5 +7,5 @@ using UnityEngine;
 public class Stats : ScriptableObject
 {
     public int maxHealth;
-    public float movementSpeed;
+    public float moveSpeedRatio;
 }

@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb1ae2a89476134495bb6c93d46b036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponManager: {fileID: 422592518}
+  baseGameMoveSpeed: 2
   enemySpawnerController: {fileID: 1851034074}
   weaponHUDUI:
   - {fileID: 1594474852}
@@ -1276,17 +1276,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 404228258}
   m_CullTransparentMesh: 1
---- !u!114 &422592518 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5836108684983532620, guid: 9dbd229fdd04bc446844769d016e1a4d, type: 3}
-  m_PrefabInstance: {fileID: 5196731618644268601}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e82cf3a6090ce1940853539222d2c2bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

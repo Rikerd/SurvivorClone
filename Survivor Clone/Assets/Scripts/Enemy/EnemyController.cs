@@ -24,6 +24,8 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
 
     private List<Drops> drops;
 
+    protected float baseGameMoveSpeed;
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -35,6 +37,8 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
         isCollidingWithPlayer = false;
 
         drops = enemyStat.drops.OrderBy(x => x.rate).ToList();
+
+        baseGameMoveSpeed = GameManager.Instance.baseGameMoveSpeed;
     }
 
     protected virtual void Update()
@@ -55,7 +59,7 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
 
     protected virtual void FixedUpdate()
     {
-        MoveEnemy(Vector3.MoveTowards(transform.position, player.transform.position, enemyStat.movementSpeed * Time.fixedDeltaTime));
+        MoveEnemy(Vector3.MoveTowards(transform.position, player.transform.position, baseGameMoveSpeed * enemyStat.moveSpeedRatio * Time.fixedDeltaTime));
     }
 
     public void OnTriggerEnter2D(Collider2D collider)

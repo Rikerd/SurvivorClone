@@ -31,7 +31,7 @@ public class RingEnemyController : EnemyController
 
     protected override void FixedUpdate()
     {
-        MoveEnemy(Vector3.MoveTowards(transform.position, playerOriginalPosition, tempEnemyStats.movementSpeed * Time.fixedDeltaTime));
+        MoveEnemy(Vector3.MoveTowards(transform.position, playerOriginalPosition, baseGameMoveSpeed * tempEnemyStats.moveSpeedRatio * Time.fixedDeltaTime));
     }
 
     public void SetPlayerOriginalPosition(Vector3 position)
