@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3981570967436708020}
   - component: {fileID: 1895416807297631421}
   - component: {fileID: 3099013609972243851}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Crate
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -143,7 +143,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 069efb3bb3c253640be28ffdd0c98228, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpawnTimer: 40
-  maxSpawnTimer: 60
   damageTextObject: {fileID: 1543355844468514358, guid: c8cec6353608a7147b33942b6cb0f50d, type: 3}
   crateStat: {fileID: 11400000, guid: d39021fb22365df4082c5448ee030a85, type: 2}

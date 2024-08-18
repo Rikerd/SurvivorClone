@@ -128,7 +128,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     }
 
     // ExperienceManager
-    private void HandleLevelUp(int currentExp, int maxExp)
+    private void HandleLevelUp(int currentExp, int maxExp, int currentLevel)
     {
         playerStat.baseAttack += playerStat.attackLevelRate;
     }

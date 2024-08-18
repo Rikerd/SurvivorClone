@@ -16,6 +16,7 @@ public class HUDManager : MonoBehaviour
     public TMP_Text timerText;
 
     public Slider expSlider;
+    public TMP_Text levelText;
 
     public static HUDManager Instance;
 
@@ -62,6 +63,8 @@ public class HUDManager : MonoBehaviour
     {
         expSlider.maxValue = exp;
         expSlider.value = 0;
+
+        levelText.SetText("Lv. 1");
     }
 
     public void UpdateKillCountValue(int count)
@@ -83,10 +86,12 @@ public class HUDManager : MonoBehaviour
     }
 
     // ExperienceManager
-    private void HandleLevelUp(int currentExp, int maxExp)
+    private void HandleLevelUp(int currentExp, int maxExp, int currentLevel)
     {
         expSlider.value = currentExp;
         expSlider.maxValue = maxExp;
+
+        levelText.SetText("Lv. " + currentLevel.ToString());
     }
 
     private void HandleExprienceChange(int amount)

@@ -6,9 +6,6 @@ using UnityEngine;
 
 public class Crate : MonoBehaviour, IDamageable
 {
-    public float minSpawnTimer = 10f;
-    public float maxSpawnTimer = 15f;
-
     public GameObject damageTextObject;
 
     public BreakableStats crateStat;
@@ -16,55 +13,15 @@ public class Crate : MonoBehaviour, IDamageable
     public int currentHealth { get; set; }
     public int maxHealth { get; set; }
 
-    private bool isAlive = true;
-
-    private float currentSpawnTimer = 0f;
-
     private List<MultipleDrops> drops;
-
-    private SpriteRenderer spriteRenderer;
-    private BoxCollider2D boxCollider;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentSpawnTimer = UnityEngine.Random.Range(minSpawnTimer, maxSpawnTimer);
-
         currentHealth = crateStat.maxHealth;
         maxHealth = crateStat.maxHealth;
 
         drops = crateStat.drops;
-
-        isAlive = true;
-
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        boxCollider = GetComponent<BoxCollider2D>();
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-        if (isAlive)
-        {
-            return;
-        }
-
-        if (currentSpawnTimer <= 0f)
-        {
-            gameObject.SetActive(true);
-            isAlive = true;
-
-            currentHealth = maxHealth;
-            gameObject.tag = "Enemy";
-            spriteRenderer.enabled = true;
-            boxCollider.enabled = true;
-
-            currentSpawnTimer = UnityEngine.Random.Range(minSpawnTimer, maxSpawnTimer);
-        }
-        else if (currentSpawnTimer > 0f)
-        {
-            currentSpawnTimer -= Time.deltaTime;
-        }
     }
 
     #region Health Functions
@@ -118,10 +75,9 @@ public class Crate : MonoBehaviour, IDamageable
             }
         }
 
-        gameObject.tag = "Untagged";
-        spriteRenderer.enabled = false;
-        boxCollider.enabled = false;
-        isAlive = false;
+        CrateSpawnerController.Instance.DecreaseNumberOfCrates();
+
+        Destroy(gameObject);
     }
     #endregion Health Functions
 }

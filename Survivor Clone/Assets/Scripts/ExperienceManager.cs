@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class ExperienceManager : MonoBehaviour
 {
-    public int maxLevel;
     public int maxExp = 10;
 
     public static ExperienceManager Instance;
-    [SerializeField]
+
     private int currentExp = 0;
+    private int currentLevel = 1;
 
     public delegate void ExperienceChangeHandler(int amount);
     public event ExperienceChangeHandler OnExperienceChange;    
-    public delegate void LevelChangeHandler(int currentExp, int maxExp);
+    public delegate void LevelChangeHandler(int currentExp, int maxExp, int currentLevel);
     public event LevelChangeHandler OnLevelUp;
 
     private void Awake()
@@ -41,7 +41,8 @@ public class ExperienceManager : MonoBehaviour
             currentExp = currentExp + amount - maxExp;
             float newMaxExp = maxExp * 1.7f;
             maxExp = (int)(newMaxExp + 0.5f);
-            OnLevelUp?.Invoke(currentExp, maxExp);
+            currentLevel++;
+            OnLevelUp?.Invoke(currentExp, maxExp, currentLevel);
         }
         else
         {

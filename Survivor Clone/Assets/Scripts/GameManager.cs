@@ -49,8 +49,6 @@ public class GameManager : MonoBehaviour
     private float currentSpawnPatternEndTime;
     private float currentTimeEventSpawnTime;
 
-    private int mobSpawn = 0;
-
     private int currentWeaponHudUIIndex = 0;
 
     private int currentCoinEarned = 0;
@@ -122,13 +120,6 @@ public class GameManager : MonoBehaviour
 
         //int miniBossPatternToSpawn = Mathf.FloorToInt(currentGameTime / 60);
         //enemySpawnerController.CheckToSpawnMiniBoss(miniBossPatternToSpawn);
-
-        //int currentMobSpawn = Mathf.FloorToInt(currentGameTime / 30);
-        //if (currentMobSpawn > mobSpawn)
-        //{
-        //    mobSpawn = currentMobSpawn;
-        //    enemySpawnerController.SpawnTimeEventEnemies();
-        //}
     }
 
     public void TriggerDeathSequence()
@@ -145,11 +136,11 @@ public class GameManager : MonoBehaviour
 
     public void ForceLevelUpPrompt()
     {
-        HandleLevelUp(0, 0);
+        HandleLevelUp(0, 0, 0);
     }
 
     // ExperienceManager
-    private void HandleLevelUp(int currentExp, int maxExp)
+    private void HandleLevelUp(int currentExp, int maxExp, int currentLevel)
     {
         Time.timeScale = 0;
         levelUpPanel.SetActive(true);
