@@ -17,7 +17,7 @@ public class EnemyRingSpawner : MonoBehaviour
         {
             Vector3 ringPosition = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * radius;
             GameObject ringEnemy = Instantiate(enemy, transform.position + ringPosition, Quaternion.identity);
-
+            ringEnemy.GetComponent<RingEnemyController>().SetPlayerOriginalPosition(transform.position);
             angle += nextAngle;
         }
 
