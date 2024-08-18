@@ -65,6 +65,7 @@ public class Weapon : MonoBehaviour
     public void ActivateWeapon()
     {
         gameObject.SetActive(true);
+        WeaponManager.Instance.UpdateActiveWeaponList(this);
         GameManager.Instance.UpdateWeaponHUDUI(levelUpInfo.uiSprite);
     }
 

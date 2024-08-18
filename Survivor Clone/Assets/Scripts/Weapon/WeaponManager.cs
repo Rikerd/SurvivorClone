@@ -5,10 +5,24 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
+    public int maxActiveWeapons = 5;
+
     private List<Weapon> weapons;
+    private List<Weapon> activeWeapons = new List<Weapon>();
+
+    public static WeaponManager Instance;
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+
         weapons = GetComponentsInChildren<Weapon>().ToList<Weapon>();
     }
 
@@ -34,10 +48,24 @@ public class WeaponManager : MonoBehaviour
             numOfWeapons = weapons.Count;
         }
 
-        HelperFunctions.ShuffleList(ref weapons);
 
+        if (activeWeapons.Count >= maxActiveWeapons)
+        {
+            return CreateWeaponLevelUpList(activeWeapons, numOfWeapons);
+        }
+        else
+        {
+            return CreateWeaponLevelUpList(weapons, numOfWeapons);
+        }
+    }
+
+    private List<Weapon> CreateWeaponLevelUpList(List<Weapon> weapons, int numOfWeapons)
+    {
         List<Weapon> weaponList = new List<Weapon>();
         int weaponsFound = 0;
+
+        HelperFunctions.ShuffleList(ref weapons);
+
         foreach (Weapon weapon in weapons)
         {
             if (weapon.GetCurrentWeaponLevel() < 4)
@@ -52,6 +80,12 @@ public class WeaponManager : MonoBehaviour
                 break;
             }
         }
+
         return weaponList;
+    }
+
+    public void UpdateActiveWeaponList(Weapon weapon)
+    {
+        activeWeapons.Add(weapon);
     }
 }

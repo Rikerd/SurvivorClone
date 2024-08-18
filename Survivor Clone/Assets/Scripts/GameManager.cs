@@ -22,7 +22,6 @@ public class LevelUpButtonInfo
 
 public class GameManager : MonoBehaviour
 {
-    public WeaponManager weaponManager;
     public EnemySpawnerController enemySpawnerController;
     public static GameManager Instance;
 
@@ -103,6 +102,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            ForceLevelUpPrompt();
+        }
+
         currentGameTime += Time.deltaTime;
         HUDManager.Instance.UpdateTimeValue(currentGameTime);
 
@@ -146,7 +150,7 @@ public class GameManager : MonoBehaviour
         levelUpPanel.SetActive(true);
 
         int numOfWeapons = Random.Range(1, levelUpPanelButtons.Length + 1);
-        List<Weapon> weapons = weaponManager.GetWeaponsToLevel(numOfWeapons);
+        List<Weapon> weapons = WeaponManager.Instance.GetWeaponsToLevel(numOfWeapons);
         currentLevelUpButtonIndex = 0;
 
         foreach (Weapon weapon in weapons)
