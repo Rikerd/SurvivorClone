@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87825cf96cce3f34cabdb93bd30359ca, type: 3}
-  m_Name: Damage Aura
+  m_Name: DamageAura
   m_EditorClassIdentifier: 
   canCrit: 0
   levelStats:
