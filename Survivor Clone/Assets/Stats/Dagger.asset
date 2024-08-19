@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dagger
   m_EditorClassIdentifier: 
   canCrit: 1
-  moveSpeedRatio: 3.8
+  moveSpeedRatio: 4.5
   projectile: {fileID: 1277877998668816505, guid: ec116a8f9df55d64b86b47304ec0577c, type: 3}
   levelStats:
   - damage: 14

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3803250548479134906}
   - component: {fileID: 6521050528664234689}
   m_Layer: 0
-  m_Name: Full Draw Exp
+  m_Name: Exp Magnet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

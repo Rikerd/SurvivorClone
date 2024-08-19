@@ -8,15 +8,6 @@ public class EnemyStats : Stats
 {
     public int damage;
 
-    [SerializeField]
-    public List<Drops> drops;
-}
-
-[Serializable]
-public class Drops
-{
-    public GameObject item;
-
-    [Range(0f, 100f)]
-    public float rate;
+    public int exp;
+    public GameObject expOrb;
 }

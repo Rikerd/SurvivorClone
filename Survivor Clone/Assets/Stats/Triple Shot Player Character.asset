@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 75
   moveSpeedRatio: 1.65
+  damageText: {fileID: 1543355844468514358, guid: c8cec6353608a7147b33942b6cb0f50d, type: 3}
   critChance: 0.1
   baseAttack: 1
   attackLevelRate: 0

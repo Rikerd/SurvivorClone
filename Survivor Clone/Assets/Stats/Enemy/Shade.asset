@@ -14,11 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 180
   moveSpeedRatio: 0.9
+  damageText: {fileID: 1543355844468514358, guid: c8cec6353608a7147b33942b6cb0f50d, type: 3}
   damage: 8
-  drops:
-  - item: {fileID: 1094633095928340844, guid: 46bea64091d507143b7da7136c9e8e30, type: 3}
-    rate: 10
-  - item: {fileID: 3870436542734150734, guid: 89952a900db76794685cbb1b25cb18de, type: 3}
-    rate: 40
-  - item: {fileID: 2252031522718879922, guid: 8e0e5e6ba6152f24fbedb2ef3dc7b97c, type: 3}
-    rate: 80
+  exp: 3
+  expOrb: {fileID: 3870436542734150734, guid: 89952a900db76794685cbb1b25cb18de, type: 3}

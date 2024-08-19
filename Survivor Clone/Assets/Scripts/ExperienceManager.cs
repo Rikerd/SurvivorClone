@@ -39,8 +39,8 @@ public class ExperienceManager : MonoBehaviour
         if (currentExp + amount >= maxExp)
         {
             currentExp = currentExp + amount - maxExp;
-            float newMaxExp = maxExp * 1.7f;
-            maxExp = (int)(newMaxExp + 0.5f);
+            maxExp += 10;
+
             currentLevel++;
             OnLevelUp?.Invoke(currentExp, maxExp, currentLevel);
         }

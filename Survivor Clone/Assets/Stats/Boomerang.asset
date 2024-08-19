@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Boomerang
   m_EditorClassIdentifier: 
   canCrit: 0
-  moveSpeedRatio: 3.5
+  moveSpeedRatio: 4
   projectile: {fileID: 1277877998668816505, guid: b95301063179f5a4eb5d406254db35df, type: 3}
   levelStats:
   - damage: 14

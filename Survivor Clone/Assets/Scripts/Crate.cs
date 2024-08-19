@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class Crate : MonoBehaviour, IDamageable
 {
-    public GameObject damageTextObject;
-
     public BreakableStats crateStat;
 
     public int currentHealth { get; set; }
@@ -28,7 +26,7 @@ public class Crate : MonoBehaviour, IDamageable
     public void DamageHealth(int damageAmount, bool isCrit = false)
     {
         currentHealth -= damageAmount;
-        TMP_Text damageText = Instantiate(damageTextObject, transform.position, Quaternion.identity).GetComponent<TMP_Text>();
+        TMP_Text damageText = Instantiate(crateStat.damageText, transform.position, Quaternion.identity).GetComponent<TMP_Text>();
         damageText.SetText(damageAmount.ToString());
         if (isCrit)
         {

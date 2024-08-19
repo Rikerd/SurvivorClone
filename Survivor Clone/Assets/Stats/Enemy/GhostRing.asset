@@ -13,11 +13,9 @@ MonoBehaviour:
   m_Name: GhostRing
   m_EditorClassIdentifier: 
   maxHealth: 220
-  moveSpeedRatio: 0.45
+  moveSpeedRatio: 0.25
+  damageText: {fileID: 1543355844468514358, guid: c8cec6353608a7147b33942b6cb0f50d, type: 3}
   damage: 6
-  drops:
-  - item: {fileID: 1094633095928340844, guid: 46bea64091d507143b7da7136c9e8e30, type: 3}
-    rate: 26
-  - item: {fileID: 3870436542734150734, guid: 89952a900db76794685cbb1b25cb18de, type: 3}
-    rate: 60
+  exp: 3
+  expOrb: {fileID: 3870436542734150734, guid: 89952a900db76794685cbb1b25cb18de, type: 3}
   lifeTime: 27

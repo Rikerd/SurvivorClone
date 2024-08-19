@@ -8,4 +8,6 @@ public class Stats : ScriptableObject
 {
     public int maxHealth;
     public float moveSpeedRatio;
+
+    public GameObject damageText;
 }

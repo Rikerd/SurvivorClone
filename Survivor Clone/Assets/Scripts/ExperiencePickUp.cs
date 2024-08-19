@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ExperiencePickUp : DrawablePickup
 {
-    public int exp = 1;
+    private int exp = 1;
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -12,6 +12,32 @@ public class ExperiencePickUp : DrawablePickup
         {
             ExperienceManager.Instance.AddExperience(exp);
             Destroy(gameObject);
+        }
+    }
+
+    public void SetExperienceAmount(int amount)
+    {
+        exp = amount;
+
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        switch (exp)
+        {
+            case <= 10:
+                transform.localScale = new Vector2(0.5f, 0.5f);
+                spriteRenderer.color = Color.blue;
+                break;
+            case <= 19:
+                transform.localScale = new Vector2(0.53f, 0.53f);
+                spriteRenderer.color = Color.green;
+                break;
+            case <= 29:
+                transform.localScale = new Vector2(0.56f, 0.56f);
+                spriteRenderer.color = Color.yellow;
+                break;
+            case <= 39:
+                transform.localScale = new Vector2(0.6f, 0.6f);
+                spriteRenderer.color = Color.magenta;
+                break;
         }
     }
 }

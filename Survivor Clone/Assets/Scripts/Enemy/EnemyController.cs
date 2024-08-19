@@ -8,7 +8,6 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
 {
     public EnemyStats enemyStat;
-    public GameObject damageTextObject;
 
     public float collisionDamageDelayTimer = 0.5f;
 
@@ -22,8 +21,6 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
     private bool isCollidingWithPlayer = false;
     private float currentCollisionDamageDelayTimer;
 
-    private List<Drops> drops;
-
     protected float baseGameMoveSpeed;
 
     // Start is called before the first frame update
@@ -35,8 +32,6 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
         currentHealth = enemyStat.maxHealth;
         rb2d = GetComponent<Rigidbody2D>();
         isCollidingWithPlayer = false;
-
-        drops = enemyStat.drops.OrderBy(x => x.rate).ToList();
 
         baseGameMoveSpeed = GameManager.Instance.baseGameMoveSpeed;
     }
@@ -83,7 +78,7 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
     public void DamageHealth(int damageAmount, bool isCrit = false)
     {
         currentHealth -= damageAmount;
-        TMP_Text damageText = Instantiate(damageTextObject, transform.position, Quaternion.identity).GetComponent<TMP_Text>();
+        TMP_Text damageText = Instantiate(enemyStat.damageText, transform.position, Quaternion.identity).GetComponent<TMP_Text>();
         damageText.SetText(damageAmount.ToString());
         if (isCrit)
         {
@@ -100,14 +95,13 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
 
     public void Death()
     {
-        float rand = Random.Range(0, 100);
-        foreach (Drops drop in drops)
+        int rand = Random.Range(0, 100);
+
+        if (rand <= 95)
         {
-            if (rand <= drop.rate && drop.rate != 0)
-            {
-                Instantiate(drop.item, transform.position, Quaternion.identity);
-                break;
-            }
+            GameObject expOrb = Instantiate(enemyStat.expOrb, transform.position, Quaternion.identity);
+            expOrb.GetComponent<ExperiencePickUp>().SetExperienceAmount(enemyStat.exp);
+
         }
 
         GameManager.Instance.IncrementKillCount();
