@@ -9,6 +9,8 @@ public class Weapon : MonoBehaviour
     public bool isStarterWeapon = false;
     public LevelUpInfo levelUpInfo;
 
+    public AudioClip fireSfx;
+
     private float currentCooldown;
     private float maxCooldown;
 

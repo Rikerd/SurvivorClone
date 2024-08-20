@@ -162,4 +162,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDestroyOnInvisible: 1
+  fireSfx: {fileID: 8300000, guid: e6902bda46c13bb4d83510e1255db07d, type: 3}
   maxDistance: 6

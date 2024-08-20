@@ -36,6 +36,8 @@ public class DaggerThrower : Weapon
                 Projectile projectileScript = projectileObject.GetComponent<Projectile>();
                 projectileScript.SetValues(currentLevelStats.minDamage, currentLevelStats.maxDamage, projectileStat.moveSpeedRatio, projectileStat.canCrit, currentLevelStats.pierceAmount);
             }
+            GameManager.Instance.audioSource.PlayOneShot(fireSfx);
+
             currentAngle -= 18;
             if (currentAngle == 0)
             {

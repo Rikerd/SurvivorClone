@@ -179,6 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isStarterWeapon: 0
   levelUpInfo: {fileID: 11400000, guid: c01cfeb3fabe4fc418d2c0c9dd7c7e78, type: 2}
+  fireSfx: {fileID: 0}
   auraStat: {fileID: 11400000, guid: f2dbdfb9a535b334a86af6dced05e6ab, type: 2}
 --- !u!1 &3000752179898808748
 GameObject:
@@ -337,6 +338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isStarterWeapon: 0
   levelUpInfo: {fileID: 11400000, guid: 7adddada88bedd54396369908df2ae9c, type: 2}
+  fireSfx: {fileID: 8300000, guid: e0757e806beafbc4dbc92f9cac7a1d87, type: 3}
   projectileStat: {fileID: 11400000, guid: 2915738c3e59074469edcdf89b3b0fcd, type: 2}
 --- !u!1 &3910440097654768509
 GameObject:
@@ -650,6 +652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isStarterWeapon: 1
   levelUpInfo: {fileID: 11400000, guid: 20723f1121e405c439a79fe67bf7bebf, type: 2}
+  fireSfx: {fileID: 8300000, guid: 9f812b7b9d839cb42a70e60f33786fc7, type: 3}
   projectileStat: {fileID: 11400000, guid: ca33a2e3e7970a34092305ed006c476f, type: 2}
   aimController: {fileID: 7074392958778261074}
   tripleProjectileWaitTime: 0.1
@@ -992,6 +995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isStarterWeapon: 0
   levelUpInfo: {fileID: 11400000, guid: d74186b0e3c178545ad0904043d4db08, type: 2}
+  fireSfx: {fileID: 0}
   bombStat: {fileID: 11400000, guid: 0b245fb7b3c6da5469881079f3632b3a, type: 2}
 --- !u!1 &6907054785904101411
 GameObject:
@@ -1129,6 +1133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isStarterWeapon: 0
   levelUpInfo: {fileID: 11400000, guid: 5daf9e0c49acdfa4cb8dc0c543dd13d7, type: 2}
+  fireSfx: {fileID: 8300000, guid: e6902bda46c13bb4d83510e1255db07d, type: 3}
   projectileStat: {fileID: 11400000, guid: c1ee5a1f22e950946bad86a0ee253b68, type: 2}
   radius: 6
 --- !u!1 &7663316450344190532
@@ -1359,4 +1364,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isStarterWeapon: 0
   levelUpInfo: {fileID: 11400000, guid: a7da97bf3bf9019438982c5bc97e2e5f, type: 2}
+  fireSfx: {fileID: 0}
   poisonStat: {fileID: 11400000, guid: 3fb2ab18f42bca540a023cf1b1471c0f, type: 2}

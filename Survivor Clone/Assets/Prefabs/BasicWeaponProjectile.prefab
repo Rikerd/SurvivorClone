@@ -162,3 +162,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDestroyOnInvisible: 1
+  fireSfx: {fileID: 8300000, guid: 9f812b7b9d839cb42a70e60f33786fc7, type: 3}

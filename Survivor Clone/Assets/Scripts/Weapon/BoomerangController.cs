@@ -39,6 +39,7 @@ public class BoomerangController : Weapon
                 Projectile projectileScript = projectile.GetComponent<Projectile>();
                 projectileScript.SetValues(currentLevelStats.minDamage, currentLevelStats.maxDamage, projectileStat.moveSpeedRatio, projectileStat.canCrit, currentLevelStats.pierceAmount);
             }
+            GameManager.Instance.audioSource.PlayOneShot(fireSfx);
         }
     }
 

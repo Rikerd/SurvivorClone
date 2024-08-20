@@ -43,6 +43,7 @@ public class BasicWeapon : Weapon
         {
             GameObject projectile = Instantiate(projectileStat.projectile, aimController.parent.position, lastAimRotation);
             Projectile projectileScript = projectile.GetComponent<Projectile>();
+            GameManager.Instance.audioSource.PlayOneShot(fireSfx);
             projectileScript.SetValues(currentLevelStats.minDamage, currentLevelStats.maxDamage, projectileStat.moveSpeedRatio, projectileStat.canCrit, currentLevelStats.pierceAmount);
             yield return new WaitForSeconds(tripleProjectileWaitTime);
         }
