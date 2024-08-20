@@ -20,6 +20,7 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
 
     private bool isCollidingWithPlayer = false;
     private float currentCollisionDamageDelayTimer;
+    private SpriteRenderer spriteRenderer;
 
     protected float baseGameMoveSpeed;
 
@@ -32,6 +33,7 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
         currentHealth = enemyStat.maxHealth;
         rb2d = GetComponent<Rigidbody2D>();
         isCollidingWithPlayer = false;
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         baseGameMoveSpeed = GameManager.Instance.baseGameMoveSpeed;
     }
@@ -54,6 +56,8 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
 
     protected virtual void FixedUpdate()
     {
+        Vector3 direction = (player.transform.position - transform.position).normalized;
+        CheckForLeftOrRightFacing(direction);
         MoveEnemy(Vector3.MoveTowards(transform.position, player.transform.position, baseGameMoveSpeed * enemyStat.moveSpeedRatio * Time.fixedDeltaTime));
     }
 
@@ -86,8 +90,23 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
             passiveDamageMultiplier = damagePassiveStats.stats[damagePassive.currentLevel].rateIncrease;
         }
 
-        int additionaDamageAmount = (int)((damageAmount * passiveDamageMultiplier) + 0.5f);
-        damageAmount += additionaDamageAmount;
+        int additionaDamageAmount = 0;
+        if (passiveDamageMultiplier > 0)
+        {
+            if (isCrit)
+            {
+                damageAmount /= 2;
+                additionaDamageAmount = (int)((damageAmount * passiveDamageMultiplier) + 0.5f);
+                damageAmount += additionaDamageAmount;
+                damageAmount *= 2;
+            }
+            else
+            {
+                additionaDamageAmount = (int)((damageAmount * passiveDamageMultiplier) + 0.5f);
+                damageAmount += additionaDamageAmount;
+            }
+
+        }
 
         currentHealth -= damageAmount;
         TMP_Text damageText = Instantiate(enemyStat.damageText, transform.position, Quaternion.identity).GetComponent<TMP_Text>();
@@ -135,6 +154,15 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
 
     public void CheckForLeftOrRightFacing(Vector2 movement)
     {
-
+        if (movement.x > 0)
+        {
+            isFacingRight = true;
+            spriteRenderer.flipX = false;
+        }
+        else
+        {
+            isFacingRight = false;
+            spriteRenderer.flipX = true;
+        }
     }
 }

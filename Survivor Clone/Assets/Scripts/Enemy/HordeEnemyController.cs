@@ -16,6 +16,8 @@ public class HordeEnemyController : EnemyController
 
     protected override void FixedUpdate()
     {
+        CheckForLeftOrRightFacing(direction);
+
         MoveEnemy(rb2d.position + direction * baseGameMoveSpeed * enemyStat.moveSpeedRatio * Time.fixedDeltaTime);
     }
 

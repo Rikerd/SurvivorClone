@@ -6,7 +6,7 @@ public class RingEnemyController : EnemyController
 {
     private float currentLifeTime = 0f;
 
-    private Vector2 playerOriginalPosition;
+    private Vector3 playerOriginalPosition;
     private TemporaryEnemyStats tempEnemyStats;
 
     protected override void Start()
@@ -31,6 +31,8 @@ public class RingEnemyController : EnemyController
 
     protected override void FixedUpdate()
     {
+        Vector3 direction = (playerOriginalPosition - transform.position).normalized;
+        CheckForLeftOrRightFacing(direction);
         MoveEnemy(Vector3.MoveTowards(transform.position, playerOriginalPosition, baseGameMoveSpeed * tempEnemyStats.moveSpeedRatio * Time.fixedDeltaTime));
     }
 
