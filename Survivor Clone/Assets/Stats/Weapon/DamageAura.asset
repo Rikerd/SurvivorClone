@@ -14,18 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canCrit: 0
   levelStats:
-  - damage: 11
+  - minDamage: 7
+    maxDamage: 11
     maxCooldown: 0.75
     radius: 2.5
-  - damage: 11
+  - minDamage: 7
+    maxDamage: 11
     maxCooldown: 0.75
     radius: 3.5
-  - damage: 14
+  - minDamage: 10
+    maxDamage: 14
     maxCooldown: 0.75
     radius: 3.5
-  - damage: 14
+  - minDamage: 10
+    maxDamage: 14
     maxCooldown: 0.75
     radius: 4.5
-  - damage: 16
+  - minDamage: 12
+    maxDamage: 16
     maxCooldown: 0.6
     radius: 4.5

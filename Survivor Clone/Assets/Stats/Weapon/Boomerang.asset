@@ -16,23 +16,28 @@ MonoBehaviour:
   moveSpeedRatio: 4
   projectile: {fileID: 1277877998668816505, guid: b95301063179f5a4eb5d406254db35df, type: 3}
   levelStats:
-  - damage: 14
+  - minDamage: 10
+    maxDamage: 14
     maxCooldown: 4
     projectileCount: 1
     pierceAmount: -1
-  - damage: 16
+  - minDamage: 12
+    maxDamage: 16
     maxCooldown: 4
     projectileCount: 1
     pierceAmount: -1
-  - damage: 16
+  - minDamage: 12
+    maxDamage: 16
     maxCooldown: 3.5
     projectileCount: 2
     pierceAmount: -1
-  - damage: 16
+  - minDamage: 12
+    maxDamage: 16
     maxCooldown: 3
     projectileCount: 3
     pierceAmount: -1
-  - damage: 21
+  - minDamage: 17
+    maxDamage: 21
     maxCooldown: 3
     projectileCount: 3
     pierceAmount: -1

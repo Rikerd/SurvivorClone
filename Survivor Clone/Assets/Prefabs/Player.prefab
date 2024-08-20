@@ -491,7 +491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStat: {fileID: 11400000, guid: 87c55594efed30746b6a20b71fe60dae, type: 2}
   <currentHealth>k__BackingField: 0
-  hurtSfx: {fileID: 0}
+  hurtSfx: {fileID: 8300000, guid: 27e1b70ca26f29b4d984203250d57cb9, type: 3}
 --- !u!114 &2455863838049500643
 MonoBehaviour:
   m_ObjectHideFlags: 0

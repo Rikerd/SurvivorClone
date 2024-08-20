@@ -12,6 +12,7 @@ public class WeaponStats : ScriptableObject
 [Serializable]
 public class WeaponLevelStats
 {
-    public int damage;
+    public int minDamage;
+    public int maxDamage;
     public float maxCooldown;
 }

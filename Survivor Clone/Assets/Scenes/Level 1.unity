@@ -6636,10 +6636,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8079428043794197974, guid: 9dbd229fdd04bc446844769d016e1a4d, type: 3}
-      propertyPath: hurtSfx
-      value: 
-      objectReference: {fileID: 8300000, guid: 27e1b70ca26f29b4d984203250d57cb9, type: 3}
     - target: {fileID: 8300650628602283610, guid: 9dbd229fdd04bc446844769d016e1a4d, type: 3}
       propertyPath: virtualCamera
       value: 

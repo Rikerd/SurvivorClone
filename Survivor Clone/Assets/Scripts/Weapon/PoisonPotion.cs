@@ -31,7 +31,8 @@ public class PoisonPotion : Weapon
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, currentLevelStats.radius, LayerMask.GetMask("Enemy"));
             foreach (Collider2D collider in colliders)
             {
-                collider.GetComponent<IDamageable>().DamageHealth(currentLevelStats.damage);
+                int damage = Random.Range(currentLevelStats.minDamage, currentLevelStats.maxDamage + 1);
+                collider.GetComponent<IDamageable>().DamageHealth(damage);
             }
         }
 

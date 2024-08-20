@@ -6,7 +6,8 @@ public class Projectile : MonoBehaviour
 {
     public bool isDestroyOnInvisible = true;
 
-    private int projectileDamage;
+    private int projectileMinDamage;
+    private int projectileMaxDamage;
     protected float projectileSpeedRatio;
     private bool projectileCanCrit;
     private int projectilePierceAmount;
@@ -37,9 +38,10 @@ public class Projectile : MonoBehaviour
     }
 
 
-    public void SetValues(int damage, float speed, bool canCrit, int pierceAmount)
+    public void SetValues(int minDamage, int maxDamage, float speed, bool canCrit, int pierceAmount)
     {
-        projectileDamage = damage;
+        projectileMinDamage = minDamage;
+        projectileMaxDamage = maxDamage;
         projectileSpeedRatio = speed;
         projectileCanCrit = canCrit;
         projectilePierceAmount = pierceAmount;
@@ -55,7 +57,7 @@ public class Projectile : MonoBehaviour
                 isCrit = Random.Range(0, 1f) < GameManager.Instance.GetPlayerCritChance();
             }
 
-            int damage = projectileDamage;
+            int damage = Random.Range(projectileMinDamage, projectileMaxDamage + 1);
             damage *= isCrit ? 2 : 1;
 
             collision.GetComponent<IDamageable>().DamageHealth(damage, isCrit);

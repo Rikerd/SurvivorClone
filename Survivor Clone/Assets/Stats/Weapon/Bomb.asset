@@ -12,20 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87825cf96cce3f34cabdb93bd30359ca, type: 3}
   m_Name: Bomb
   m_EditorClassIdentifier: 
-  canCrit: 1
+  canCrit: 0
   levelStats:
-  - damage: 19
-    maxCooldown: 1
+  - minDamage: 15
+    maxDamage: 19
+    maxCooldown: 2.4
     radius: 2.5
-  - damage: 19
-    maxCooldown: 1
+  - minDamage: 15
+    maxDamage: 19
+    maxCooldown: 2.4
     radius: 3
-  - damage: 19
-    maxCooldown: 1
+  - minDamage: 15
+    maxDamage: 19
+    maxCooldown: 2.4
     radius: 3.5
-  - damage: 22
-    maxCooldown: 1
+  - minDamage: 18
+    maxDamage: 22
+    maxCooldown: 2.4
     radius: 3.5
-  - damage: 22
-    maxCooldown: 1
+  - minDamage: 18
+    maxDamage: 22
+    maxCooldown: 2
     radius: 3.5

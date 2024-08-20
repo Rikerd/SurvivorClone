@@ -15,23 +15,28 @@ MonoBehaviour:
   canCrit: 0
   spawnObject: {fileID: 8847591831448578474, guid: c3a1d19458a5cec4498df2d36d7d14e8, type: 3}
   levelStats:
-  - damage: 10
+  - minDamage: 6
+    maxDamage: 10
     maxCooldown: 5
     radius: 4
     spawnAmount: 1
-  - damage: 10
+  - minDamage: 6
+    maxDamage: 10
     maxCooldown: 5
     radius: 4
     spawnAmount: 2
-  - damage: 10
+  - minDamage: 6
+    maxDamage: 10
     maxCooldown: 5
     radius: 4
     spawnAmount: 3
-  - damage: 14
+  - minDamage: 10
+    maxDamage: 14
     maxCooldown: 5
     radius: 4
     spawnAmount: 3
-  - damage: 18
+  - minDamage: 14
+    maxDamage: 18
     maxCooldown: 5
     radius: 4
     spawnAmount: 4
