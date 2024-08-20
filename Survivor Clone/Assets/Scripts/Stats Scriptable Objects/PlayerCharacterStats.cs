@@ -9,11 +9,4 @@ public class PlayerCharacterStats : Stats
     public float critChance;
 
     public float baseAttack;
-
-    [Header("Level Up Increase Rates")]
-    public float attackLevelRate;
-    public float attackSpeedRate;
-    public float movementSpeedRate;
-    public float critChanceRate;
-    public int healthRate;
 }

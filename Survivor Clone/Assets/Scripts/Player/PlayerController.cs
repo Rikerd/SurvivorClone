@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -69,9 +70,6 @@ public class PlayerController : MonoBehaviour, IDamageable
         movementAction.started += OnMovement;
         movementAction.performed += OnMovement;
         movementAction.canceled += OnMovement;
-
-        // ExperienceManager callbacks
-        ExperienceManager.Instance.OnLevelUp += HandleLevelUp;
     }
 
     private void OnDisable()
@@ -81,13 +79,29 @@ public class PlayerController : MonoBehaviour, IDamageable
         movementAction.started -= OnMovement;
         movementAction.performed -= OnMovement;
         movementAction.canceled -= OnMovement;
-
-        // ExperienceManager callbacks
-        ExperienceManager.Instance.OnLevelUp -= HandleLevelUp;
     }
 
     public void DamageHealth(int damageAmount, bool isCrit = false)
     {
+        int passiveArmor = 0;
+        PassiveItem armorPassive = PassiveItemManager.Instance.IsPassiveActiveById(PassiveItemStats.PassiveId.Armor);
+        if (armorPassive != null)
+        {
+            BasicPassiveItemStats armorPassiveStats = (BasicPassiveItemStats)armorPassive.stat;
+
+            passiveArmor = (int)armorPassiveStats.stats[armorPassive.currentLevel].rateIncrease;
+        }
+
+        damageAmount -= passiveArmor;
+        if (damageAmount <= 0)
+        {
+            damageAmount = 1;
+        }
+
+        TMP_Text damageText = Instantiate(playerStat.damageText, transform.position, Quaternion.identity).GetComponent<TMP_Text>();
+        damageText.SetText(damageAmount.ToString());
+        damageText.color = Color.red;
+
         currentHealth -= damageAmount;
 
         if (currentHealth <= 0 )
@@ -122,36 +136,30 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         Vector2 input = context.ReadValue<Vector2>();
         input.Normalize();
-        movement = input * baseGameMoveSpeed * moveSpeedRatio;
+
+        float passiveMoveSpeedRatio = 0f;
+        PassiveItem moveSpeedPassive = PassiveItemManager.Instance.IsPassiveActiveById(PassiveItemStats.PassiveId.MovementSpeed);
+        if (moveSpeedPassive != null)
+        {
+            BasicPassiveItemStats moveSpeedPassiveStats = (BasicPassiveItemStats)moveSpeedPassive.stat;
+
+            passiveMoveSpeedRatio = moveSpeedPassiveStats.stats[moveSpeedPassive.currentLevel].rateIncrease;
+        }
+
+        movement = input * baseGameMoveSpeed * (moveSpeedRatio + passiveMoveSpeedRatio);
     }
 
     public float GetCritChance()
     {
-        return critChance;
-    }
+        float passiveCritChance = 0f;
+        PassiveItem critSpeedPassive = PassiveItemManager.Instance.IsPassiveActiveById(PassiveItemStats.PassiveId.CriticalChance);
+        if (critSpeedPassive != null)
+        {
+            BasicPassiveItemStats critPassiveStats = (BasicPassiveItemStats)critSpeedPassive.stat;
 
-    // ExperienceManager
-    private void HandleLevelUp(int currentExp, int maxExp, int currentLevel)
-    {
-        playerStat.baseAttack += playerStat.attackLevelRate;
-    }
+            passiveCritChance = critPassiveStats.stats[critSpeedPassive.currentLevel].rateIncrease;
+        }
 
-    public void LevelUpPlayerHealth()
-    {
-        maxHealth += playerStat.healthRate;
-        currentHealth += playerStat.healthRate;
-        HUDManager.Instance.UpdateHealthValue(currentHealth, maxHealth);
-        onPlayerHealthBar.maxValue = maxHealth;
-        onPlayerHealthBar.value = currentHealth;
-    }
-
-    public void LevelUpPlayerMovementSpeed()
-    {
-        moveSpeedRatio += playerStat.movementSpeedRate;
-    }
-
-    public void LevelUpPlayerCritChance()
-    {
-        critChance += playerStat.critChanceRate;
+        return critChance + passiveCritChance;
     }
 }

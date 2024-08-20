@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class ExperienceManager : MonoBehaviour
 {
-    public int maxExp = 10;
+    public float maxExp = 10;
 
     public static ExperienceManager Instance;
 
-    private int currentExp = 0;
+    private float currentExp = 0;
     private int currentLevel = 1;
 
-    public delegate void ExperienceChangeHandler(int amount);
+    public delegate void ExperienceChangeHandler(float amount);
     public event ExperienceChangeHandler OnExperienceChange;    
-    public delegate void LevelChangeHandler(int currentExp, int maxExp, int currentLevel);
+    public delegate void LevelChangeHandler(float currentExp, float maxExp, int currentLevel);
     public event LevelChangeHandler OnLevelUp;
 
     private void Awake()
@@ -34,8 +34,16 @@ public class ExperienceManager : MonoBehaviour
         HUDManager.Instance.InitializeExpBar(maxExp);
     }
 
-    public void AddExperience(int amount)
+    public void AddExperience(float amount)
     {
+        PassiveItem expPassive = PassiveItemManager.Instance.IsPassiveActiveById(PassiveItemStats.PassiveId.Experience);
+        if (expPassive != null)
+        {
+            BasicPassiveItemStats expPassiveStats = (BasicPassiveItemStats)expPassive.stat;
+
+            amount += amount * expPassiveStats.stats[expPassive.currentLevel].rateIncrease;
+        }
+
         if (currentExp + amount >= maxExp)
         {
             currentExp = currentExp + amount - maxExp;

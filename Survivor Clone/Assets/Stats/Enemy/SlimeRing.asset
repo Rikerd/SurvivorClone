@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: SlimeRing
   m_EditorClassIdentifier: 
   maxHealth: 120
-  moveSpeedRatio: 0.25
+  moveSpeedRatio: 0.2
   damageText: {fileID: 1543355844468514358, guid: c8cec6353608a7147b33942b6cb0f50d, type: 3}
   damage: 5
   exp: 2
   expOrb: {fileID: 3870436542734150734, guid: 89952a900db76794685cbb1b25cb18de, type: 3}
-  lifeTime: 27
+  lifeTime: 14

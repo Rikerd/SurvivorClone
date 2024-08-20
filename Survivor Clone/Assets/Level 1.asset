@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPatterns:
   - patternEndTimeInSeconds: 30
-    minSpawnTimer: 0.8
-    maxSpawnTimer: 1
+    minSpawnTimer: 0.7
+    maxSpawnTimer: 0.9
     enemySpawnRates:
     - enemy: {fileID: 8371416313282000803, guid: b7a2315f7b982d140962a1ceaa2d8f6a, type: 3}
       rate: 100
   - patternEndTimeInSeconds: 150
-    minSpawnTimer: 0.8
-    maxSpawnTimer: 1
+    minSpawnTimer: 0.6
+    maxSpawnTimer: 0.8
     enemySpawnRates:
     - enemy: {fileID: 6869661145523149589, guid: 1f00caa268bec4447acf83ae576a7bb3, type: 3}
       rate: 40
@@ -37,7 +37,7 @@ MonoBehaviour:
       rate: 100
   - patternEndTimeInSeconds: 480
     minSpawnTimer: 0.6
-    maxSpawnTimer: 0.8
+    maxSpawnTimer: 0.7
     enemySpawnRates:
     - enemy: {fileID: 6869661145523149589, guid: cd755c1c025b213409b498e639263f5e, type: 3}
       rate: 30
@@ -53,7 +53,7 @@ MonoBehaviour:
       rate: 100
   - patternEndTimeInSeconds: 660
     minSpawnTimer: 0.4
-    maxSpawnTimer: 0.6
+    maxSpawnTimer: 0.5
     enemySpawnRates:
     - enemy: {fileID: 6869661145523149589, guid: ce9712bf69fa95d42bc0197694a0b329, type: 3}
       rate: 100
@@ -67,7 +67,7 @@ MonoBehaviour:
       rate: 100
   - patternEndTimeInSeconds: 780
     minSpawnTimer: 0.4
-    maxSpawnTimer: 0.6
+    maxSpawnTimer: 0.5
     enemySpawnRates:
     - enemy: {fileID: 6869661145523149589, guid: d128664bc78f0fb41a3bff6c628d4ffa, type: 3}
       rate: 50
@@ -75,13 +75,13 @@ MonoBehaviour:
       rate: 100
   - patternEndTimeInSeconds: 840
     minSpawnTimer: 0.4
-    maxSpawnTimer: 0.6
+    maxSpawnTimer: 0.5
     enemySpawnRates:
     - enemy: {fileID: 6869661145523149589, guid: 5f20ac5d6dd4ef449a9ef8e96ccf4f36, type: 3}
       rate: 100
   - patternEndTimeInSeconds: 1200
     minSpawnTimer: 0.4
-    maxSpawnTimer: 0.6
+    maxSpawnTimer: 0.5
     enemySpawnRates:
     - enemy: {fileID: 6869661145523149589, guid: 5f20ac5d6dd4ef449a9ef8e96ccf4f36, type: 3}
       rate: 50

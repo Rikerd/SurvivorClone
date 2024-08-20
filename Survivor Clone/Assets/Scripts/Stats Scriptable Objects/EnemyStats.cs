@@ -8,6 +8,6 @@ public class EnemyStats : Stats
 {
     public int damage;
 
-    public int exp;
+    public float exp;
     public GameObject expOrb;
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ExperiencePickUp : DrawablePickup
 {
-    private int exp = 1;
+    private float exp = 1;
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,7 +15,7 @@ public class ExperiencePickUp : DrawablePickup
         }
     }
 
-    public void SetExperienceAmount(int amount)
+    public void SetExperienceAmount(float amount)
     {
         exp = amount;
 

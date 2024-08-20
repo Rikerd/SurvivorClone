@@ -59,7 +59,7 @@ public class HUDManager : MonoBehaviour
         healthText.SetText(currentHealth.ToString() + " / " + maxHealth.ToString());
     }
 
-    public void InitializeExpBar(int exp)
+    public void InitializeExpBar(float exp)
     {
         expSlider.maxValue = exp;
         expSlider.value = 0;
@@ -86,7 +86,7 @@ public class HUDManager : MonoBehaviour
     }
 
     // ExperienceManager
-    private void HandleLevelUp(int currentExp, int maxExp, int currentLevel)
+    private void HandleLevelUp(float currentExp, float maxExp, int currentLevel)
     {
         expSlider.value = currentExp;
         expSlider.maxValue = maxExp;
@@ -94,7 +94,7 @@ public class HUDManager : MonoBehaviour
         levelText.SetText("Lv. " + currentLevel.ToString());
     }
 
-    private void HandleExprienceChange(int amount)
+    private void HandleExprienceChange(float amount)
     {
         expSlider.value = amount;
     }

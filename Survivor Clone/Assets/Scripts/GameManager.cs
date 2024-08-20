@@ -6,20 +6,6 @@ using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LevelUpButtonInfo
-{
-    public string name;
-    public UnityAction callback;
-    public string description;
-
-    public LevelUpButtonInfo(string levelUpName, UnityAction levelUpCallback, string levelUpDescription)
-    {
-        name = levelUpName;
-        callback = levelUpCallback;
-        description = levelUpDescription;
-    }
-}
-
 public class GameManager : MonoBehaviour
 {
     public float baseGameMoveSpeed = 3f;
@@ -28,6 +14,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public List<Image> weaponHUDUI;
+    public List<Image> passiveHUDUI;
 
     public GameObject gameOverPanel;
 
@@ -41,8 +28,6 @@ public class GameManager : MonoBehaviour
     private PlayerController playerController;
     private Button[] levelUpPanelButtons;
 
-    private List<LevelUpButtonInfo> levelUpButtonInfos;
-
     private int currentLevelUpButtonIndex = 0;
 
     private float currentGameTime = 0f;
@@ -51,6 +36,7 @@ public class GameManager : MonoBehaviour
     private float currentTimeEventSpawnTime;
 
     private int currentWeaponHudUIIndex = 0;
+    private int currentPassiveHudUIIndex = 0;
 
     private int currentCoinEarned = 0;
 
@@ -64,13 +50,6 @@ public class GameManager : MonoBehaviour
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
 
         gameOverPanel.SetActive(false);
-
-        levelUpButtonInfos = new List<LevelUpButtonInfo>
-        {
-            new LevelUpButtonInfo("Health", playerController.LevelUpPlayerHealth, ""),
-            new LevelUpButtonInfo("Movement Speed", playerController.LevelUpPlayerMovementSpeed, ""),
-            new LevelUpButtonInfo("Crit Chance", playerController.LevelUpPlayerCritChance, ""),
-        };
 
         currentGameTime = 0;
         currentSpawnPatternEndTime = enemySpawnerController.GetCurrentSpawnPatternEndTimer();
@@ -146,42 +125,31 @@ public class GameManager : MonoBehaviour
     }
 
     // ExperienceManager
-    private void HandleLevelUp(int currentExp, int maxExp, int currentLevel)
+    private void HandleLevelUp(float currentExp, float maxExp, int currentLevel)
     {
         Time.timeScale = 0;
         levelUpPanel.SetActive(true);
 
-        int numOfWeapons = Random.Range(1, levelUpPanelButtons.Length + 1);
-        List<Weapon> weapons = WeaponManager.Instance.GetWeaponsToLevel(numOfWeapons);
         currentLevelUpButtonIndex = 0;
 
+        int numOfWeapons = Random.Range(1, levelUpPanelButtons.Length + 1);
+        List<Weapon> weapons = WeaponManager.Instance.GetWeaponsToLevel(numOfWeapons);
         foreach (Weapon weapon in weapons)
         {
             PopulateLevelUpButtonWithWeapon(weapon);
             currentLevelUpButtonIndex++;
         }
 
-        HelperFunctions.ShuffleList(ref levelUpButtonInfos);
-        for (int levelUpButtonInfosIndex = 0; currentLevelUpButtonIndex < levelUpPanelButtons.Length; levelUpButtonInfosIndex++, currentLevelUpButtonIndex++)
+        int numOfPassives = levelUpPanelButtons.Length - numOfWeapons;
+        if (numOfPassives > 0)
         {
-            LevelUpButtonInfo powerUpInfo = levelUpButtonInfos[levelUpButtonInfosIndex];
-            PopulateLevelUpButtonWithPowerUps(powerUpInfo);
+            List<PassiveItem> passives = PassiveItemManager.Instance.GetPassivesToLevel(numOfPassives);
+            foreach (PassiveItem passive in passives)
+            {
+                PopulateLevelUpButtonWithPassive(passive);
+                currentLevelUpButtonIndex++;
+            }
         }
-    }
-
-    private void PopulateLevelUpButtonWithPowerUps(LevelUpButtonInfo powerUpInfo)
-    {
-        Image currentLevelUpPanelIcon = levelUpPanelIcons[currentLevelUpButtonIndex];
-        currentLevelUpPanelIcon.sprite = null;
-
-        Button currentLevelUpButton = levelUpPanelButtons[currentLevelUpButtonIndex];
-        currentLevelUpButton.onClick.RemoveAllListeners();
-
-        string nameText = powerUpInfo.name;
-        UnityAction callback = powerUpInfo.callback;
-        currentLevelUpButton.GetComponentInChildren<TMP_Text>().SetText(nameText);
-        currentLevelUpButton.onClick.AddListener(callback);
-        currentLevelUpButton.onClick.AddListener(CloseLevelUpPanel);
     }
 
     private void PopulateLevelUpButtonWithWeapon(Weapon weapon)
@@ -192,7 +160,7 @@ public class GameManager : MonoBehaviour
         Button currentLevelUpButton = levelUpPanelButtons[currentLevelUpButtonIndex];
         currentLevelUpButton.onClick.RemoveAllListeners();
 
-        string levelText = "Lv. " + (weapon.GetCurrentWeaponLevel() + 1);
+        string levelText = "Weapon Lv. " + (weapon.GetCurrentWeaponLevel() + 1);
         string weaponName = weapon.levelUpInfo.upgradeName;
         string weaponDescription = weapon.levelUpInfo.description;
 
@@ -210,8 +178,34 @@ public class GameManager : MonoBehaviour
 
         currentLevelUpButton.GetComponentInChildren<TMP_Text>().SetText(finalText);
         currentLevelUpButton.onClick.AddListener(CloseLevelUpPanel);
+    }
 
+    private void PopulateLevelUpButtonWithPassive(PassiveItem passive)
+    {
+        Image currentLevelUpPanelIcon = levelUpPanelIcons[currentLevelUpButtonIndex];
+        currentLevelUpPanelIcon.sprite = passive.stat.uiSprite;
 
+        Button currentLevelUpButton = levelUpPanelButtons[currentLevelUpButtonIndex];
+        currentLevelUpButton.onClick.RemoveAllListeners();
+
+        string levelText = "Passive Lv. " + (passive.GetCurrentPassiveLevel() + 1);
+        string passiveName = passive.stat.passiveName;
+        string passiveDescription = passive.stat.description;
+
+        if (PassiveItemManager.Instance.IsPassiveActive(passive))
+        {
+            currentLevelUpButton.onClick.AddListener(() => PassiveItemManager.Instance.IncreasePassiveItemLevel(passive));
+            levelText += " -> Lv. " + (passive.GetCurrentPassiveLevel() + 2);
+        }
+        else
+        {
+            currentLevelUpButton.onClick.AddListener(() => PassiveItemManager.Instance.ActivatePassiveItem(passive));
+        }
+
+        string finalText = levelText + " " + passiveName + "\n" + passiveDescription;
+
+        currentLevelUpButton.GetComponentInChildren<TMP_Text>().SetText(finalText);
+        currentLevelUpButton.onClick.AddListener(CloseLevelUpPanel);
     }
 
     private void CloseLevelUpPanel()
@@ -229,6 +223,12 @@ public class GameManager : MonoBehaviour
     {
         weaponHUDUI[currentWeaponHudUIIndex].sprite = sprite;
         currentWeaponHudUIIndex++;
+    }
+
+    public void UpdatePassiveHUDUI(Sprite sprite)
+    {
+        passiveHUDUI[currentPassiveHudUIIndex].sprite = sprite;
+        currentPassiveHudUIIndex++;
     }
 
     public void EarnCoin()

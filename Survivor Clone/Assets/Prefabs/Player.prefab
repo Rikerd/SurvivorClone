@@ -377,6 +377,7 @@ Transform:
   - {fileID: 1800276422719438048}
   - {fileID: 2971414036812564260}
   - {fileID: 3169245001064592186}
+  - {fileID: 4892706422332993377}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &2508400570414165238
@@ -387,7 +388,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3910440097654768509}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -1238,6 +1239,62 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &8395206270531199611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4892706422332993377}
+  - component: {fileID: 7214092343413841115}
+  m_Layer: 6
+  m_Name: Passive Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4892706422332993377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8395206270531199611}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6013283107184396713}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7214092343413841115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8395206270531199611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41197ab26f3e8745b843f3e4d861f0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  passiveItems:
+  - currentLevel: 0
+    stat: {fileID: 11400000, guid: 8e82b6ab5d4472941bbd27b31fe9a89d, type: 2}
+  - currentLevel: 0
+    stat: {fileID: 11400000, guid: a27c1566457a6de4b8a82c18328f6357, type: 2}
+  - currentLevel: 0
+    stat: {fileID: 11400000, guid: b09c070b4b4cd4f47ad682fa3e55055e, type: 2}
+  - currentLevel: 0
+    stat: {fileID: 11400000, guid: cd40f95857420d0419d89c23d55c279b, type: 2}
+  - currentLevel: 0
+    stat: {fileID: 11400000, guid: 3a8c07905d5bba34885406765ad04400, type: 2}
+  maxActivePassives: 5
 --- !u!1 &8499652895871138270
 GameObject:
   m_ObjectHideFlags: 0

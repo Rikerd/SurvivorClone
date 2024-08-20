@@ -77,12 +77,23 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
     #region Health Functions
     public void DamageHealth(int damageAmount, bool isCrit = false)
     {
+        float passiveDamageMultiplier = 0;
+        PassiveItem damagePassive = PassiveItemManager.Instance.IsPassiveActiveById(PassiveItemStats.PassiveId.Damage);
+        if (damagePassive != null)
+        {
+            BasicPassiveItemStats damagePassiveStats = (BasicPassiveItemStats)damagePassive.stat;
+
+            passiveDamageMultiplier = damagePassiveStats.stats[damagePassive.currentLevel].rateIncrease;
+        }
+
+        damageAmount += (int)((damageAmount * passiveDamageMultiplier) + 0.5f);
+
         currentHealth -= damageAmount;
         TMP_Text damageText = Instantiate(enemyStat.damageText, transform.position, Quaternion.identity).GetComponent<TMP_Text>();
         damageText.SetText(damageAmount.ToString());
         if (isCrit)
         {
-            damageText.color = Color.red;
+            damageText.color = Color.yellow;
             damageText.fontSize *= 1.2f;
         }
 
