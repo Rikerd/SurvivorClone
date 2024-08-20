@@ -106,13 +106,20 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
 
     public void Death()
     {
-        int rand = Random.Range(0, 100);
-
-        if (rand <= 95)
+        if (enemyStat.isMiniBoss)
         {
             GameObject expOrb = Instantiate(enemyStat.expOrb, transform.position, Quaternion.identity);
             expOrb.GetComponent<ExperiencePickUp>().SetExperienceAmount(enemyStat.exp);
+        }
+        else
+        {
+            int rand = Random.Range(0, 100);
 
+            if (rand <= 95)
+            {
+                GameObject expOrb = Instantiate(enemyStat.expOrb, transform.position, Quaternion.identity);
+                expOrb.GetComponent<ExperiencePickUp>().SetExperienceAmount(enemyStat.exp);
+            }
         }
 
         GameManager.Instance.IncrementKillCount();

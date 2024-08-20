@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 537098185626952191}
   - component: {fileID: 4145662250205833166}
   m_Layer: 7
-  m_Name: Mini Boss Enemy
+  m_Name: MiniBossGhost
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.2347836, y: 3.848, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 45c3d23a12dcac7488e4027b0726dd45, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.04943371, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 202322d50ef813544b2a8e5adaeba9d2, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -148,7 +148,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.5
 --- !u!114 &4145662250205833166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +161,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0722a6adaff82bd4f807d13c9058fb29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyStat: {fileID: 11400000, guid: a6439af7a1c36f14a8f1cb41ab66c441, type: 2}
-  damageTextObject: {fileID: 1543355844468514358, guid: c8cec6353608a7147b33942b6cb0f50d, type: 3}
+  enemyStat: {fileID: 11400000, guid: 91f2e39f3825d044b9d5bb0fd5dbd718, type: 2}
   collisionDamageDelayTimer: 0.5

@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f212702adc3d4964abb10115c88bc2ce, type: 3}
-  m_Name: Mini Boss Enemy
+  m_Name: MiniBossEyeV2
   m_EditorClassIdentifier: 
-  maxHealth: 2200
-  moveSpeedRatio: 0
+  maxHealth: 10000
+  moveSpeedRatio: 1.1
   damageText: {fileID: 1543355844468514358, guid: c8cec6353608a7147b33942b6cb0f50d, type: 3}
-  damage: 12
-  exp: 0
+  damage: 18
+  exp: 200
   expOrb: {fileID: 3870436542734150734, guid: 89952a900db76794685cbb1b25cb18de, type: 3}
+  isMiniBoss: 1

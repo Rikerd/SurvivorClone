@@ -88,12 +88,27 @@ MonoBehaviour:
     - enemy: {fileID: 6869661145523149589, guid: ed81300c5a5a1f64896bea86431c0a34, type: 3}
       rate: 100
   miniBossSpawns:
-  - miniBoss: {fileID: 6869661145523149589, guid: e28a437b0e4fb2c4ea20d39dd04f51ab, type: 3}
+  - miniBoss: {fileID: 8371416313282000803, guid: cc94e072c8bdd8d4ca36b12f8cb03da5, type: 3}
     numToSpawn: 1
-  - miniBoss: {fileID: 6869661145523149589, guid: e28a437b0e4fb2c4ea20d39dd04f51ab, type: 3}
-    numToSpawn: 2
-  - miniBoss: {fileID: 6869661145523149589, guid: e28a437b0e4fb2c4ea20d39dd04f51ab, type: 3}
-    numToSpawn: 3
+    miniBossTimeInSeconds: 120
+  - miniBoss: {fileID: 6869661145523149589, guid: 4d03b12e7ca39f54dacd148577358fbd, type: 3}
+    numToSpawn: 1
+    miniBossTimeInSeconds: 240
+  - miniBoss: {fileID: 6869661145523149589, guid: f34fb8a1d72f1584ebfdbcfdf637789e, type: 3}
+    numToSpawn: 1
+    miniBossTimeInSeconds: 360
+  - miniBoss: {fileID: 6869661145523149589, guid: 0affc50c32d6ed4488dea8d0e9d8bfe3, type: 3}
+    numToSpawn: 1
+    miniBossTimeInSeconds: 480
+  - miniBoss: {fileID: 6869661145523149589, guid: 0e12f6c002b16e34bae6e053b798bc60, type: 3}
+    numToSpawn: 1
+    miniBossTimeInSeconds: 600
+  - miniBoss: {fileID: 6869661145523149589, guid: af5312efcdf607e48825ba8e80d5af4e, type: 3}
+    numToSpawn: 1
+    miniBossTimeInSeconds: 720
+  - miniBoss: {fileID: 6869661145523149589, guid: af5312efcdf607e48825ba8e80d5af4e, type: 3}
+    numToSpawn: 1
+    miniBossTimeInSeconds: 840
   timeEventSpawn:
   - timeEventEnemy: {fileID: 3503081682285758090, guid: c8bf4568655c88a4ea1c44215ecf908b, type: 3}
     timeEventTimeInSeconds: 5

@@ -10,4 +10,6 @@ public class EnemyStats : Stats
 
     public float exp;
     public GameObject expOrb;
+
+    public bool isMiniBoss = false;
 }

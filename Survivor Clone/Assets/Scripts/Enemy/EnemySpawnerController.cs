@@ -12,7 +12,7 @@ public class EnemySpawnerController : MonoBehaviour
     private int currentSpawnPattern = 0;
     private int currentTimeEventSpawn = 0;
 
-    private int currentMiniBossPattern = 1;
+    private int currentMiniBossSpawn = 0;
 
     private enum ScreenEdge { Top, Bottom, Left, Right };
 
@@ -60,29 +60,16 @@ public class EnemySpawnerController : MonoBehaviour
         }
     }
 
-    public void CheckToSpawnMiniBoss(int miniBossPattern)
+    public void SpawnMiniBoss()
     {
-        if (currentMiniBossPattern == enemySpawnerInfo.miniBossSpawns.Count())
+        MiniBossSpawnData miniBossSpawnData = enemySpawnerInfo.miniBossSpawns[currentMiniBossSpawn];
+        for (int numOfMiniBoss = 0; numOfMiniBoss < miniBossSpawnData.numToSpawn; numOfMiniBoss++)
         {
-            currentMiniBossPattern -= enemySpawnerInfo.miniBossSpawns.Count();
+            Vector2 positionWorldPoint = FindWorldPositionToSpawn();
+            GameObject enemy = enemySpawnerInfo.miniBossSpawns[currentMiniBossSpawn].miniBoss;
+            Instantiate(enemy, positionWorldPoint, Quaternion.identity);
         }
-
-        if (miniBossPattern >= enemySpawnerInfo.miniBossSpawns.Count())
-        {
-            miniBossPattern -= enemySpawnerInfo.miniBossSpawns.Count();
-        }
-
-        if (miniBossPattern == currentMiniBossPattern)
-        {
-            MiniBossSpawnData miniBossSpawnData = enemySpawnerInfo.miniBossSpawns[currentMiniBossPattern - 1];
-            for (int numOfMiniBoss = 0; numOfMiniBoss < miniBossSpawnData.numToSpawn; numOfMiniBoss++)
-            {
-                Vector2 positionWorldPoint = FindWorldPositionToSpawn();
-                GameObject enemy = enemySpawnerInfo.miniBossSpawns[currentMiniBossPattern - 1].miniBoss;
-                Instantiate(enemy, positionWorldPoint, Quaternion.identity);
-                currentMiniBossPattern++;
-            }
-        }
+        currentMiniBossSpawn++;
     }
 
     public void SpawnTimeEventEnemies()
@@ -167,5 +154,15 @@ public class EnemySpawnerController : MonoBehaviour
     public float GetCurrentTimeEventSpawnTimer()
     {
         return enemySpawnerInfo.timeEventSpawn[currentTimeEventSpawn].timeEventTimeInSeconds;
+    }
+
+    public bool IsLastMiniBossSpawn()
+    {
+        return currentMiniBossSpawn == enemySpawnerInfo.miniBossSpawns.Count - 1;
+    }
+
+    public float GetCurrentMiniBossSpawnTimer()
+    {
+        return enemySpawnerInfo.miniBossSpawns[currentMiniBossSpawn].miniBossTimeInSeconds;
     }
 }

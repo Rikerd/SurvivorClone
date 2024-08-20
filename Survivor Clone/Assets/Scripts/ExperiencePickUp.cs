@@ -34,7 +34,7 @@ public class ExperiencePickUp : DrawablePickup
                 transform.localScale = new Vector2(0.56f, 0.56f);
                 spriteRenderer.color = Color.yellow;
                 break;
-            case <= 39:
+            case > 29:
                 transform.localScale = new Vector2(0.6f, 0.6f);
                 spriteRenderer.color = Color.magenta;
                 break;

@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
 
     private float currentSpawnPatternEndTime;
     private float currentTimeEventSpawnTime;
+    private float currentMiniBossSpawnTime;
 
     private int currentWeaponHudUIIndex = 0;
     private int currentPassiveHudUIIndex = 0;
@@ -54,6 +55,7 @@ public class GameManager : MonoBehaviour
         currentGameTime = 0;
         currentSpawnPatternEndTime = enemySpawnerController.GetCurrentSpawnPatternEndTimer();
         currentTimeEventSpawnTime = enemySpawnerController.GetCurrentTimeEventSpawnTimer();
+        currentMiniBossSpawnTime = enemySpawnerController.GetCurrentMiniBossSpawnTimer();
     }
 
     private void Awake()
@@ -103,8 +105,11 @@ public class GameManager : MonoBehaviour
             currentTimeEventSpawnTime = enemySpawnerController.GetCurrentTimeEventSpawnTimer();
         }
 
-        //int miniBossPatternToSpawn = Mathf.FloorToInt(currentGameTime / 60);
-        //enemySpawnerController.CheckToSpawnMiniBoss(miniBossPatternToSpawn);
+        if (!enemySpawnerController.IsLastMiniBossSpawn() && currentGameTime >= currentMiniBossSpawnTime)
+        {
+            enemySpawnerController.SpawnMiniBoss();
+            currentMiniBossSpawnTime = enemySpawnerController.GetCurrentMiniBossSpawnTimer();
+        }
     }
 
     public void TriggerDeathSequence()

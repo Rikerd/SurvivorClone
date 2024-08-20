@@ -34,6 +34,7 @@ public class MiniBossSpawnData
 {
     public GameObject miniBoss;
     public int numToSpawn;
+    public float miniBossTimeInSeconds;
 }
 
 
