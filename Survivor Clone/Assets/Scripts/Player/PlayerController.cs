@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private Slider onPlayerHealthBar;
 
+    private CameraShake cameraShake;
+
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -40,6 +42,8 @@ public class PlayerController : MonoBehaviour, IDamageable
         critChance = playerStat.critChance;
 
         onPlayerHealthBar = GetComponentInChildren<Slider>();
+
+        cameraShake = GetComponent<CameraShake>();
     }
 
     private void Start()
@@ -103,6 +107,8 @@ public class PlayerController : MonoBehaviour, IDamageable
         damageText.color = Color.red;
 
         currentHealth -= damageAmount;
+
+        cameraShake.StartShake();
 
         if (currentHealth <= 0 )
         {

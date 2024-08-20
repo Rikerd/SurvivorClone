@@ -103,10 +103,10 @@ MonoBehaviour:
   - miniBoss: {fileID: 6869661145523149589, guid: 0e12f6c002b16e34bae6e053b798bc60, type: 3}
     numToSpawn: 1
     miniBossTimeInSeconds: 600
-  - miniBoss: {fileID: 6869661145523149589, guid: af5312efcdf607e48825ba8e80d5af4e, type: 3}
+  - miniBoss: {fileID: 6869661145523149589, guid: 02553337e3dae0d48a8772b7faf5ed62, type: 3}
     numToSpawn: 1
     miniBossTimeInSeconds: 720
-  - miniBoss: {fileID: 6869661145523149589, guid: af5312efcdf607e48825ba8e80d5af4e, type: 3}
+  - miniBoss: {fileID: 6869661145523149589, guid: 72ecde7f8b04b654da8944685231949e, type: 3}
     numToSpawn: 1
     miniBossTimeInSeconds: 840
   timeEventSpawn:
