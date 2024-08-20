@@ -151,8 +151,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 768367591
-  m_SortingLayer: -1
+  m_SortingLayerID: -391753117
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 47c82ad99afe4b54db7ad2fe84d380e0, type: 3}
   m_Color: {r: 1, g: 0.5502274, b: 0, a: 0.3529412}
@@ -491,6 +491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStat: {fileID: 11400000, guid: 87c55594efed30746b6a20b71fe60dae, type: 2}
   <currentHealth>k__BackingField: 0
+  hurtSfx: {fileID: 0}
 --- !u!114 &2455863838049500643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -590,7 +591,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1046799789
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 7830ac144f269fb46a1c270eca6e6e86, type: 3}
   m_Color: {r: 0.7735849, g: 0.003648994, b: 0.003648994, a: 1}
@@ -723,7 +724,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1046799789
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 869c228c2187514489f6cf3523cd5d4e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

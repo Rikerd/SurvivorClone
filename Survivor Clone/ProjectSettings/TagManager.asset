@@ -44,11 +44,32 @@ TagManager:
   - name: Background
     uniqueID: 3708444827
     locked: 0
+  - name: Coin
+    uniqueID: 1645249947
+    locked: 0
+  - name: ExpOrb
+    uniqueID: 1669961127
+    locked: 0
+  - name: Crate
+    uniqueID: 1145377653
+    locked: 0
+  - name: MiniBossEnemy
+    uniqueID: 52781271
+    locked: 0
+  - name: WallRingEnemy
+    uniqueID: 849905877
+    locked: 0
   - name: Enemy
     uniqueID: 768367591
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: HealthPickup
+    uniqueID: 1965453013
+    locked: 0
+  - name: Weapon
+    uniqueID: 3903214179
     locked: 0
   - name: Player
     uniqueID: 1046799789

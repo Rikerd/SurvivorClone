@@ -11,6 +11,7 @@ public class ExperiencePickUp : DrawablePickup
         if (collision.tag == "Player")
         {
             ExperienceManager.Instance.AddExperience(exp);
+            GameManager.Instance.audioSource.PlayOneShot(pickUpSfx);
             Destroy(gameObject);
         }
     }

@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour, IDamageable
     [field:SerializeField] public int currentHealth { get; set; }
     public int maxHealth { get; set; }
 
+    [Header("Sound Effect Clips")]
+    public AudioClip hurtSfx;
+
     private Vector2 movement = Vector2.zero;
     private float moveSpeedRatio;
     private float baseGameMoveSpeed;
@@ -109,6 +112,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         currentHealth -= damageAmount;
 
         cameraShake.StartShake();
+        GameManager.Instance.audioSource.PlayOneShot(hurtSfx);
 
         if (currentHealth <= 0 )
         {

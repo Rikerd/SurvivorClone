@@ -86,7 +86,8 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
             passiveDamageMultiplier = damagePassiveStats.stats[damagePassive.currentLevel].rateIncrease;
         }
 
-        damageAmount += (int)((damageAmount * passiveDamageMultiplier) + 0.5f);
+        int additionaDamageAmount = (int)((damageAmount * passiveDamageMultiplier) + 0.5f);
+        damageAmount += additionaDamageAmount;
 
         currentHealth -= damageAmount;
         TMP_Text damageText = Instantiate(enemyStat.damageText, transform.position, Quaternion.identity).GetComponent<TMP_Text>();

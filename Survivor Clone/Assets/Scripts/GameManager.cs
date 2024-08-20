@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject gameOverPanel;
 
+    public AudioSource audioSource;
+
     [Header("Level Up Panel Properties")]
     public GameObject levelUpPanel;
     public List<Image> levelUpPanelIcons;
@@ -56,6 +58,8 @@ public class GameManager : MonoBehaviour
         currentSpawnPatternEndTime = enemySpawnerController.GetCurrentSpawnPatternEndTimer();
         currentTimeEventSpawnTime = enemySpawnerController.GetCurrentTimeEventSpawnTimer();
         currentMiniBossSpawnTime = enemySpawnerController.GetCurrentMiniBossSpawnTimer();
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Awake()

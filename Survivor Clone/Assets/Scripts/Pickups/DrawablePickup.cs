@@ -5,6 +5,7 @@ using UnityEngine;
 public class DrawablePickup : MonoBehaviour
 {
     public float moveSpeedRatio = 2f;
+    public AudioClip pickUpSfx;
 
     private bool isPickUpMoving = false;
 

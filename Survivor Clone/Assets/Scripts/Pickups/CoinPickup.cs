@@ -9,7 +9,7 @@ public class CoinPickup : DrawablePickup
         if (collision.tag == "Player")
         {
             GameManager.Instance.EarnCoin();
-
+            GameManager.Instance.audioSource.PlayOneShot(pickUpSfx);
             Destroy(gameObject);
         }
     }
