@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4938151994432920952}
   - component: {fileID: 537098185626952191}
   - component: {fileID: 4145662250205833166}
+  - component: {fileID: 8550560457883271223}
   m_Layer: 7
   m_Name: Eye
   m_TagString: Enemy
@@ -76,12 +77,12 @@ SpriteRenderer:
   m_SortingLayerID: 768367591
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9254b8509d60a664ea864cdddcdcd019, type: 3}
+  m_Sprite: {fileID: 729904236, guid: 9254b8509d60a664ea864cdddcdcd019, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -163,3 +164,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyStat: {fileID: 11400000, guid: 1ed7c4f0eca5735499666e04f14c8c2d, type: 2}
   collisionDamageDelayTimer: 0.5
+--- !u!95 &8550560457883271223
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6869661145523149589}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2e1af9b152e575e4b8af5beca8dd29d7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

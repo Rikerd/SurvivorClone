@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 202322d50ef813544b2a8e5adaeba9d2
+guid: 2dcea74fe6a3b7b4d9fdce106f992874
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,70 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ghost_0
+      name: eye-2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 966ee5017e2adcb4aa7ae7c46d050beb
+      internalID: -103157386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-2_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecfaaa049d8ea7240881a14977fa0d73
+      internalID: 848738928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-2_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 824ef2eff02193c4799764f20dd3f62b
+      internalID: -1192939252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-2_3
       rect:
         serializedVersion: 2
         x: 0
@@ -111,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c65dea251fcba0541afe9e3675a9648a
-      internalID: 467411775
+      spriteID: 31e77bd862aeff6419fe88b9cfed174f
+      internalID: -14879392
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ghost_1
+      name: eye-2_4
       rect:
         serializedVersion: 2
         x: 16
@@ -132,14 +195,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df700a8da4fc4e44e812fb9bc0fe419e
-      internalID: -1086327511
+      spriteID: daaa445aad523f54ba5474120ec633d1
+      internalID: 464696652
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ghost_2
+      name: eye-2_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaa342df351e8c246988e17c8c0dece4
+      internalID: -1787582045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eye-2_6
       rect:
         serializedVersion: 2
         x: 0
@@ -153,29 +237,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db05cfcb1210bd94db74d68d087e6921
-      internalID: 403067425
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ghost_3
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d7886ba51f0884045bceb8f2e0104075
-      internalID: 442620183
+      spriteID: 601ba94c2ae1b9049be15261ac541463
+      internalID: 899526603
       vertices: []
       indices: 
       edges: []
@@ -191,10 +254,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ghost_0: 467411775
-      ghost_1: -1086327511
-      ghost_2: 403067425
-      ghost_3: 442620183
+      eye-2_0: -103157386
+      eye-2_1: 848738928
+      eye-2_2: -1192939252
+      eye-2_3: -14879392
+      eye-2_4: 464696652
+      eye-2_5: -1787582045
+      eye-2_6: 899526603
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
