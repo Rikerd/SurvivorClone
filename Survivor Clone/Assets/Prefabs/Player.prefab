@@ -1364,5 +1364,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isStarterWeapon: 0
   levelUpInfo: {fileID: 11400000, guid: a7da97bf3bf9019438982c5bc97e2e5f, type: 2}
-  fireSfx: {fileID: 0}
+  fireSfx: {fileID: 8300000, guid: 2f5398a7a89502e448eeba7c313a1911, type: 3}
   poisonStat: {fileID: 11400000, guid: 3fb2ab18f42bca540a023cf1b1471c0f, type: 2}
