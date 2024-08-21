@@ -28,6 +28,8 @@ public class BombController : Weapon
                 bomb.GetComponent<Bomb>().SetWeaponLevel(currentWeaponLevel);
                 bomb.GetComponent<Bomb>().StartSpawnAnimation(transform.position + spread);
             }
+
+            GameManager.Instance.audioSource.PlayOneShot(fireSfx);
         }
     }
 

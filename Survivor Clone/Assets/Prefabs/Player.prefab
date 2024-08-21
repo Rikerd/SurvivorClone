@@ -995,7 +995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isStarterWeapon: 0
   levelUpInfo: {fileID: 11400000, guid: d74186b0e3c178545ad0904043d4db08, type: 2}
-  fireSfx: {fileID: 0}
+  fireSfx: {fileID: 8300000, guid: e6902bda46c13bb4d83510e1255db07d, type: 3}
   bombStat: {fileID: 11400000, guid: 0b245fb7b3c6da5469881079f3632b3a, type: 2}
 --- !u!1 &6907054785904101411
 GameObject:
