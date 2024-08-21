@@ -22,7 +22,7 @@ public class PoisonPotionController : Weapon
             AuraSpawnerLevelStats currentWeaponLevelStat = poisonStat.levelStats[currentWeaponLevel];
             for (int numToSpawn = 0; numToSpawn < currentWeaponLevelStat.spawnAmount; numToSpawn++)
             {
-                Vector3 spread = HelperFunctions.RandomUnitVector() * currentWeaponLevelStat.radius;
+                Vector3 spread = Random.insideUnitCircle * currentWeaponLevelStat.radius;
 
                 GameObject poison = Instantiate(poisonStat.spawnObject, transform.position + spread, Quaternion.identity);
                 poison.GetComponent<PoisonPotion>().SetWeaponLevel(currentWeaponLevel);

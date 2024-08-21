@@ -25,12 +25,39 @@ public class Crate : MonoBehaviour, IDamageable
     #region Health Functions
     public void DamageHealth(int damageAmount, bool isCrit = false)
     {
+        float passiveDamageMultiplier = 0;
+        PassiveItem damagePassive = PassiveItemManager.Instance.IsPassiveActiveById(PassiveItemStats.PassiveId.Damage);
+        if (damagePassive != null)
+        {
+            BasicPassiveItemStats damagePassiveStats = (BasicPassiveItemStats)damagePassive.stat;
+
+            passiveDamageMultiplier = damagePassiveStats.stats[damagePassive.currentLevel].rateIncrease;
+        }
+
+        int additionaDamageAmount = 0;
+        if (passiveDamageMultiplier > 0)
+        {
+            if (isCrit)
+            {
+                damageAmount /= 2;
+                additionaDamageAmount = (int)((damageAmount * passiveDamageMultiplier) + 0.5f);
+                damageAmount += additionaDamageAmount;
+                damageAmount *= 2;
+            }
+            else
+            {
+                additionaDamageAmount = (int)((damageAmount * passiveDamageMultiplier) + 0.5f);
+                damageAmount += additionaDamageAmount;
+            }
+
+        }
+
         currentHealth -= damageAmount;
         TMP_Text damageText = Instantiate(crateStat.damageText, transform.position, Quaternion.identity).GetComponent<TMP_Text>();
         damageText.SetText(damageAmount.ToString());
         if (isCrit)
         {
-            damageText.color = Color.red;
+            damageText.color = Color.yellow;
             damageText.fontSize *= 1.2f;
         }
 
@@ -58,7 +85,8 @@ public class Crate : MonoBehaviour, IDamageable
 
                     if (drop.spreadDrop)
                     {
-                        spread = HelperFunctions.RandomUnitVector();
+                        float radius = Random.Range(0.5f, 1.5f);
+                        spread = Random.insideUnitCircle * radius;
                     }
 
                     Instantiate(drop.item, transform.position + spread, Quaternion.identity);

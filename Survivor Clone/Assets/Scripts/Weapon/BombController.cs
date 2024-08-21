@@ -22,7 +22,7 @@ public class BombController : Weapon
             AuraSpawnerLevelStats currentWeaponLevelStat = bombStat.levelStats[currentWeaponLevel];
             for (int numToSpawn = 0; numToSpawn < currentWeaponLevelStat.spawnAmount; numToSpawn++)
             {
-                Vector3 spread = HelperFunctions.RandomUnitVector() * currentWeaponLevelStat.radius;
+                Vector3 spread = Random.insideUnitCircle * currentWeaponLevelStat.radius;
 
                 GameObject bomb = Instantiate(bombStat.spawnObject, transform.position + spread, Quaternion.identity);
                 bomb.GetComponent<Bomb>().SetWeaponLevel(currentWeaponLevel);

@@ -52,7 +52,7 @@ public class CrateSpawnerController : MonoBehaviour
         if (currentSpawnTimer <= 0f)
         {
             float randomRadius = Random.Range(minRadiusSpawn, maxRadiusSpawn);
-            Vector3 randomPosition = Random.insideUnitSphere * randomRadius;
+            Vector3 randomPosition = Random.insideUnitCircle * randomRadius;
 
             Instantiate(crate, player.transform.position + randomPosition, Quaternion.identity);
 

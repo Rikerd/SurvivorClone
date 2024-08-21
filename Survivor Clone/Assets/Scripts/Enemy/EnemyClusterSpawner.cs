@@ -13,7 +13,7 @@ public class EnemyClusterSpawner : MonoBehaviour
     {
         for (int enemySpawn = 0; enemySpawn < numOfEnemyToSpawn; enemySpawn++)
         {
-            Vector3 randomPosition = Random.insideUnitSphere * radius;
+            Vector3 randomPosition = Random.insideUnitCircle * radius;
             GameObject clusterEnemy = Instantiate(enemy, transform.position + randomPosition, Quaternion.identity);
         }
 
