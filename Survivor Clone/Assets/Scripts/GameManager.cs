@@ -118,8 +118,13 @@ public class GameManager : MonoBehaviour
 
     public void TriggerDeathSequence()
     {
+        int accountCoins = PlayerPrefs.GetInt("Coin Amount");
+        PlayerPrefs.SetInt("Coin Amount", accountCoins + currentCoinEarned);
+        PlayerPrefs.Save();
+
         Time.timeScale = 0;
         gameOverPanel.SetActive(true);
+        HUDManager.Instance.SetGameOverPanelValues(playerKillCount, currentCoinEarned);
     }
 
     public void IncrementKillCount()

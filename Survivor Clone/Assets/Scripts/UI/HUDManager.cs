@@ -18,6 +18,9 @@ public class HUDManager : MonoBehaviour
     public Slider expSlider;
     public TMP_Text levelText;
 
+    public TMP_Text gameOverKillsText;
+    public TMP_Text gameOverCoinsText;
+
     public static HUDManager Instance;
 
     // Start is called before the first frame update
@@ -83,6 +86,12 @@ public class HUDManager : MonoBehaviour
         int seconds = Mathf.FloorToInt(time - minutes * 60);
         string timeInMinSecs = string.Format("{0:0}:{1:00}", minutes, seconds);
         timerText.SetText(timeInMinSecs);
+    }
+
+    public void SetGameOverPanelValues(int playerKillCount, int coinsEarned)
+    {
+        gameOverKillsText.SetText("Kills: " + playerKillCount.ToString());
+        gameOverCoinsText.SetText("Coins Gained: " + coinsEarned.ToString());
     }
 
     // ExperienceManager
