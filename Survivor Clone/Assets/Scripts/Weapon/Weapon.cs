@@ -11,7 +11,7 @@ public class Weapon : MonoBehaviour
 
     public AudioClip fireSfx;
 
-    private float currentCooldown;
+    protected float currentCooldown;
     private float maxCooldown;
 
     protected bool pauseCooldown;

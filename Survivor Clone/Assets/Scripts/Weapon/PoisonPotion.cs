@@ -60,7 +60,8 @@ public class PoisonPotion : Weapon
 
     public void FinishSpawning()
     {
-        SetMaxCooldown(0);
+        currentCooldown = 0;
+        SetMaxCooldown(auraStat.levelStats[currentWeaponLevel].maxCooldown);
         transform.localScale = new Vector2(auraStat.levelStats[currentWeaponLevel].radius, auraStat.levelStats[currentWeaponLevel].radius) * 2;
         currentLifeTime = auraStat.levelStats[currentWeaponLevel].lifeTime;
 
