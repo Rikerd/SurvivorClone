@@ -8,20 +8,52 @@ public class Bomb : Weapon
 
     public Transform bombAreaIndicator;
 
+    public float bombSpeedRatio = 2f;
+
+    private bool isSpawning = true;
+    private Vector3 finalPosition = Vector3.zero;
+
+    private Rigidbody2D rb2d;
+
+    private float baseGameMoveSpeed;
+
     private void Start()
     {
         SetMaxCooldown(bombStat.levelStats[currentWeaponLevel].maxCooldown);
 
         bombAreaIndicator.localScale = new Vector2(bombStat.levelStats[currentWeaponLevel].radius, bombStat.levelStats[currentWeaponLevel].radius) * 2;
+
+        rb2d = GetComponent<Rigidbody2D>();
+
+        baseGameMoveSpeed = GameManager.Instance.baseGameMoveSpeed;
     }
 
     private void Update()
     {
+        if (isSpawning)
+        {
+            return;
+        }
+
         bool cooldownComplete = base.UpdateCooldownTimer();
 
         if (cooldownComplete)
         {
             Explode();
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (isSpawning)
+        {
+            rb2d.MovePosition(Vector3.MoveTowards(transform.position, finalPosition, baseGameMoveSpeed * bombSpeedRatio * Time.fixedDeltaTime));
+
+
+            if (Vector3.Distance(transform.position, finalPosition) < 0.1f)
+            {
+                isSpawning = false;
+            }
         }
     }
 
@@ -52,6 +84,12 @@ public class Bomb : Weapon
 
         bombAreaIndicator.localScale = new Vector2(bombStat.levelStats[currentWeaponLevel].radius, bombStat.levelStats[currentWeaponLevel].radius) * 2;
         SetMaxCooldown(bombStat.levelStats[currentWeaponLevel].maxCooldown);
+    }
+
+    public void StartSpawnAnimation(Vector3 spreadPosition)
+    {
+        isSpawning = true;
+        finalPosition = spreadPosition;
     }
 
     private void OnDrawGizmos()

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1701918031380728832}
   - component: {fileID: 3102166466970053327}
+  - component: {fileID: 24487232698462673}
   - component: {fileID: 6733168968747050466}
   - component: {fileID: 7751260145391045024}
   m_Layer: 0
@@ -87,6 +88,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &24487232698462673
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5574015216601107394}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!58 &6733168968747050466
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -136,8 +164,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isStarterWeapon: 0
   levelUpInfo: {fileID: 11400000, guid: d74186b0e3c178545ad0904043d4db08, type: 2}
+  fireSfx: {fileID: 0}
   bombStat: {fileID: 11400000, guid: 73b24fe71fdf62e4298885c7677b0b8e, type: 2}
   bombAreaIndicator: {fileID: 3725716133258477658}
+  bombSpeedRatio: 4
 --- !u!1 &8727465923499744298
 GameObject:
   m_ObjectHideFlags: 0
