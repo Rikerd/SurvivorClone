@@ -10,6 +10,8 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour, IDamageable
 {
     public PlayerCharacterStats playerStat;
+    public StoreUpgradeStatCosts armorUpgradeStat;
+
     [field:SerializeField] public int currentHealth { get; set; }
     public int maxHealth { get; set; }
 
@@ -31,14 +33,13 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private CameraShake cameraShake;
 
+    private int storeArmorUpgradeAmount = 0;
+
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         movementAction = playerInput.actions["Movement"];
-
-        maxHealth = playerStat.maxHealth;
-        currentHealth = maxHealth;
 
         moveSpeedRatio = playerStat.moveSpeedRatio;
 
@@ -51,12 +52,15 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void Start()
     {
-        HUDManager.Instance.UpdateHealthValue(currentHealth, maxHealth);
-
         baseGameMoveSpeed = GameManager.Instance.baseGameMoveSpeed;
+
+        maxHealth = playerStat.maxHealth + Mathf.RoundToInt(playerStat.maxHealth * GameManager.Instance.GetStoreMaxHealthMultiplier());
+        currentHealth = maxHealth;
 
         onPlayerHealthBar.maxValue = maxHealth;
         onPlayerHealthBar.value = currentHealth;
+
+        HUDManager.Instance.UpdateHealthValue(currentHealth, maxHealth);
     }
 
     // Update is called once per frame
@@ -99,7 +103,8 @@ public class PlayerController : MonoBehaviour, IDamageable
             passiveArmor = (int)armorPassiveStats.stats[armorPassive.currentLevel].rateIncrease;
         }
 
-        damageAmount -= passiveArmor;
+        int storeArmorUpgradeAmount = GameManager.Instance.GetStoreArmorAmount();
+        damageAmount -= (passiveArmor + storeArmorUpgradeAmount);
         if (damageAmount <= 0)
         {
             damageAmount = 1;

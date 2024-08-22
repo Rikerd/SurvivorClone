@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class DataPersistanceManager : MonoBehaviour
+public class DataPersistenceManager : MonoBehaviour
 {
-    public static DataPersistanceManager Instance;
+    public static DataPersistenceManager Instance;
 
-    private List<IDataPersistance> dataPersistenceObjects;
+    private List<IDataPersistence> dataPersistenceObjects;
 
     private AccountData accountData;
 
@@ -47,7 +47,7 @@ public class DataPersistanceManager : MonoBehaviour
         }
 
         // push the loaded data to all other scripts that use it
-        foreach (IDataPersistance dataPersistenceObject in dataPersistenceObjects)
+        foreach (IDataPersistence dataPersistenceObject in dataPersistenceObjects)
         {
             dataPersistenceObject.LoadAccountData(accountData);
         }
@@ -56,7 +56,7 @@ public class DataPersistanceManager : MonoBehaviour
     public void SaveAccountData()
     {
         // pass the data to other scripts so they can update it
-        foreach (IDataPersistance dataPersistenceObject in dataPersistenceObjects)
+        foreach (IDataPersistence dataPersistenceObject in dataPersistenceObjects)
         {
             dataPersistenceObject.SaveAccountData(ref accountData);
         }
@@ -75,10 +75,10 @@ public class DataPersistanceManager : MonoBehaviour
         dataPersistenceObjects = FindAllDataPersistanceObjects();
     }
 
-    private List<IDataPersistance> FindAllDataPersistanceObjects()
+    private List<IDataPersistence> FindAllDataPersistanceObjects()
     {
-        IEnumerable<IDataPersistance> dataPersistanceObjects = FindObjectsOfType<MonoBehaviour>().OfType<IDataPersistance>();
+        IEnumerable<IDataPersistence> dataPersistanceObjects = FindObjectsOfType<MonoBehaviour>().OfType<IDataPersistence>();
 
-        return new List<IDataPersistance>(dataPersistanceObjects);
+        return new List<IDataPersistence>(dataPersistanceObjects);
     }
 }

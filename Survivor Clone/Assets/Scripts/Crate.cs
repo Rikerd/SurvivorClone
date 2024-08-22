@@ -4,7 +4,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 
-public class Crate : MonoBehaviour, IDamageable
+public class Crate : MonoBehaviour
 {
     public BreakableStats crateStat;
 
@@ -35,21 +35,35 @@ public class Crate : MonoBehaviour, IDamageable
         }
 
         int additionaDamageAmount = 0;
-        if (passiveDamageMultiplier > 0)
+        float storeDamageUpgradeMultiplier = GameManager.Instance.GetStoreDamageMultiplier();
+        if (isCrit)
         {
-            if (isCrit)
+            int damageAmountBeforeCrit = damageAmount / 2;
+            if (storeDamageUpgradeMultiplier > 0)
             {
-                damageAmount /= 2;
-                additionaDamageAmount = (int)((damageAmount * passiveDamageMultiplier) + 0.5f);
-                damageAmount += additionaDamageAmount;
-                damageAmount *= 2;
-            }
-            else
-            {
-                additionaDamageAmount = (int)((damageAmount * passiveDamageMultiplier) + 0.5f);
-                damageAmount += additionaDamageAmount;
+                damageAmountBeforeCrit += Mathf.RoundToInt(damageAmountBeforeCrit * storeDamageUpgradeMultiplier);
             }
 
+            if (passiveDamageMultiplier > 0)
+            {
+                additionaDamageAmount = Mathf.RoundToInt(damageAmountBeforeCrit * passiveDamageMultiplier);
+            }
+
+            damageAmount = (damageAmountBeforeCrit + additionaDamageAmount) * 2;
+        }
+        else
+        {
+            if (storeDamageUpgradeMultiplier > 0)
+            {
+                damageAmount += Mathf.RoundToInt(damageAmount * storeDamageUpgradeMultiplier);
+            }
+
+            if (passiveDamageMultiplier > 0)
+            {
+                additionaDamageAmount = Mathf.RoundToInt(damageAmount * passiveDamageMultiplier);
+            }
+
+            damageAmount += additionaDamageAmount;
         }
 
         currentHealth -= damageAmount;

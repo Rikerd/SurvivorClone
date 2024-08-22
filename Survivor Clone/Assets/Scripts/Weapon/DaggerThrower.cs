@@ -29,7 +29,7 @@ public class DaggerThrower : Weapon
         {
             ProjectileLevelStats currentLevelStats = projectileStat.levelStats[currentWeaponLevel];
 
-            for (int projectileNum = 0; projectileNum < currentLevelStats.projectileCount; projectileNum++)
+            for (int projectileNum = 0; projectileNum < currentLevelStats.projectileCount + GameManager.Instance.GetStoreProjectileAmount(); projectileNum++)
             {
                 Vector3 eulerRotation = new Vector3(0, 0, currentAngle - (18 * projectileNum));
                 GameObject projectileObject = Instantiate(projectileStat.projectile, transform.parent.position, Quaternion.Euler(eulerRotation));

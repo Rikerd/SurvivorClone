@@ -5,9 +5,12 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, IDataPersistence
 {
+    public StoreUpgradeStatRates storeUpgradeStatRates;
+
     public float baseGameMoveSpeed = 3f;
 
     public EnemySpawnerController enemySpawnerController;
@@ -43,6 +46,10 @@ public class GameManager : MonoBehaviour
 
     private int currentCoinEarned = 0;
 
+    private float storeDamageUpgradeMultiplier = 0f;
+    private float storeMaxHealthUpgradeMultiplier = 0f;
+    private int storeArmorUpgradeAmount = 0;
+    private int storeProjectileUpgradeAmount = 0;
 
     // Start is called before the first frame update
     private void Start()
@@ -94,6 +101,11 @@ public class GameManager : MonoBehaviour
             ForceLevelUpPrompt();
         }
 
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            EarnCoinByAmount(100000);
+        }
+
         currentGameTime += Time.deltaTime;
         HUDManager.Instance.UpdateTimeValue(currentGameTime);
 
@@ -115,6 +127,18 @@ public class GameManager : MonoBehaviour
             currentMiniBossSpawnTime = enemySpawnerController.GetCurrentMiniBossSpawnTimer();
         }
     }
+    public void LoadAccountData(AccountData data)
+    {
+        storeDamageUpgradeMultiplier = data.accountUpgradeTypeLevels[(int)AccountData.UpgradeType.Damage] * storeUpgradeStatRates.damageMultiplierRate;
+        storeMaxHealthUpgradeMultiplier = data.accountUpgradeTypeLevels[(int)AccountData.UpgradeType.MaxHealth] * storeUpgradeStatRates.healthMultiplierRate;
+        storeArmorUpgradeAmount = data.accountUpgradeTypeLevels[(int)AccountData.UpgradeType.Armor] * storeUpgradeStatRates.armorRate;
+        storeProjectileUpgradeAmount = data.accountUpgradeTypeLevels[(int)AccountData.UpgradeType.Projectile] * storeUpgradeStatRates.projectileRate;
+    }
+
+    public void SaveAccountData(ref AccountData data)
+    {
+        data.coins = data.coins + currentCoinEarned;
+    }
 
     public void TriggerDeathSequence()
     {
@@ -125,6 +149,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         gameOverPanel.SetActive(true);
         HUDManager.Instance.SetGameOverPanelValues(playerKillCount, currentCoinEarned);
+        DataPersistenceManager.Instance.SaveAccountData();
     }
 
     public void IncrementKillCount()
@@ -249,5 +274,31 @@ public class GameManager : MonoBehaviour
     {
         currentCoinEarned++;
         HUDManager.Instance.UpdateCoinValue(currentCoinEarned);
+    }
+
+    public void EarnCoinByAmount(int amount)
+    {
+        currentCoinEarned += amount;
+        HUDManager.Instance.UpdateCoinValue(currentCoinEarned);
+    }
+
+    public float GetStoreDamageMultiplier()
+    {
+        return storeDamageUpgradeMultiplier;
+    }
+
+    public float GetStoreMaxHealthMultiplier()
+    {
+        return storeMaxHealthUpgradeMultiplier;
+    }
+
+    public int GetStoreArmorAmount()
+    {
+        return storeArmorUpgradeAmount;
+    }
+
+    public int GetStoreProjectileAmount()
+    {
+        return storeProjectileUpgradeAmount;
     }
 }

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: StoreArmor
   m_EditorClassIdentifier: 
   upgradeType: 2
-  rateIncrease: 0.1
-  coinCosts: 640000009001000020030000b004000040060000
+  upgradeName: Armor
+  coinCosts: e8030000d0070000a00f0000

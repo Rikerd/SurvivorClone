@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: StoreMaxHealth
   m_EditorClassIdentifier: 
   upgradeType: 1
-  rateIncrease: 0.1
+  upgradeName: Max Health
   coinCosts: 640000009001000020030000b004000040060000

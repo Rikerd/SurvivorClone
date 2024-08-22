@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e60f0424c95508149a319224b190fe26, type: 3}
-  m_Name: StoreProjectile
+  m_Script: {fileID: 11500000, guid: 4940a4bfa678e1a4fa3ecc36fb3c023b, type: 3}
+  m_Name: StoreUpgradeRates
   m_EditorClassIdentifier: 
-  upgradeType: 3
-  upgradeName: Projectile
-  coinCosts: e8030000a00f0000
+  damageMultiplierRate: 0.1
+  healthMultiplierRate: 0.1
+  armorRate: 1
+  projectileRate: 1

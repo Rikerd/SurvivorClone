@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: StoreDamage
   m_EditorClassIdentifier: 
   upgradeType: 0
-  rateIncrease: 0.1
+  upgradeName: Damage
   coinCosts: 640000009001000020030000b004000040060000
