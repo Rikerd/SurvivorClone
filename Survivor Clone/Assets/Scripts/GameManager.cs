@@ -6,10 +6,13 @@ using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static UnityEditor.Timeline.TimelinePlaybackControls;
+using static UnityEngine.InputSystem.UI.VirtualMouseInput;
 
 public class GameManager : MonoBehaviour, IDataPersistence
 {
     public StoreUpgradeStatRates storeUpgradeStatRates;
+
+    public Texture2D cursorTexture;
 
     public float baseGameMoveSpeed = 3f;
 
@@ -69,8 +72,9 @@ public class GameManager : MonoBehaviour, IDataPersistence
         currentSpawnPatternEndTime = enemySpawnerController.GetCurrentSpawnPatternEndTimer();
         currentTimeEventSpawnTime = enemySpawnerController.GetCurrentTimeEventSpawnTimer();
         currentMiniBossSpawnTime = enemySpawnerController.GetCurrentMiniBossSpawnTimer();
-
         audioSource = GetComponent<AudioSource>();
+
+        Cursor.SetCursor(cursorTexture, new Vector2(8, 8), UnityEngine.CursorMode.Auto);
     }
 
     private void Awake()
@@ -150,6 +154,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
 
     public void TriggerDeathSequence()
     {
+        Cursor.SetCursor(null, Vector2.zero, UnityEngine.CursorMode.Auto);
         Time.timeScale = 0;
         gameOverPanel.SetActive(true);
         HUDManager.Instance.SetGameOverPanelValues(playerKillCount, currentCoinEarned);
@@ -170,6 +175,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     // ExperienceManager
     private void HandleLevelUp(float currentExp, float maxExp, int currentLevel)
     {
+        Cursor.SetCursor(null, Vector2.zero, UnityEngine.CursorMode.Auto);
         Time.timeScale = 0;
         levelUpPanel.SetActive(true);
 
@@ -253,6 +259,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
 
     private void CloseLevelUpPanel()
     {
+        Cursor.SetCursor(cursorTexture, new Vector2(8, 8), UnityEngine.CursorMode.Auto);
         levelUpPanel.SetActive(false);
         Time.timeScale = 1;
     }
