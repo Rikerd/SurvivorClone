@@ -50,6 +50,10 @@ public class GameManager : MonoBehaviour, IDataPersistence
     private float storeMaxHealthUpgradeMultiplier = 0f;
     private int storeArmorUpgradeAmount = 0;
     private int storeProjectileUpgradeAmount = 0;
+    private float storeMovementSpeedUpgradeAmount = 0;
+    private float storeExperienceUpgradeMultiplier = 0;
+    private int storeCoinUpgradeMultiplier = 0;
+    private float storePickUpRadiusUpgradeAmount = 0;
 
     // Start is called before the first frame update
     private void Start()
@@ -133,6 +137,10 @@ public class GameManager : MonoBehaviour, IDataPersistence
         storeMaxHealthUpgradeMultiplier = data.accountUpgradeTypeLevels[(int)AccountData.UpgradeType.MaxHealth] * storeUpgradeStatRates.healthMultiplierRate;
         storeArmorUpgradeAmount = data.accountUpgradeTypeLevels[(int)AccountData.UpgradeType.Armor] * storeUpgradeStatRates.armorRate;
         storeProjectileUpgradeAmount = data.accountUpgradeTypeLevels[(int)AccountData.UpgradeType.Projectile] * storeUpgradeStatRates.projectileRate;
+        storeMovementSpeedUpgradeAmount = data.accountUpgradeTypeLevels[(int)AccountData.UpgradeType.MovementSpeed] * storeUpgradeStatRates.movementSpeedRate;
+        storeExperienceUpgradeMultiplier = data.accountUpgradeTypeLevels[(int)AccountData.UpgradeType.Experience] * storeUpgradeStatRates.experienceMultiplierRate;
+        storeCoinUpgradeMultiplier = data.accountUpgradeTypeLevels[(int)AccountData.UpgradeType.CoinDrop] * storeUpgradeStatRates.coinMultiplierRate + 1;
+        storePickUpRadiusUpgradeAmount = data.accountUpgradeTypeLevels[(int)AccountData.UpgradeType.PickUpRadius] * storeUpgradeStatRates.pickUpRadiusRate;
     }
 
     public void SaveAccountData(ref AccountData data)
@@ -142,10 +150,6 @@ public class GameManager : MonoBehaviour, IDataPersistence
 
     public void TriggerDeathSequence()
     {
-        int accountCoins = PlayerPrefs.GetInt("Coin Amount");
-        PlayerPrefs.SetInt("Coin Amount", accountCoins + currentCoinEarned);
-        PlayerPrefs.Save();
-
         Time.timeScale = 0;
         gameOverPanel.SetActive(true);
         HUDManager.Instance.SetGameOverPanelValues(playerKillCount, currentCoinEarned);
@@ -272,13 +276,13 @@ public class GameManager : MonoBehaviour, IDataPersistence
 
     public void EarnCoin()
     {
-        currentCoinEarned++;
+        currentCoinEarned += storeCoinUpgradeMultiplier;
         HUDManager.Instance.UpdateCoinValue(currentCoinEarned);
     }
 
     public void EarnCoinByAmount(int amount)
     {
-        currentCoinEarned += amount;
+        currentCoinEarned += amount * storeCoinUpgradeMultiplier;
         HUDManager.Instance.UpdateCoinValue(currentCoinEarned);
     }
 
@@ -300,5 +304,25 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public int GetStoreProjectileAmount()
     {
         return storeProjectileUpgradeAmount;
+    }
+
+    public float GetStoreMovementSpeedAmount()
+    {
+        return storeMovementSpeedUpgradeAmount;
+    }
+
+    public float GetStoreExperienceMultiplier()
+    {
+        return storeExperienceUpgradeMultiplier;
+    }
+
+    public int GetStoreCoinMultiplier()
+    {
+        return storeCoinUpgradeMultiplier;
+    }
+
+    public float GetStorePickUpRadiusAmount()
+    {
+        return storePickUpRadiusUpgradeAmount;
     }
 }

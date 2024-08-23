@@ -9,4 +9,8 @@ public class StoreUpgradeStatRates : ScriptableObject
     public float healthMultiplierRate;
     public int armorRate;
     public int projectileRate;
+    public float movementSpeedRate;
+    public float experienceMultiplierRate;
+    public int coinMultiplierRate;
+    public float pickUpRadiusRate;
 }

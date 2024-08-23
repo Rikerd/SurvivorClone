@@ -16,3 +16,7 @@ MonoBehaviour:
   healthMultiplierRate: 0.1
   armorRate: 1
   projectileRate: 1
+  movementSpeedRate: 0.1
+  experienceMultiplierRate: 0.08
+  coinMultiplierRate: 1
+  pickUpRadiusRate: 0.5

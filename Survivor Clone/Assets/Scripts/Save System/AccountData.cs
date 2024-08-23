@@ -12,11 +12,15 @@ public class AccountData
         MaxHealth,
         Armor,
         Projectile,
+        MovementSpeed,
+        Experience,
+        CoinDrop,
+        PickUpRadius,
     }
 
     public int coins;
 
-    public int[] accountUpgradeTypeLevels = new int[4];
+    public int[] accountUpgradeTypeLevels = new int[8];
 
     public AccountData()
     {
@@ -25,5 +29,9 @@ public class AccountData
         accountUpgradeTypeLevels[(int)UpgradeType.MaxHealth] = 0;
         accountUpgradeTypeLevels[(int)UpgradeType.Armor] = 0;
         accountUpgradeTypeLevels[(int)UpgradeType.Projectile] = 0;
+        accountUpgradeTypeLevels[(int)UpgradeType.MovementSpeed] = 0;
+        accountUpgradeTypeLevels[(int)UpgradeType.Experience] = 0;
+        accountUpgradeTypeLevels[(int)UpgradeType.CoinDrop] = 0;
+        accountUpgradeTypeLevels[(int)UpgradeType.PickUpRadius] = 0;
     }
 }

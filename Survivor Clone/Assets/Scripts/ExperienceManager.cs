@@ -36,6 +36,8 @@ public class ExperienceManager : MonoBehaviour
 
     public void AddExperience(float amount)
     {
+        amount += amount * GameManager.Instance.GetStoreExperienceMultiplier();
+
         PassiveItem expPassive = PassiveItemManager.Instance.IsPassiveActiveById(PassiveItemStats.PassiveId.Experience);
         if (expPassive != null)
         {

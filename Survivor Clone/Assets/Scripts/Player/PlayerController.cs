@@ -33,8 +33,6 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private CameraShake cameraShake;
 
-    private int storeArmorUpgradeAmount = 0;
-
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -161,7 +159,7 @@ public class PlayerController : MonoBehaviour, IDamageable
             passiveMoveSpeedRatio = moveSpeedPassiveStats.stats[moveSpeedPassive.currentLevel].rateIncrease;
         }
 
-        movement = input * baseGameMoveSpeed * (moveSpeedRatio + passiveMoveSpeedRatio);
+        movement = input * baseGameMoveSpeed * (moveSpeedRatio + passiveMoveSpeedRatio + GameManager.Instance.GetStoreMovementSpeedAmount());
     }
 
     public float GetCritChance()

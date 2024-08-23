@@ -4,7 +4,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 
-public class Crate : MonoBehaviour
+public class Crate : MonoBehaviour, IDamageable
 {
     public BreakableStats crateStat;
 
