@@ -71,9 +71,8 @@ public class WeaponManager : MonoBehaviour
             if (weapon.GetCurrentWeaponLevel() < 4)
             {
                 weaponList.Add(weapon);
+                weaponsFound++;
             }
-
-            weaponsFound++;
 
             if (weaponsFound == numOfWeapons)
             {

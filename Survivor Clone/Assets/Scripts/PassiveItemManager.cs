@@ -65,9 +65,8 @@ public class PassiveItemManager : MonoBehaviour
             if (passive.GetCurrentPassiveLevel() < 4)
             {
                 passiveList.Add(passive);
+                passivesFound++;
             }
-
-            passivesFound++;
 
             if (passivesFound == numOfPassives)
             {
