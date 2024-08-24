@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeType: 5
   upgradeName: Experience
-  coinCosts: e8030000a00f0000401f0000803e0000007d0000
+  coinCosts: 2c010000ee02000008070000a00f0000401f0000

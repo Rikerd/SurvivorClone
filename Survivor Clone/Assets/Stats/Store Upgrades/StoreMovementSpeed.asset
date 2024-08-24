@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeType: 4
   upgradeName: Movement Speed
-  coinCosts: e8030000a00f0000401f0000
+  coinCosts: b0040000be0a000070170000

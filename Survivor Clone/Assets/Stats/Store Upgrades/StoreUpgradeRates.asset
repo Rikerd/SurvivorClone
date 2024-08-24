@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4940a4bfa678e1a4fa3ecc36fb3c023b, type: 3}
   m_Name: StoreUpgradeRates
   m_EditorClassIdentifier: 
-  damageMultiplierRate: 0.1
+  damageMultiplierRate: 0.05
   healthMultiplierRate: 0.1
   armorRate: 1
   projectileRate: 1
-  movementSpeedRate: 0.1
+  movementSpeedRate: 0.05
   experienceMultiplierRate: 0.08
   coinMultiplierRate: 1
   pickUpRadiusRate: 0.5
