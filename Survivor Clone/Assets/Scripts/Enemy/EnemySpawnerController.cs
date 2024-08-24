@@ -36,12 +36,16 @@ public class EnemySpawnerController : MonoBehaviour
     {
         if (currentSpawnTimer <= 0f)
         {
-            Vector2 positionWorldPoint = FindWorldPositionToSpawn();
-
-            GameObject enemy = ChooseEnemyByRates();
-            if (enemy != null)
+            int randNumOfEnemies = Random.Range(1, 4);
+            for (int numOfEnemy = 0; numOfEnemy < randNumOfEnemies; numOfEnemy++)
             {
-                Instantiate(enemy, positionWorldPoint, Quaternion.identity);
+                Vector2 positionWorldPoint = FindWorldPositionToSpawn();
+
+                GameObject enemy = ChooseEnemyByRates();
+                if (enemy != null)
+                {
+                    Instantiate(enemy, positionWorldPoint, Quaternion.identity);
+                }
             }
 
             currentSpawnTimer = UnityEngine.Random.Range(enemySpawnerInfo.spawnPatterns[currentSpawnPattern].minSpawnTimer, enemySpawnerInfo.spawnPatterns[currentSpawnPattern].maxSpawnTimer);

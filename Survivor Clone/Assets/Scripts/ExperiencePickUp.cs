@@ -23,20 +23,20 @@ public class ExperiencePickUp : DrawablePickup
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         switch (exp)
         {
-            case <= 10:
-                transform.localScale = new Vector2(0.5f, 0.5f);
-                spriteRenderer.color = Color.blue;
+            case <= 2:
+                transform.localScale = new Vector2(0.4f, 0.4f);
+                spriteRenderer.color = new Color(0, 0.5f, 1);
                 break;
-            case <= 19:
-                transform.localScale = new Vector2(0.53f, 0.53f);
+            case <= 4:
+                transform.localScale = new Vector2(0.43f, 0.43f);
                 spriteRenderer.color = Color.green;
                 break;
-            case <= 29:
-                transform.localScale = new Vector2(0.56f, 0.56f);
+            case <= 5:
+                transform.localScale = new Vector2(0.46f, 0.46f);
                 spriteRenderer.color = Color.yellow;
                 break;
-            case > 29:
-                transform.localScale = new Vector2(0.6f, 0.6f);
+            case > 5:
+                transform.localScale = new Vector2(0.5f, 0.5f);
                 spriteRenderer.color = Color.magenta;
                 break;
         }
