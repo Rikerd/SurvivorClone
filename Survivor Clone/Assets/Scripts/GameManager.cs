@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static UnityEditor.Timeline.TimelinePlaybackControls;
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public List<Image> passiveHUDUI;
 
     public GameObject gameOverPanel;
+    public GameObject pausePanel;
 
     public AudioSource audioSource;
 
@@ -58,6 +60,9 @@ public class GameManager : MonoBehaviour, IDataPersistence
     private int storeCoinUpgradeMultiplier = 0;
     private float storePickUpRadiusUpgradeAmount = 0;
 
+    private PlayerInput playerInput;
+    private InputAction pauseAction;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -67,6 +72,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
 
         gameOverPanel.SetActive(false);
+        pausePanel.SetActive(false);
 
         currentGameTime = 0;
         currentSpawnPatternEndTime = enemySpawnerController.GetCurrentSpawnPatternEndTimer();
@@ -87,16 +93,25 @@ public class GameManager : MonoBehaviour, IDataPersistence
         {
             Instance = this;
         }
+
+        playerInput = GetComponent<PlayerInput>();
+        pauseAction = playerInput.actions["Pause"];
     }
 
     private void OnEnable()
     {
+        pauseAction.Enable();
+        pauseAction.started += OnPause;
+
         // ExperienceManager
         ExperienceManager.Instance.OnLevelUp += HandleLevelUp;
     }
 
     private void OnDisable()
     {
+        pauseAction.Disable();
+        pauseAction.started -= OnPause;
+
         // ExperienceManager
         ExperienceManager.Instance.OnLevelUp -= HandleLevelUp;
     }
@@ -331,5 +346,38 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public float GetStorePickUpRadiusAmount()
     {
         return storePickUpRadiusUpgradeAmount;
+    }
+
+    private void OnPause(InputAction.CallbackContext context)
+    {
+        // Do not allow pausing on game over or level up
+        if (gameOverPanel.activeSelf || levelUpButtonPanel.activeInHierarchy)
+        {
+            return;
+        }
+
+        if (pausePanel.activeSelf)
+        {
+            OnResumePause();
+        }
+        else
+        {
+            Cursor.SetCursor(null, Vector2.zero, UnityEngine.CursorMode.Auto);
+            Time.timeScale = 0;
+            pausePanel.SetActive(true);
+        }
+    }
+
+    public void OnResumePause()
+    {
+        Cursor.SetCursor(cursorTexture, new Vector2(8, 8), UnityEngine.CursorMode.Auto);
+        Time.timeScale = 1;
+        pausePanel.SetActive(false);
+    }
+
+    public void OnPauseEndGame()
+    {
+        pausePanel.SetActive(false);
+        TriggerDeathSequence();
     }
 }
