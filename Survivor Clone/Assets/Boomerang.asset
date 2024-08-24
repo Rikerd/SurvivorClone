@@ -13,5 +13,10 @@ MonoBehaviour:
   m_Name: Boomerang
   m_EditorClassIdentifier: 
   upgradeName: Boomerang
-  description: TEST BOOMERANG
+  levelUpDescription:
+  - Throw boomerang at closest target and returns back.
+  - +2 damage.
+  - +1 boomerang. Decrease cooldown.
+  - +1 boomerang. Decrease cooldown.
+  - +5 damage.
   uiSprite: {fileID: 21300000, guid: 7d5b66b6eacd41d45be7e33729ab30c7, type: 3}

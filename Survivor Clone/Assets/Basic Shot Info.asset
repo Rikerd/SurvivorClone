@@ -13,5 +13,10 @@ MonoBehaviour:
   m_Name: Basic Shot Info
   m_EditorClassIdentifier: 
   upgradeName: Pistol
-  description: TEST BASIC
+  levelUpDescription:
+  - Fires 3 projectiles at aimed direction.
+  - +1 projectile and +1 pierce. Increase fire rate.
+  - +2 damage. Increase fire rate.
+  - +1 projectile and +1 pierce. Increase fire rate.
+  - +2 damage. Greatly increase fire rate.
   uiSprite: {fileID: 21300000, guid: bc8f30bba53d6e043b6759e161d6d93c, type: 3}

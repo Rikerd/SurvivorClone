@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -224,18 +225,21 @@ public class GameManager : MonoBehaviour, IDataPersistence
         Button currentLevelUpButton = levelUpPanelButtons[currentLevelUpButtonIndex];
         currentLevelUpButton.onClick.RemoveAllListeners();
 
-        string levelText = "Weapon Lv. " + (weapon.GetCurrentWeaponLevel() + 1);
+        int currentWeaponLevel = weapon.GetCurrentWeaponLevel();
+        string levelText = "Weapon Lv. " + (currentWeaponLevel + 1);
         string weaponName = weapon.levelUpInfo.upgradeName;
-        string weaponDescription = weapon.levelUpInfo.description;
+        string weaponDescription = "";
 
         if (weapon.gameObject.activeSelf)
         {
             currentLevelUpButton.onClick.AddListener(weapon.LevelUpWeapon);
-            levelText += " -> Lv. " + (weapon.GetCurrentWeaponLevel() + 2);
+            levelText += " -> Lv. " + (currentWeaponLevel + 2);
+            weaponDescription = weapon.levelUpInfo.levelUpDescription[currentWeaponLevel + 1];
         }
         else
         {
             currentLevelUpButton.onClick.AddListener(weapon.ActivateWeapon);
+            weaponDescription = weapon.levelUpInfo.levelUpDescription[currentWeaponLevel];
         }
 
         string finalText = levelText + " " + weaponName + "\n" + weaponDescription;

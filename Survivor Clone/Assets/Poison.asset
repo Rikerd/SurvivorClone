@@ -13,5 +13,10 @@ MonoBehaviour:
   m_Name: Poison
   m_EditorClassIdentifier: 
   upgradeName: Poison
-  description: TEST POISON
+  levelUpDescription:
+  - Drops poison and leaves puddle on ground.
+  - +1 poison. Increase area size and life time.
+  - +1 poison.
+  - +4 damage.
+  - +4 damage. +1 poison. Increase tick rate.
   uiSprite: {fileID: 21300000, guid: 139e3f0006963714b92c544cabc5ad6d, type: 3}

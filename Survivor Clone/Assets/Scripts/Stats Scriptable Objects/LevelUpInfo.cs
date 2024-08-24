@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class LevelUpInfo : ScriptableObject
 {
     public string upgradeName;
-    public string description;
+    public List<string> levelUpDescription;
 
     public Sprite uiSprite;
 }

@@ -18,25 +18,25 @@ MonoBehaviour:
   - minDamage: 6
     maxDamage: 10
     maxCooldown: 5
-    radius: 4
+    radius: 9
     spawnAmount: 1
   - minDamage: 6
     maxDamage: 10
     maxCooldown: 5
-    radius: 4
+    radius: 9
     spawnAmount: 2
   - minDamage: 6
     maxDamage: 10
     maxCooldown: 5
-    radius: 4
+    radius: 9
     spawnAmount: 3
   - minDamage: 10
     maxDamage: 14
     maxCooldown: 5
-    radius: 4
+    radius: 9
     spawnAmount: 3
   - minDamage: 14
     maxDamage: 18
     maxCooldown: 5
-    radius: 4
+    radius: 9
     spawnAmount: 4
