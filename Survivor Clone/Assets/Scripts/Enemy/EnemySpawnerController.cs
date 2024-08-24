@@ -36,7 +36,7 @@ public class EnemySpawnerController : MonoBehaviour
     {
         if (currentSpawnTimer <= 0f)
         {
-            int randNumOfEnemies = Random.Range(1, 4);
+            int randNumOfEnemies = Random.Range(1, 3);
             for (int numOfEnemy = 0; numOfEnemy < randNumOfEnemies; numOfEnemy++)
             {
                 Vector2 positionWorldPoint = FindWorldPositionToSpawn();
