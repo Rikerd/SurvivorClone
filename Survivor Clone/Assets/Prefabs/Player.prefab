@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 8079428043794197974}
   - component: {fileID: 2455863838049500643}
   - component: {fileID: 8300650628602283610}
+  - component: {fileID: 1626589046816395163}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -444,7 +445,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.4
 --- !u!114 &9086791339935500129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,6 +475,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 367b6a2e-2c93-4d4d-a2df-20b470b89a0a
     m_ActionName: Movement/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 27dc891e-bfc9-426a-923a-780f949dae84
+    m_ActionName: UI/Pause[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Movement
@@ -492,6 +497,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStat: {fileID: 11400000, guid: 87c55594efed30746b6a20b71fe60dae, type: 2}
+  armorUpgradeStat: {fileID: 11400000, guid: 002cad9f378577743b30216ccb1680e6, type: 2}
+  spriteRenderer: {fileID: 7989532469714406530}
   <currentHealth>k__BackingField: 0
   hurtSfx: {fileID: 8300000, guid: 27e1b70ca26f29b4d984203250d57cb9, type: 3}
 --- !u!114 &2455863838049500643
@@ -522,6 +529,27 @@ MonoBehaviour:
   shakeAmp: 2
   shakeFreq: 0.25
   virtualCamera: {fileID: 0}
+--- !u!95 &1626589046816395163
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3910440097654768509}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f02de9e50c463f94cb60a9f8a7be064f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4142982793671384480
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,7 +711,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6013283107184396713}
@@ -729,7 +757,7 @@ SpriteRenderer:
   m_SortingLayerID: 1046799789
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 869c228c2187514489f6cf3523cd5d4e, type: 3}
+  m_Sprite: {fileID: -716353925, guid: 25321267ccf0979408ad0217e49797e4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

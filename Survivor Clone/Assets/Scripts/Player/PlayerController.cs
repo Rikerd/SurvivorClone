@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour, IDamageable
     public PlayerCharacterStats playerStat;
     public StoreUpgradeStatCosts armorUpgradeStat;
 
+    public SpriteRenderer spriteRenderer;
+
     [field:SerializeField] public int currentHealth { get; set; }
     public int maxHealth { get; set; }
 
@@ -33,6 +35,8 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private CameraShake cameraShake;
 
+    private Animator animator;
+
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -46,6 +50,8 @@ public class PlayerController : MonoBehaviour, IDamageable
         onPlayerHealthBar = GetComponentInChildren<Slider>();
 
         cameraShake = GetComponent<CameraShake>();
+
+        animator = GetComponent<Animator>();
     }
 
     private void Start()
@@ -69,6 +75,26 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void FixedUpdate()
     {
+        if (movement != Vector2.zero)
+        {
+            animator.SetBool("isMoving", true);
+        }
+        else
+        {
+            animator.SetBool("isMoving", false);
+            return;
+        }
+
+        if (movement.x > 0)
+        {
+            spriteRenderer.flipX = false;
+        }
+        else
+        {
+            spriteRenderer.flipX = true;
+        }
+
+
         rb2d.MovePosition(rb2d.position + movement * Time.fixedDeltaTime);
     }
 
