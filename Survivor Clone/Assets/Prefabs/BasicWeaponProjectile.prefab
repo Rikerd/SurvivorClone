@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 409814388912273832}
   - component: {fileID: 3730630776063145988}
   - component: {fileID: 2961048069718676980}
+  - component: {fileID: 737349930588577654}
   m_Layer: 0
   m_Name: BasicWeaponProjectile
   m_TagString: Untagged
@@ -76,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: -391753117
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fb04e1d7d486b3d4489efc5a00b49e46, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.11387253, a: 1}
+  m_Sprite: {fileID: -1124442654, guid: d099bf77385565b44a927756063ec197, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -146,9 +147,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.1}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.4
 --- !u!114 &2961048069718676980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,4 +163,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDestroyOnInvisible: 1
-  fireSfx: {fileID: 8300000, guid: 9f812b7b9d839cb42a70e60f33786fc7, type: 3}
+--- !u!95 &737349930588577654
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277877998668816505}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2108d9ab855f29d4ebb191264fd4a6ac, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
