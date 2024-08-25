@@ -15,7 +15,7 @@ public class StoreUpgradeButton : MonoBehaviour, IDataPersistence
     public void LoadAccountData(AccountData data)
     {
         currentLevel = data.accountUpgradeTypeLevels[(int)upgradeStat.upgradeType];
-        buttonText.SetText("Level " + currentLevel.ToString() + "\n" + upgradeStat.upgradeName);
+        buttonText.SetText("Cost: " + upgradeStat.coinCosts[currentLevel] + "\n" + "Level " + currentLevel.ToString() + "\n" + upgradeStat.upgradeName);
     }
 
     public void SaveAccountData(ref AccountData data)
@@ -38,7 +38,14 @@ public class StoreUpgradeButton : MonoBehaviour, IDataPersistence
             CoinManager.Instance.SetTotalCoins(accountCoins - upgradeStat.coinCosts[currentLevel]);
 
             currentLevel++;
-            buttonText.SetText("Level " + currentLevel.ToString() + "\n" + upgradeStat.upgradeName);
+            if (currentLevel >= upgradeStat.coinCosts.Count)
+            {
+                buttonText.SetText("Max\n" + "Level " + currentLevel.ToString() + "\n" + upgradeStat.upgradeName);
+            }
+            else
+            {
+                buttonText.SetText("Cost: " + upgradeStat.coinCosts[currentLevel] + "\n" + "Level " + currentLevel.ToString() + "\n" + upgradeStat.upgradeName);
+            }
             DataPersistenceManager.Instance.SaveAccountData();
         }
         else

@@ -146,6 +146,16 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
         {
             GameObject expOrb = Instantiate(enemyStat.expOrb, transform.position, Quaternion.identity);
             expOrb.GetComponent<ExperiencePickUp>().SetExperienceAmount(enemyStat.exp);
+
+            for (int coinSpawnAmount = 0; coinSpawnAmount < enemyStat.numOfCoinSpawnAmount; coinSpawnAmount++)
+            {
+                Vector3 spread = Vector3.zero;
+
+                float radius = Random.Range(0.8f, 3.8f);
+                spread = Random.insideUnitCircle * radius;
+
+                Instantiate(enemyStat.coin, transform.position + spread, Quaternion.identity);
+            }
         }
         else
         {
