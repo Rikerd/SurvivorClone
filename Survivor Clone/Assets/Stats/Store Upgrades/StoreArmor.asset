@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeType: 2
   upgradeName: Armor
+  upgradeDescription: +1 armor per level
   coinCosts: e2040000b80b0000581b0000

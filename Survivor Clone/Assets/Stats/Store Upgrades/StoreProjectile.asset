@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeType: 3
   upgradeName: Projectile
+  upgradeDescription: +1 projectile per level
   coinCosts: 8813000010270000

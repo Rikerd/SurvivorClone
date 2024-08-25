@@ -8,19 +8,9 @@ public class StoreUpgradeButton : MonoBehaviour, IDataPersistence
     public StoreUpgradeStatCosts upgradeStat;
     public TMP_Text buttonText;
 
+    public TMP_Text descriptionText;
+
     private int currentLevel = 0;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void LoadAccountData(AccountData data)
     {
@@ -55,5 +45,10 @@ public class StoreUpgradeButton : MonoBehaviour, IDataPersistence
         {
             Debug.Log("Not enough coins");
         }
+    }
+
+    public void SetDescriptionText()
+    {
+        descriptionText.SetText(upgradeStat.upgradeDescription);
     }
 }

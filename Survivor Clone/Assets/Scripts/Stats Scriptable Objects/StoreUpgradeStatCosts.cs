@@ -7,6 +7,7 @@ public class StoreUpgradeStatCosts : ScriptableObject
 {
     public AccountData.UpgradeType upgradeType;
     public string upgradeName;
+    public string upgradeDescription;
 
     public List<int> coinCosts;
 }

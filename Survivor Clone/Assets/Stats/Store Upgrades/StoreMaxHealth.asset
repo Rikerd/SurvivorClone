@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeType: 1
   upgradeName: Max Health
+  upgradeDescription: +10% health per level
   coinCosts: c8000000f4010000b0040000be0a000070170000

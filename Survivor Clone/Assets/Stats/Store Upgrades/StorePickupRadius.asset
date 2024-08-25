@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeType: 7
   upgradeName: Pick Up Radius
+  upgradeDescription: +0.5 pick up radius per level
   coinCosts: b0040000be0a000070170000
