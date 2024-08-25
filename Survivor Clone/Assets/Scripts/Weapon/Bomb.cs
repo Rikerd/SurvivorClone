@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Bomb : Weapon
 {
+    public GameObject bombParticle;
+
     public AuraStats bombStat;
 
     public Transform bombAreaIndicator;
@@ -74,6 +76,10 @@ public class Bomb : Weapon
             int damage = Random.Range(currentLevelStats.minDamage, currentLevelStats.maxDamage + 1);
             collider.GetComponent<IDamageable>().DamageHealth(damage);
         }
+
+        GameObject particle = Instantiate(bombParticle, transform.position, Quaternion.identity);
+
+        Destroy(particle, 1.5f);
 
         Destroy(gameObject);
     }

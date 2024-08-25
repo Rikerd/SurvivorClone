@@ -8305,6 +8305,10 @@ PrefabInstance:
       propertyPath: isStarterWeapon
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3742827531936531046, guid: 9dbd229fdd04bc446844769d016e1a4d, type: 3}
+      propertyPath: isStarterWeapon
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3910440097654768509, guid: 9dbd229fdd04bc446844769d016e1a4d, type: 3}
       propertyPath: m_Name
       value: Player

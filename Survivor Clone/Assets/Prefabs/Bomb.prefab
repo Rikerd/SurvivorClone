@@ -165,6 +165,7 @@ MonoBehaviour:
   isStarterWeapon: 0
   levelUpInfo: {fileID: 11400000, guid: d74186b0e3c178545ad0904043d4db08, type: 2}
   fireSfx: {fileID: 0}
+  bombParticle: {fileID: 2170727958961694045, guid: f3844a7227c49334fb0621e6420102b3, type: 3}
   bombStat: {fileID: 11400000, guid: 73b24fe71fdf62e4298885c7677b0b8e, type: 2}
   bombAreaIndicator: {fileID: 3725716133258477658}
   bombSpeedRatio: 4
