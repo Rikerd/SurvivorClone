@@ -97,6 +97,11 @@ public class PassiveItemManager : MonoBehaviour
     {
         return activePassiveItems.Where(x => x.stat.id.Equals(id)).FirstOrDefault();
     }
+
+    public int GetNumOfActivePassives()
+    {
+        return activePassiveItems.Count;
+    }
 }
 
 [Serializable]

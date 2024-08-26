@@ -48,18 +48,23 @@ public class WeaponManager : MonoBehaviour
             numOfWeapons = weapons.Count;
         }
 
+        if (numOfWeapons == 0)
+        {
+            return new List<Weapon>();
+        }
+
 
         if (activeWeapons.Count >= maxActiveWeapons)
         {
-            return CreateWeaponLevelUpList(activeWeapons, numOfWeapons);
+            return CreateActiveWeaponLevelUpList(activeWeapons, numOfWeapons);
         }
         else
         {
-            return CreateWeaponLevelUpList(weapons, numOfWeapons);
+            return CreateWeaponLevelUpList(weapons, activeWeapons, numOfWeapons);
         }
     }
 
-    private List<Weapon> CreateWeaponLevelUpList(List<Weapon> weapons, int numOfWeapons)
+    private List<Weapon> CreateActiveWeaponLevelUpList(List<Weapon> weapons, int numOfWeapons)
     {
         List<Weapon> weaponList = new List<Weapon>();
         int weaponsFound = 0;
@@ -83,8 +88,61 @@ public class WeaponManager : MonoBehaviour
         return weaponList;
     }
 
+    private List<Weapon> CreateWeaponLevelUpList(List<Weapon> weapons, List<Weapon> activeWeapons, int numOfWeapons)
+    {
+        List<Weapon> weaponList = new List<Weapon>();
+        int weaponsFound = 0;
+
+        HelperFunctions.ShuffleList(ref weapons);
+        HelperFunctions.ShuffleList(ref activeWeapons);
+
+        // Favor active weapons first
+        foreach (Weapon weapon in activeWeapons)
+        {
+            if (weapon.GetCurrentWeaponLevel() < 4)
+            {
+                bool shouldAdd = Random.value > 0.5f;
+
+                if (shouldAdd)
+                {
+                    weaponList.Add(weapon);
+                    weaponsFound++;
+                }
+
+                if (weaponsFound == numOfWeapons)
+                {
+                    return weaponList;
+                }
+            }
+        }
+
+        foreach (Weapon weapon in weapons)
+        {
+            if (weapon.GetCurrentWeaponLevel() < 4)
+            {
+                if (!weaponList.Contains(weapon))
+                {
+                    weaponList.Add(weapon);
+                    weaponsFound++;
+                }
+            }
+
+            if (weaponsFound == numOfWeapons)
+            {
+                return weaponList;
+
+            }
+        }
+        return weaponList;
+    }
+
     public void UpdateActiveWeaponList(Weapon weapon)
     {
         activeWeapons.Add(weapon);
+    }
+
+    public int GetNumOfActiveWeapons()
+    {
+        return activeWeapons.Count;
     }
 }

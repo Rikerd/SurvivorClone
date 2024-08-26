@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public GameObject levelUpPanel;
     public List<Image> levelUpPanelIcons;
     public GameObject levelUpButtonPanel;
+    public Sprite coinFillerSprite;
 
     private int playerKillCount = 0;
 
@@ -197,21 +198,59 @@ public class GameManager : MonoBehaviour, IDataPersistence
 
         currentLevelUpButtonIndex = 0;
 
-        int numOfWeapons = Random.Range(1, levelUpPanelButtons.Length + 1);
-        List<Weapon> weapons = WeaponManager.Instance.GetWeaponsToLevel(numOfWeapons);
-        foreach (Weapon weapon in weapons)
+        int currentActiveWeapons = WeaponManager.Instance.GetNumOfActiveWeapons();
+        int currentActivePassives = PassiveItemManager.Instance.GetNumOfActivePassives();
+
+        bool forceWeaponsOnly = false;
+        bool forcePassivesOnly = false;
+
+        if (currentActiveWeapons >= currentActivePassives + 2)
         {
-            PopulateLevelUpButtonWithWeapon(weapon);
-            currentLevelUpButtonIndex++;
+            forcePassivesOnly = true;
+        }
+        else if (currentActivePassives >= currentActiveWeapons + 2)
+        {
+            forceWeaponsOnly = true;
         }
 
-        int numOfPassives = levelUpPanelButtons.Length - numOfWeapons;
-        if (numOfPassives > 0)
+        int numOfWeaponsFound = 0;
+        if (!forcePassivesOnly)
         {
-            List<PassiveItem> passives = PassiveItemManager.Instance.GetPassivesToLevel(numOfPassives);
-            foreach (PassiveItem passive in passives)
+            int numOfWeaponsToFind = Random.Range(1, levelUpPanelButtons.Length + 1);
+            if (forceWeaponsOnly)
             {
-                PopulateLevelUpButtonWithPassive(passive);
+                numOfWeaponsToFind = 3;
+            }
+            List<Weapon> weapons = WeaponManager.Instance.GetWeaponsToLevel(numOfWeaponsToFind);
+            numOfWeaponsFound = weapons.Count;
+            foreach (Weapon weapon in weapons)
+            {
+                PopulateLevelUpButtonWithWeapon(weapon);
+                currentLevelUpButtonIndex++;
+            }
+        }
+
+        int numOfPassivesFound = 0;
+        if (!forceWeaponsOnly)
+        {
+            int numOfPassivesToFind = levelUpPanelButtons.Length - numOfWeaponsFound;
+            if (numOfPassivesToFind > 0)
+            {
+                List<PassiveItem> passives = PassiveItemManager.Instance.GetPassivesToLevel(numOfPassivesToFind);
+                numOfPassivesFound = passives.Count;
+                foreach (PassiveItem passive in passives)
+                {
+                    PopulateLevelUpButtonWithPassive(passive);
+                    currentLevelUpButtonIndex++;
+                }
+            }
+        }
+
+        if (numOfPassivesFound + numOfWeaponsFound < levelUpPanelButtons.Length)
+        {
+            for (int i = 0; i < levelUpPanelButtons.Length - numOfPassivesFound - numOfWeaponsFound; i++)
+            {
+                PopulateLevelUpButtonWithFillers();
                 currentLevelUpButtonIndex++;
             }
         }
@@ -271,6 +310,25 @@ public class GameManager : MonoBehaviour, IDataPersistence
         }
 
         string finalText = levelText + " " + passiveName + "\n" + passiveDescription;
+
+        currentLevelUpButton.GetComponentInChildren<TMP_Text>().SetText(finalText);
+        currentLevelUpButton.onClick.AddListener(CloseLevelUpPanel);
+    }
+
+    private void PopulateLevelUpButtonWithFillers()
+    {
+        Image currentLevelUpPanelIcon = levelUpPanelIcons[currentLevelUpButtonIndex];
+        currentLevelUpPanelIcon.sprite = coinFillerSprite;
+
+        Button currentLevelUpButton = levelUpPanelButtons[currentLevelUpButtonIndex];
+        currentLevelUpButton.onClick.RemoveAllListeners();
+
+        string passiveName = "Get Coins";
+        string passiveDescription = "+25 coins";
+
+        currentLevelUpButton.onClick.AddListener(() => EarnCoinByAmount(25));
+
+        string finalText = passiveName + "\n" + passiveDescription;
 
         currentLevelUpButton.GetComponentInChildren<TMP_Text>().SetText(finalText);
         currentLevelUpButton.onClick.AddListener(CloseLevelUpPanel);

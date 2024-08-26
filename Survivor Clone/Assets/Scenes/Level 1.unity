@@ -179,6 +179,7 @@ MonoBehaviour:
   - {fileID: 1856203571}
   - {fileID: 1191879324}
   levelUpButtonPanel: {fileID: 710760438}
+  coinFillerSprite: {fileID: 21300000, guid: 925f3c05f7a961b4c9eb146c5e4607d7, type: 3}
 --- !u!4 &37059927
 Transform:
   m_ObjectHideFlags: 0
