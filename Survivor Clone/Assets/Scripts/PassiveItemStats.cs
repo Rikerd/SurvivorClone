@@ -12,6 +12,7 @@ public class PassiveItemStats : ScriptableObject
         CriticalChance,
         Damage,
         Armor,
+        CoinMultiplier,
     }
 
     public string passiveName;

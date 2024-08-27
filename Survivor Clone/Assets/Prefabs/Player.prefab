@@ -1345,6 +1345,8 @@ MonoBehaviour:
     stat: {fileID: 11400000, guid: cd40f95857420d0419d89c23d55c279b, type: 2}
   - currentLevel: 0
     stat: {fileID: 11400000, guid: 3a8c07905d5bba34885406765ad04400, type: 2}
+  - currentLevel: 0
+    stat: {fileID: 11400000, guid: 8dfd906f9e1eaf84894d58a4380fe98a, type: 2}
   maxActivePassives: 5
 --- !u!1 &8499652895871138270
 GameObject:

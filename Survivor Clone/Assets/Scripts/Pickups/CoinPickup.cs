@@ -13,11 +13,11 @@ public class CoinPickup : DrawablePickup
         {
             if (isLargePickUp)
             {
-                GameManager.Instance.EarnCoinByAmount(10);
+                GameManager.Instance.EarnCoinByAmountWithMultiplier(10);
             }
             else
             {
-                GameManager.Instance.EarnCoin();
+                GameManager.Instance.EarnCoinByAmountWithMultiplier(1);
             }
 
             GameManager.Instance.audioSource.PlayOneShot(pickUpSfx);

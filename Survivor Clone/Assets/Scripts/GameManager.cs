@@ -128,7 +128,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
 
         if (Input.GetKeyDown(KeyCode.O))
         {
-            EarnCoinByAmount(100000);
+            EarnCoinByAmountWithMultiplier(100000);
         }
 
         currentGameTime += Time.deltaTime;
@@ -358,15 +358,26 @@ public class GameManager : MonoBehaviour, IDataPersistence
         currentPassiveHudUIIndex++;
     }
 
-    public void EarnCoin()
+    public void EarnCoinByAmount(int amount)
     {
-        currentCoinEarned += storeCoinUpgradeMultiplier;
+        currentCoinEarned += amount;
         HUDManager.Instance.UpdateCoinValue(currentCoinEarned);
     }
 
-    public void EarnCoinByAmount(int amount)
+    public void EarnCoinByAmountWithMultiplier(int amount)
     {
-        currentCoinEarned += amount * storeCoinUpgradeMultiplier;
+        int amountEarned = amount * storeCoinUpgradeMultiplier;
+
+        PassiveItem coinPassive = PassiveItemManager.Instance.IsPassiveActiveById(PassiveItemStats.PassiveId.CoinMultiplier);
+        if (coinPassive != null)
+        {
+            BasicPassiveItemStats coinPassiveStats = (BasicPassiveItemStats)coinPassive.stat;
+
+            amountEarned *= (int)coinPassiveStats.stats[coinPassive.currentLevel].rateIncrease;
+        }
+
+        currentCoinEarned += amountEarned;
+
         HUDManager.Instance.UpdateCoinValue(currentCoinEarned);
     }
 
