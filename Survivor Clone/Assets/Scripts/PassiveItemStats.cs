@@ -13,6 +13,8 @@ public class PassiveItemStats : ScriptableObject
         Damage,
         Armor,
         CoinMultiplier,
+        PickUpRadius,
+        Projectile
     }
 
     public string passiveName;

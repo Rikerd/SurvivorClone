@@ -9,6 +9,8 @@ public class PassiveItemManager : MonoBehaviour
     public List<PassiveItem> passiveItems = new List<PassiveItem>();
     public int maxActivePassives = 5;
 
+    public PlayerMagnetController playerMagnetController;
+
     public static PassiveItemManager Instance;
 
     private List<PassiveItem> activePassiveItems = new List<PassiveItem>();
@@ -81,11 +83,25 @@ public class PassiveItemManager : MonoBehaviour
     {
         activePassiveItems.Add(item);
         GameManager.Instance.UpdatePassiveHUDUI(item.stat.uiSprite);
+
+        if (item.stat.id == PassiveItemStats.PassiveId.PickUpRadius)
+        {
+            BasicPassiveItemStats magnetPassiveStats = (BasicPassiveItemStats)item.stat;
+            float radius = magnetPassiveStats.stats[item.currentLevel].rateIncrease;
+            playerMagnetController.UpdateRadius(radius);
+        }
     }
 
     public void IncreasePassiveItemLevel(PassiveItem item)
     {
         item.currentLevel++;
+
+        if (item.stat.id == PassiveItemStats.PassiveId.PickUpRadius)
+        {
+            BasicPassiveItemStats magnetPassiveStats = (BasicPassiveItemStats)item.stat;
+            float radius = magnetPassiveStats.stats[item.currentLevel].rateIncrease;
+            playerMagnetController.UpdateRadius(radius);
+        }
     }
 
     public bool IsPassiveActive(PassiveItem passive)

@@ -8290,24 +8290,8 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 289989187531085783, guid: 9dbd229fdd04bc446844769d016e1a4d, type: 3}
-      propertyPath: isStarterWeapon
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1164945395025149933, guid: 9dbd229fdd04bc446844769d016e1a4d, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1435544556914560655, guid: 9dbd229fdd04bc446844769d016e1a4d, type: 3}
-      propertyPath: isStarterWeapon
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1634043473493809616, guid: 9dbd229fdd04bc446844769d016e1a4d, type: 3}
-      propertyPath: isStarterWeapon
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3742827531936531046, guid: 9dbd229fdd04bc446844769d016e1a4d, type: 3}
-      propertyPath: isStarterWeapon
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3910440097654768509, guid: 9dbd229fdd04bc446844769d016e1a4d, type: 3}
@@ -8358,10 +8342,6 @@ PrefabInstance:
       propertyPath: virtualCamera
       value: 
       objectReference: {fileID: 1856909266}
-    - target: {fileID: 8499652895871138270, guid: 9dbd229fdd04bc446844769d016e1a4d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

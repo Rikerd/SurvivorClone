@@ -1347,7 +1347,10 @@ MonoBehaviour:
     stat: {fileID: 11400000, guid: 3a8c07905d5bba34885406765ad04400, type: 2}
   - currentLevel: 0
     stat: {fileID: 11400000, guid: 8dfd906f9e1eaf84894d58a4380fe98a, type: 2}
+  - currentLevel: 0
+    stat: {fileID: 11400000, guid: e157cdd2509c39547bceaaea61d45ea8, type: 2}
   maxActivePassives: 5
+  playerMagnetController: {fileID: 5773419532559982233}
 --- !u!1 &8499652895871138270
 GameObject:
   m_ObjectHideFlags: 0
