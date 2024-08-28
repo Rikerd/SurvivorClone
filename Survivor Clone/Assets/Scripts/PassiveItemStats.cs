@@ -18,7 +18,7 @@ public class PassiveItemStats : ScriptableObject
     }
 
     public string passiveName;
-    public string description;
+    public List<string> descriptions;
     public Sprite uiSprite;
 
     public PassiveId id;

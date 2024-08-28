@@ -52,4 +52,19 @@ public static class HelperFunctions
 
         return enemyDistances;
     }
+
+    public static int UpdateProjectileCount(int initialSpawnCount)
+    {
+        int projectileCount = initialSpawnCount + GameManager.Instance.GetStoreProjectileAmount();
+
+        PassiveItem projectilePassive = PassiveItemManager.Instance.IsPassiveActiveById(PassiveItemStats.PassiveId.Projectile);
+        if (projectilePassive != null)
+        {
+            BasicPassiveItemStats projectilePassiveStats = (BasicPassiveItemStats)projectilePassive.stat;
+
+            projectileCount += (int)projectilePassiveStats.stats[projectilePassive.currentLevel].rateIncrease;
+        }
+
+        return projectileCount;
+    }
 }

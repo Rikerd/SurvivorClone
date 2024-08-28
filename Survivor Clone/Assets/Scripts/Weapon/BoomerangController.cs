@@ -29,8 +29,10 @@ public class BoomerangController : Weapon
         {
             ProjectileLevelStats currentLevelStats = projectileStat.levelStats[currentWeaponLevel];
 
+            int projectileCount = HelperFunctions.UpdateProjectileCount(currentLevelStats.projectileCount);
+
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius, LayerMask.GetMask("Enemy"));
-            List<(Vector3, float)> closestEnemies = HelperFunctions.FindClosestEnemies(colliders, currentLevelStats.projectileCount + GameManager.Instance.GetStoreProjectileAmount(), transform.position, radius);
+            List<(Vector3, float)> closestEnemies = HelperFunctions.FindClosestEnemies(colliders, projectileCount, transform.position, radius);
 
             foreach ((Vector3, float) enemy in closestEnemies)
             {

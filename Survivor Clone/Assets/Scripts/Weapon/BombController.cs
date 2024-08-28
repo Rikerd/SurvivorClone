@@ -20,7 +20,10 @@ public class BombController : Weapon
         if (cooldownComplete)
         {
             AuraSpawnerLevelStats currentWeaponLevelStat = bombStat.levelStats[currentWeaponLevel];
-            for (int numToSpawn = 0; numToSpawn < currentWeaponLevelStat.spawnAmount + GameManager.Instance.GetStoreProjectileAmount(); numToSpawn++)
+
+            int projectileCount = HelperFunctions.UpdateProjectileCount(currentWeaponLevelStat.spawnAmount);
+
+            for (int numToSpawn = 0; numToSpawn < projectileCount; numToSpawn++)
             {
                 Vector3 spread = Random.insideUnitCircle.normalized * currentWeaponLevelStat.radius;
 

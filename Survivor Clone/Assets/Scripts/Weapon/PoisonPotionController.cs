@@ -20,8 +20,11 @@ public class PoisonPotionController : Weapon
         if (cooldownComplete)
         {
             AuraSpawnerLevelStats currentWeaponLevelStat = poisonStat.levelStats[currentWeaponLevel];
+
+            int projectileCount = HelperFunctions.UpdateProjectileCount(currentWeaponLevelStat.spawnAmount);
+
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, currentWeaponLevelStat.radius, LayerMask.GetMask("Enemy"));
-            List<(Vector3, float)> closestEnemies = HelperFunctions.FindClosestEnemies(colliders, currentWeaponLevelStat.spawnAmount + GameManager.Instance.GetStoreProjectileAmount(), transform.position, currentWeaponLevelStat.radius);
+            List<(Vector3, float)> closestEnemies = HelperFunctions.FindClosestEnemies(colliders, projectileCount, transform.position, currentWeaponLevelStat.radius);
 
             foreach ((Vector3, float) enemy in closestEnemies)
             {

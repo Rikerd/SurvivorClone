@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: ArmorPassive
   m_EditorClassIdentifier: 
   passiveName: Helmet
-  description: -1 damage taken.
+  descriptions:
+  - Reduce damage by 1
+  - Reduce damage by 2
+  - Reduce damage by 3
+  - Reduce damage by 4
+  - Reduce damage by 5
   uiSprite: {fileID: 21300000, guid: 3d4e67236db7b4744ba085a490d32796, type: 3}
   id: 4
   stats:

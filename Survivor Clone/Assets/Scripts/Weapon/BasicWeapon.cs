@@ -39,7 +39,9 @@ public class BasicWeapon : Weapon
         Quaternion lastAimRotation = aimController.rotation;
         ProjectileLevelStats currentLevelStats = projectileStat.levelStats[currentWeaponLevel];
 
-        for (int i = 0; i < currentLevelStats.projectileCount + GameManager.Instance.GetStoreProjectileAmount(); i++)
+        int projectileCount = HelperFunctions.UpdateProjectileCount(currentLevelStats.projectileCount);
+
+        for (int i = 0; i < projectileCount; i++)
         {
             GameObject projectile = Instantiate(projectileStat.projectile, aimController.parent.position, lastAimRotation);
             Projectile projectileScript = projectile.GetComponent<Projectile>();

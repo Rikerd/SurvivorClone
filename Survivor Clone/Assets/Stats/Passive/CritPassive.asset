@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: CritPassive
   m_EditorClassIdentifier: 
   passiveName: Scope
-  description: +5% critical chance.
+  descriptions:
+  - +5% critical chance
+  - +10% critical chance
+  - +15% critical chance
+  - +20% critical chance
+  - +25% crtitcal chance
   uiSprite: {fileID: 21300000, guid: de5994b8891d65a43b9628a71558d052, type: 3}
   id: 2
   stats:

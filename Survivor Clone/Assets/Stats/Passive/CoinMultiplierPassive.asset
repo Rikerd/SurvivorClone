@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: CoinMultiplierPassive
   m_EditorClassIdentifier: 
   passiveName: Loot Bag
-  description: +1x coin multiplier
+  descriptions:
+  - 2x coins picked up
+  - 3x coins picked up
+  - 4x coins picked up
+  - 5x coins picked up
+  - 6x coins picked up
   uiSprite: {fileID: 21300000, guid: 8ceefe4fea93466468d0376d72730bcd, type: 3}
   id: 5
   stats:

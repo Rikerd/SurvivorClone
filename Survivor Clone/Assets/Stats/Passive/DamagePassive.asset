@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: DamagePassive
   m_EditorClassIdentifier: 
   passiveName: Strength
-  description: +10% damage.
+  descriptions:
+  - +10% damage
+  - +20% damage
+  - +30% damage
+  - +40% damage
+  - +50% damage
   uiSprite: {fileID: 21300000, guid: 45fe76829fcfb964fbbf23d25d3abb00, type: 3}
   id: 3
   stats:

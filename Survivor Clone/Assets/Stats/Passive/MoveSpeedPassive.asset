@@ -13,12 +13,17 @@ MonoBehaviour:
   m_Name: MoveSpeedPassive
   m_EditorClassIdentifier: 
   passiveName: Boots
-  description: +0.1 movement speed.
+  descriptions:
+  - +5% movement speed
+  - +10% movement speed
+  - +15% movement speed
+  - +20% movement speed
+  - +25% movement speed
   uiSprite: {fileID: 21300000, guid: 92238d99e9d7f004395602b4b1419b99, type: 3}
   id: 1
   stats:
+  - rateIncrease: 0.05
   - rateIncrease: 0.1
+  - rateIncrease: 0.15
   - rateIncrease: 0.2
-  - rateIncrease: 0.3
-  - rateIncrease: 0.4
-  - rateIncrease: 0.5
+  - rateIncrease: 0.25

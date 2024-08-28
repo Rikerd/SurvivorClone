@@ -12,13 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0117c62665b5ada48a36ad8171121447, type: 3}
   m_Name: ProjectilePassive
   m_EditorClassIdentifier: 
-  passiveName: Loot Bag
-  description: +1x coin multiplier
-  uiSprite: {fileID: 21300000, guid: 8ceefe4fea93466468d0376d72730bcd, type: 3}
-  id: 5
+  passiveName: Duplicator Ring
+  descriptions:
+  - +1 projectile
+  - N/A
+  - +2 projectile
+  - N/A
+  - +3 projectile
+  uiSprite: {fileID: 21300000, guid: 8e790b42d2957214dbe7751a285a8d4a, type: 3}
+  id: 7
   stats:
+  - rateIncrease: 1
+  - rateIncrease: 1
+  - rateIncrease: 2
   - rateIncrease: 2
   - rateIncrease: 3
-  - rateIncrease: 4
-  - rateIncrease: 5
-  - rateIncrease: 6
