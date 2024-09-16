@@ -15,11 +15,6 @@ public class BoomerangController : Weapon
         SetMaxCooldown(projectileStat.levelStats[currentWeaponLevel].maxCooldown);
     }
 
-    private void OnBecameInvisible()
-    {
-        Destroy(gameObject);
-    }
-
     // Update is called once per frame
     void Update()
     {
