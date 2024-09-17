@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     public SpriteRenderer spriteRenderer;
 
+    public ShieldController shieldController;
+
     [field:SerializeField] public int currentHealth { get; set; }
     public int maxHealth { get; set; }
 
@@ -118,6 +120,16 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     public void DamageHealth(int damageAmount, bool isCrit = false)
     {
+        if (shieldController.gameObject.activeSelf)
+        {
+            shieldController.UseShieldCharge();
+
+            if (shieldController.ShieldActive())
+            {
+                return;
+            }
+        }
+
         int passiveArmor = 0;
         PassiveItem armorPassive = PassiveItemManager.Instance.IsPassiveActiveById(PassiveItemStats.PassiveId.Armor);
         if (armorPassive != null)

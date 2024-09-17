@@ -771,6 +771,7 @@ MonoBehaviour:
   playerStat: {fileID: 11400000, guid: 87c55594efed30746b6a20b71fe60dae, type: 2}
   armorUpgradeStat: {fileID: 11400000, guid: 002cad9f378577743b30216ccb1680e6, type: 2}
   spriteRenderer: {fileID: 7989532469714406530}
+  shieldController: {fileID: 3019267381184462370}
   <currentHealth>k__BackingField: 0
   hurtSfx: {fileID: 8300000, guid: 27e1b70ca26f29b4d984203250d57cb9, type: 3}
 --- !u!114 &2455863838049500643
@@ -1473,6 +1474,7 @@ Transform:
   - {fileID: 2448788980606678466}
   - {fileID: 966245737926215506}
   - {fileID: 450977889681594701}
+  - {fileID: 6140531023277936709}
   m_Father: {fileID: 6013283107184396713}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5836108684983532620
@@ -1488,6 +1490,107 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxActiveWeapons: 5
+--- !u!1 &7966451639339125092
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6140531023277936709}
+  - component: {fileID: 8454670001176140713}
+  - component: {fileID: 3019267381184462370}
+  m_Layer: 0
+  m_Name: ShieldController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6140531023277936709
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7966451639339125092}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2971414036812564260}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &8454670001176140713
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7966451639339125092}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 1046799789
+  m_SortingLayer: 3
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 21300000, guid: c803fb24a7e45f749bef70fa87b108ac, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &3019267381184462370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7966451639339125092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b16ad257a67f34aa761d63c3dfba89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStarterWeapon: 0
+  levelUpInfo: {fileID: 11400000, guid: 557771a5092e0ff478901e5b91b7bd44, type: 2}
+  fireSfx: {fileID: 0}
+  weaponStats: {fileID: 11400000, guid: 1527562b6f5d1b04f8c24521959dcda3, type: 2}
 --- !u!1 &8373181861771089465
 GameObject:
   m_ObjectHideFlags: 0

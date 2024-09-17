@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ffa2690916e834d9f93048097e7508, type: 3}
+  m_Name: Shield
+  m_EditorClassIdentifier: 
+  upgradeName: Shield
+  levelUpDescription:
+  - Create shield that blocks damage for time frame.
+  - +0.2 invincibility time. Decrease cooldown.
+  - +1 max shield charges.
+  - +0.2 invincibility time. Decrease cooldown.
+  - +1 max shield charges.
+  uiSprite: {fileID: 21300000, guid: 6daea20f5aa10d74c8a4bf48b1c7ea9c, type: 3}
