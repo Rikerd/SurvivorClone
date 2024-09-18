@@ -155,3 +155,4 @@ MonoBehaviour:
   - timeEventEnemy: {fileID: 3503081682285758090, guid: b0bd04f95a1235f4c89d1b08386a5abe, type: 3}
     timeEventTimeInSeconds: 840
     isRandomSpawnLocation: 0
+  finalBoss: {fileID: 6869661145523149589, guid: 9e0290af55bde3b42bb278f2bdb1fc00, type: 3}

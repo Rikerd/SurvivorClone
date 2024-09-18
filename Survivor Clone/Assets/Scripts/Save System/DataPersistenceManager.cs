@@ -65,10 +65,11 @@ public class DataPersistenceManager : MonoBehaviour
         FileDataHandler.SaveData(accountData);
     }
 
-    private void OnApplicationQuit()
-    {
-        SaveAccountData();
-    }
+    // Only save data on explict cases
+    //private void OnApplicationQuit()
+    //{
+    //    SaveAccountData();
+    //}
 
     public void SetDataPeristanceObjects()
     {

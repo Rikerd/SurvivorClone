@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f212702adc3d4964abb10115c88bc2ce, type: 3}
-  m_Name: MiniBossJaws
+  m_Name: SlimeKing
   m_EditorClassIdentifier: 
-  maxHealth: 6000
-  moveSpeedRatio: 1
+  maxHealth: 1
+  moveSpeedRatio: 0.8
   damageText: {fileID: 1543355844468514358, guid: c8cec6353608a7147b33942b6cb0f50d, type: 3}
-  damage: 15
-  exp: 200
-  numOfCoinSpawnAmount: 25
+  damage: 25
+  exp: 300
+  numOfCoinSpawnAmount: 40
   expOrb: {fileID: 3870436542734150734, guid: 89952a900db76794685cbb1b25cb18de, type: 3}
   coin: {fileID: 858052334176538516, guid: ec6074f836107274285a91fa9b46a153, type: 3}
   isBossType: 1

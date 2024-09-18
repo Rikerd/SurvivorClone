@@ -21,6 +21,9 @@ public class HUDManager : MonoBehaviour
     public TMP_Text gameOverKillsText;
     public TMP_Text gameOverCoinsText;
 
+    public TMP_Text victoryKillsText;
+    public TMP_Text victoryCoinsText;
+
     public static HUDManager Instance;
 
     // Start is called before the first frame update
@@ -92,6 +95,12 @@ public class HUDManager : MonoBehaviour
     {
         gameOverKillsText.SetText("Kills: " + playerKillCount.ToString());
         gameOverCoinsText.SetText("Coins Gained: " + coinsEarned.ToString());
+    }
+
+    public void SetVictoryPanelValues(int playerKillCount, int coinsEarned)
+    {
+        victoryKillsText.SetText("Kills: " + playerKillCount.ToString());
+        victoryCoinsText.SetText("Coins Gained: " + coinsEarned.ToString());
     }
 
     // ExperienceManager

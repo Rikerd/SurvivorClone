@@ -13,5 +13,5 @@ public class EnemyStats : Stats
     public GameObject expOrb;
     public GameObject coin;
 
-    public bool isMiniBoss = false;
+    public bool isBossType = false;
 }

@@ -20,4 +20,4 @@ MonoBehaviour:
   numOfCoinSpawnAmount: 30
   expOrb: {fileID: 3870436542734150734, guid: 89952a900db76794685cbb1b25cb18de, type: 3}
   coin: {fileID: 858052334176538516, guid: ec6074f836107274285a91fa9b46a153, type: 3}
-  isMiniBoss: 1
+  isBossType: 1

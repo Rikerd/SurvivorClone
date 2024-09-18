@@ -9,7 +9,6 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
 {
     public EnemyStats enemyStat;
-    public StoreUpgradeStatCosts damageUpgradeStat;
 
     public float collisionDamageDelayTimer = 0.5f;
 
@@ -142,20 +141,11 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
 
     public void Death()
     {
-        if (enemyStat.isMiniBoss)
+        GameManager.Instance.IncrementKillCount();
+
+        if (enemyStat.isBossType)
         {
-            GameObject expOrb = Instantiate(enemyStat.expOrb, transform.position, Quaternion.identity);
-            expOrb.GetComponent<ExperiencePickUp>().SetExperienceAmount(enemyStat.exp);
-
-            for (int coinSpawnAmount = 0; coinSpawnAmount < enemyStat.numOfCoinSpawnAmount; coinSpawnAmount++)
-            {
-                Vector3 spread = Vector3.zero;
-
-                float radius = Random.Range(0.8f, 3.8f);
-                spread = Random.insideUnitCircle * radius;
-
-                Instantiate(enemyStat.coin, transform.position + spread, Quaternion.identity);
-            }
+            BossDeath();
         }
         else
         {
@@ -168,8 +158,23 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
             }
         }
 
-        GameManager.Instance.IncrementKillCount();
         Destroy(gameObject);
+    }
+
+    protected virtual void BossDeath()
+    {
+        GameObject expOrb = Instantiate(enemyStat.expOrb, transform.position, Quaternion.identity);
+        expOrb.GetComponent<ExperiencePickUp>().SetExperienceAmount(enemyStat.exp);
+
+        for (int coinSpawnAmount = 0; coinSpawnAmount < enemyStat.numOfCoinSpawnAmount; coinSpawnAmount++)
+        {
+            Vector3 spread = Vector3.zero;
+
+            float radius = Random.Range(0.8f, 3.8f);
+            spread = Random.insideUnitCircle * radius;
+
+            Instantiate(enemyStat.coin, transform.position + spread, Quaternion.identity);
+        }
     }
     #endregion Health Functions
 

@@ -11,6 +11,8 @@ public class LevelEnemySpawners : ScriptableObject
     public List<MiniBossSpawnData> miniBossSpawns;
 
     public List<TimeEventSpawnData> timeEventSpawn;
+
+    public GameObject finalBoss;
 }
 
 [Serializable]

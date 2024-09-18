@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public List<Image> passiveHUDUI;
 
     public GameObject gameOverPanel;
+    public GameObject victoryPanel;
     public GameObject pausePanel;
 
     public AudioSource audioSource;
@@ -47,6 +48,8 @@ public class GameManager : MonoBehaviour, IDataPersistence
     private float currentSpawnPatternEndTime;
     private float currentTimeEventSpawnTime;
     private float currentMiniBossSpawnTime;
+    private float finalBossTime = 900f;
+    private bool finalBossSpawned = false;
 
     private int currentWeaponHudUIIndex = 0;
     private int currentPassiveHudUIIndex = 0;
@@ -74,12 +77,15 @@ public class GameManager : MonoBehaviour, IDataPersistence
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
 
         gameOverPanel.SetActive(false);
+        victoryPanel.SetActive(false);
         pausePanel.SetActive(false);
 
         currentGameTime = 0;
         currentSpawnPatternEndTime = enemySpawnerController.GetCurrentSpawnPatternEndTimer();
         currentTimeEventSpawnTime = enemySpawnerController.GetCurrentTimeEventSpawnTimer();
         currentMiniBossSpawnTime = enemySpawnerController.GetCurrentMiniBossSpawnTimer();
+        finalBossSpawned = false;
+
         audioSource = GetComponent<AudioSource>();
 
         Cursor.SetCursor(cursorTexture, new Vector2(8, 8), UnityEngine.CursorMode.Auto);
@@ -134,6 +140,12 @@ public class GameManager : MonoBehaviour, IDataPersistence
         currentGameTime += Time.deltaTime;
         HUDManager.Instance.UpdateTimeValue(currentGameTime);
 
+        if (currentGameTime >= finalBossTime && !finalBossSpawned)
+        {
+            enemySpawnerController.SpawnFinalBoss();
+            finalBossSpawned = true;
+        }
+
         if (!enemySpawnerController.IsLastSpawnPattern() && currentGameTime > currentSpawnPatternEndTime)
         {
             enemySpawnerController.UpdateSpawnPattern();
@@ -175,6 +187,15 @@ public class GameManager : MonoBehaviour, IDataPersistence
         Time.timeScale = 0;
         gameOverPanel.SetActive(true);
         HUDManager.Instance.SetGameOverPanelValues(playerKillCount, currentCoinEarned);
+        DataPersistenceManager.Instance.SaveAccountData();
+    }
+
+    public void TriggerWinSequence()
+    {
+        Cursor.SetCursor(null, Vector2.zero, UnityEngine.CursorMode.Auto);
+        Time.timeScale = 0;
+        victoryPanel.SetActive(true);
+        HUDManager.Instance.SetVictoryPanelValues(playerKillCount, currentCoinEarned);
         DataPersistenceManager.Instance.SaveAccountData();
     }
 

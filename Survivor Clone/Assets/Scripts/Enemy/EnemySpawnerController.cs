@@ -64,6 +64,12 @@ public class EnemySpawnerController : MonoBehaviour
         }
     }
 
+    public void SpawnFinalBoss()
+    {
+        Vector2 positionWorldPoint = FindWorldPositionToSpawn();
+        Instantiate(enemySpawnerInfo.finalBoss, positionWorldPoint, Quaternion.identity);
+    }
+
     public void SpawnMiniBoss()
     {
         MiniBossSpawnData miniBossSpawnData = enemySpawnerInfo.miniBossSpawns[currentMiniBossSpawn];
