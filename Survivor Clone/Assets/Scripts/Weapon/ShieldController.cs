@@ -59,13 +59,15 @@ public class ShieldController : Weapon
 
     public void UseShieldCharge()
     {
-        if (currentCharges > 0)
+        if (currentCharges > 0 && !isInvincible)
         {
             currentCharges--;
             invincibiltyTimer = weaponStats.levelStats[currentWeaponLevel].invincibilityTime;
             isInvincible = true;
 
             UpdateSpriteColor();
+
+            GameManager.Instance.audioSource.PlayOneShot(fireSfx);
         }
     }
 

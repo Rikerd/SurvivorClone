@@ -1589,7 +1589,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isStarterWeapon: 0
   levelUpInfo: {fileID: 11400000, guid: 557771a5092e0ff478901e5b91b7bd44, type: 2}
-  fireSfx: {fileID: 0}
+  fireSfx: {fileID: 8300000, guid: 63b7298c7a9add449a8caf4269587b85, type: 3}
   weaponStats: {fileID: 11400000, guid: 1527562b6f5d1b04f8c24521959dcda3, type: 2}
 --- !u!1 &8373181861771089465
 GameObject:

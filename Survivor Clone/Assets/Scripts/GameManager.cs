@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public AudioSource audioSource;
 
     [Header("Level Up Panel Properties")]
+    public AudioClip levelUpSfx;
     public GameObject levelUpPanel;
     public List<Image> levelUpPanelIcons;
     public GameObject levelUpButtonPanel;
@@ -216,6 +217,8 @@ public class GameManager : MonoBehaviour, IDataPersistence
         Cursor.SetCursor(null, Vector2.zero, UnityEngine.CursorMode.Auto);
         Time.timeScale = 0;
         levelUpPanel.SetActive(true);
+
+        GameManager.Instance.audioSource.PlayOneShot(levelUpSfx);
 
         currentLevelUpButtonIndex = 0;
 
