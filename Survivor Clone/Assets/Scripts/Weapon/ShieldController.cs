@@ -7,6 +7,7 @@ public class ShieldController : Weapon
     public ShieldStats weaponStats;
 
     private SpriteRenderer spriteRenderer;
+    private ParticleSystem particleSystem;
 
     private int currentCharges;
     private bool isInvincible;
@@ -21,6 +22,7 @@ public class ShieldController : Weapon
         SetMaxCooldown(weaponStats.levelStats[currentWeaponLevel].maxCooldown);
 
         spriteRenderer = GetComponent<SpriteRenderer>();
+        particleSystem = GetComponent<ParticleSystem>();
         UpdateSpriteColor();
     }
 
@@ -34,6 +36,7 @@ public class ShieldController : Weapon
             if (invincibiltyTimer <= 0f)
             {
                 isInvincible = false;
+                particleSystem.Stop();
             }
         }
 
@@ -66,6 +69,7 @@ public class ShieldController : Weapon
             isInvincible = true;
 
             UpdateSpriteColor();
+            particleSystem.Play();
 
             GameManager.Instance.audioSource.PlayOneShot(fireSfx);
         }
