@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c46ff6d0821f1c74f98c8b86f5a6b7c7
+guid: 632e973c789ceae4eb801721cf715b92
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Pixeled
+  - Minecraftia
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

@@ -289,19 +289,20 @@ public class GameManager : MonoBehaviour, IDataPersistence
         currentLevelUpButton.onClick.RemoveAllListeners();
 
         int currentWeaponLevel = weapon.GetCurrentWeaponLevel();
-        string levelText = "Weapon Lv. " + (currentWeaponLevel + 1);
+        string levelText = "Weapon Lv. ";
         string weaponName = weapon.levelUpInfo.upgradeName;
         string weaponDescription = "";
 
         if (weapon.gameObject.activeSelf)
         {
             currentLevelUpButton.onClick.AddListener(weapon.LevelUpWeapon);
-            levelText += " -> Lv. " + (currentWeaponLevel + 2);
+            levelText += (currentWeaponLevel + 2);
             weaponDescription = weapon.levelUpInfo.levelUpDescription[currentWeaponLevel + 1];
         }
         else
         {
             currentLevelUpButton.onClick.AddListener(weapon.ActivateWeapon);
+            levelText += (currentWeaponLevel + 1);
             weaponDescription = weapon.levelUpInfo.levelUpDescription[currentWeaponLevel];
         }
 
@@ -320,18 +321,19 @@ public class GameManager : MonoBehaviour, IDataPersistence
         currentLevelUpButton.onClick.RemoveAllListeners();
 
         int currentPassiveLevel = passive.GetCurrentPassiveLevel();
-        string levelText = "Passive Lv. " + (currentPassiveLevel + 1);
+        string levelText = "Passive Lv. ";
         string passiveName = passive.stat.passiveName;
         string passiveDescription = passive.stat.descriptions[currentPassiveLevel];
 
         if (PassiveItemManager.Instance.IsPassiveActive(passive))
         {
             currentLevelUpButton.onClick.AddListener(() => PassiveItemManager.Instance.IncreasePassiveItemLevel(passive));
-            levelText += " -> Lv. " + (currentPassiveLevel + 2);
+            levelText += (currentPassiveLevel + 2);
         }
         else
         {
             currentLevelUpButton.onClick.AddListener(() => PassiveItemManager.Instance.ActivatePassiveItem(passive));
+            levelText += (currentPassiveLevel + 1);
         }
 
         string finalText = levelText + " " + passiveName + "\n" + passiveDescription;

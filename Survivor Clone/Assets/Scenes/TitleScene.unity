@@ -325,8 +325,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Store
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1c187721bd2b4e24e9285bc3ef5e6d24, type: 2}
-  m_sharedMaterial: {fileID: -6796159849168939961, guid: 1c187721bd2b4e24e9285bc3ef5e6d24, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4e5603f85753b744abd017e8ef218886, type: 2}
+  m_sharedMaterial: {fileID: 3016217060807914169, guid: 4e5603f85753b744abd017e8ef218886, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -459,8 +459,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Play
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1c187721bd2b4e24e9285bc3ef5e6d24, type: 2}
-  m_sharedMaterial: {fileID: -6796159849168939961, guid: 1c187721bd2b4e24e9285bc3ef5e6d24, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4e5603f85753b744abd017e8ef218886, type: 2}
+  m_sharedMaterial: {fileID: 3016217060807914169, guid: 4e5603f85753b744abd017e8ef218886, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1463,8 +1463,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: I wanna be a Cowboy
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1c187721bd2b4e24e9285bc3ef5e6d24, type: 2}
-  m_sharedMaterial: {fileID: -6796159849168939961, guid: 1c187721bd2b4e24e9285bc3ef5e6d24, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4e5603f85753b744abd017e8ef218886, type: 2}
+  m_sharedMaterial: {fileID: 3016217060807914169, guid: 4e5603f85753b744abd017e8ef218886, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1896,8 +1896,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Quit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1c187721bd2b4e24e9285bc3ef5e6d24, type: 2}
-  m_sharedMaterial: {fileID: -6796159849168939961, guid: 1c187721bd2b4e24e9285bc3ef5e6d24, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4e5603f85753b744abd017e8ef218886, type: 2}
+  m_sharedMaterial: {fileID: 3016217060807914169, guid: 4e5603f85753b744abd017e8ef218886, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
