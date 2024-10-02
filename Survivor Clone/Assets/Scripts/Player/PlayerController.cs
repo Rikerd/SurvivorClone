@@ -148,7 +148,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
         TMP_Text damageText = Instantiate(playerStat.damageText, transform.position, Quaternion.identity).GetComponent<TMP_Text>();
         damageText.SetText(damageAmount.ToString());
-        damageText.color = Color.red;
+        damageText.color = Color.white;
 
         currentHealth -= damageAmount;
 

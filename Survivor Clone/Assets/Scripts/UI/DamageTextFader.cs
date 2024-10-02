@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,6 +10,9 @@ public class DamageTextFader : MonoBehaviour
 
     private TMP_Text text;
     private Color textColor;
+
+    private float timer = 0.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +26,15 @@ public class DamageTextFader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.color = new Color(text.color.r, text.color.g, text.color.b, text.color.a - duration * Time.deltaTime);
+        timer += Time.deltaTime / duration;
+        float lerpTime = Mathf.Lerp(1f, 0f, timer);
+        transform.localScale = new Vector2(lerpTime, lerpTime);
 
-        if (text.color.a <= 0)
+        Color textColor = text.color;
+        textColor.a = lerpTime;
+        text.color = textColor;
+
+        if (timer >= 1f)
         {
             Destroy(gameObject);
         }
