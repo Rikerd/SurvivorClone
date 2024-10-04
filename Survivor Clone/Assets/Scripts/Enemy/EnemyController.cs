@@ -25,6 +25,11 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
 
     protected float baseGameMoveSpeed;
 
+    private float deathAnimationDuration = 0.5f;
+    private float timer = 0.0f;
+    protected bool isDead = false;
+    private Vector3 deathPosition = Vector3.zero;
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -41,6 +46,11 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
 
     protected virtual void Update()
     {
+        if (isDead)
+        {
+            return;
+        }
+
         if (isCollidingWithPlayer)
         {
             if (currentCollisionDamageDelayTimer <= 0)
@@ -57,9 +67,35 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
 
     protected virtual void FixedUpdate()
     {
+        if (isDead)
+        {
+            DeathAnimation();
+
+            if (timer >= 1f)
+            {
+                Destroy(gameObject);
+            }
+            return;
+        }
+
         Vector3 direction = (player.transform.position - transform.position).normalized;
         CheckForLeftOrRightFacing(direction);
         MoveEnemy(Vector3.MoveTowards(transform.position, player.transform.position, baseGameMoveSpeed * enemyStat.moveSpeedRatio * Time.fixedDeltaTime));
+    }
+
+    public void DeathAnimation()
+    {
+        timer += Time.deltaTime / deathAnimationDuration;
+        float alphaLerp = Mathf.Lerp(1f, 0f, timer);
+
+        float fadeDirection = isFacingRight ? -1f : 1f;
+        float movementLerp = fadeDirection * Mathf.Lerp(0f, 1f, timer);
+
+        Color spriteColor = spriteRenderer.color;
+        spriteColor.a = alphaLerp;
+        spriteRenderer.color = spriteColor;
+
+        MoveEnemy(deathPosition + new Vector3(movementLerp, 0, 0));
     }
 
     public void OnTriggerEnter2D(Collider2D collider)
@@ -82,6 +118,11 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
     #region Health Functions
     public void DamageHealth(int damageAmount, bool isCrit = false)
     {
+        if (isDead)
+        {
+            return;
+        }
+
         float passiveDamageMultiplier = 0;
         PassiveItem damagePassive = PassiveItemManager.Instance.IsPassiveActiveById(PassiveItemStats.PassiveId.Damage);
         if (damagePassive != null)
@@ -132,6 +173,8 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
             damageText.fontSize *= 1.2f;
         }
 
+        damageText.GetComponent<DamageTextFader>().SetFadeDirection(isFacingRight);
+
         if (currentHealth <= 0)
         {
             currentHealth = 0;
@@ -141,6 +184,10 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
 
     public void Death()
     {
+        isDead = true;
+        deathPosition = transform.position;
+        GetComponent<Collider2D>().enabled = false;
+
         GameManager.Instance.IncrementKillCount();
 
         if (enemyStat.isBossType)
@@ -157,8 +204,6 @@ public class EnemyController : MonoBehaviour, IDamageable, IEnemyMoveable
                 expOrb.GetComponent<ExperiencePickUp>().SetExperienceAmount(enemyStat.exp);
             }
         }
-
-        Destroy(gameObject);
     }
 
     protected virtual void BossDeath()

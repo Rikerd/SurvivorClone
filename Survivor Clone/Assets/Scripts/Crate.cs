@@ -13,6 +13,8 @@ public class Crate : MonoBehaviour, IDamageable
 
     private List<MultipleDrops> drops;
 
+    private GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,8 @@ public class Crate : MonoBehaviour, IDamageable
         maxHealth = crateStat.maxHealth;
 
         drops = crateStat.drops;
+
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     #region Health Functions
@@ -74,6 +78,9 @@ public class Crate : MonoBehaviour, IDamageable
             damageText.color = Color.yellow;
             damageText.fontSize *= 1.2f;
         }
+
+        bool isOnRightSide = player.transform.position.x > transform.position.x;
+        damageText.GetComponent<DamageTextFader>().SetFadeDirection(isOnRightSide);
 
         if (currentHealth <= 0)
         {

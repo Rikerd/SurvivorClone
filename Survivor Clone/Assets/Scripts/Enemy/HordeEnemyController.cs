@@ -16,6 +16,12 @@ public class HordeEnemyController : EnemyController
 
     protected override void FixedUpdate()
     {
+        if (isDead)
+        {
+            DeathAnimation();
+            return;
+        }
+
         CheckForLeftOrRightFacing(direction);
 
         MoveEnemy(rb2d.position + direction * baseGameMoveSpeed * enemyStat.moveSpeedRatio * Time.fixedDeltaTime);

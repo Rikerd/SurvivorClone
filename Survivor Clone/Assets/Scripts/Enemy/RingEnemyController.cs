@@ -31,6 +31,12 @@ public class RingEnemyController : EnemyController
 
     protected override void FixedUpdate()
     {
+        if (isDead)
+        {
+            DeathAnimation();
+            return;
+        }
+
         Vector3 direction = (playerOriginalPosition - transform.position).normalized;
         CheckForLeftOrRightFacing(direction);
         MoveEnemy(Vector3.MoveTowards(transform.position, playerOriginalPosition, baseGameMoveSpeed * tempEnemyStats.moveSpeedRatio * Time.fixedDeltaTime));
