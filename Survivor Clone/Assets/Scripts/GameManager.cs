@@ -323,17 +323,19 @@ public class GameManager : MonoBehaviour, IDataPersistence
         int currentPassiveLevel = passive.GetCurrentPassiveLevel();
         string levelText = "Passive Lv. ";
         string passiveName = passive.stat.passiveName;
-        string passiveDescription = passive.stat.descriptions[currentPassiveLevel];
+        string passiveDescription = "";
 
         if (PassiveItemManager.Instance.IsPassiveActive(passive))
         {
             currentLevelUpButton.onClick.AddListener(() => PassiveItemManager.Instance.IncreasePassiveItemLevel(passive));
             levelText += (currentPassiveLevel + 2);
+            passiveDescription = passive.stat.descriptions[currentPassiveLevel + 1];
         }
         else
         {
             currentLevelUpButton.onClick.AddListener(() => PassiveItemManager.Instance.ActivatePassiveItem(passive));
             levelText += (currentPassiveLevel + 1);
+            passiveDescription = passive.stat.descriptions[currentPassiveLevel];
         }
 
         string finalText = levelText + " " + passiveName + "\n" + passiveDescription;
