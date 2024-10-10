@@ -53,14 +53,9 @@ public class StoreUpgradeButton : MonoBehaviour, IDataPersistence
 
             levelPips[currentLevel].color = Color.red;
             currentLevel++;
-            //if (currentLevel >= upgradeStat.coinCosts.Count)
-            //{
-            //    buttonText.SetText("Max\n" + "Level " + currentLevel.ToString() + "\n" + upgradeStat.upgradeName);
-            //}
-            //else
-            //{
-            //    buttonText.SetText("Cost: " + upgradeStat.coinCosts[currentLevel] + "\n" + "Level " + currentLevel.ToString() + "\n" + upgradeStat.upgradeName);
-            //}
+
+            SetDescriptionText();
+
             DataPersistenceManager.Instance.SaveAccountData();
         }
         else
